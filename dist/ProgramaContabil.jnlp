@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ProgramaContabil.jnlp">
+  <information>
+    <title>ProgramaContabil</title>
+    <vendor>joao.santos</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="ProgramaContabil.jar" size="1219627" download="eager" />
+    <jar href="lib\commons-codec-1.10.jar" size="284184" download="eager" />
+    <jar href="lib\commons-collections4-4.1.jar" size="751238" download="eager" />
+    <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="lib\junit-4.12.jar" size="314932" download="eager" />
+    <jar href="lib\jxl.jar" size="725735" download="eager" />
+    <jar href="lib\log4j-1.2.17.jar" size="489884" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\poi-3.17-beta1.jar" size="2691216" download="eager" />
+    <jar href="lib\poi-examples-3.17-beta1.jar" size="372489" download="eager" />
+    <jar href="lib\poi-excelant-3.17-beta1.jar" size="31223" download="eager" />
+    <jar href="lib\poi-ooxml-3.11.jar" size="1210980" download="eager" />
+    <jar href="lib\poi-ooxml-3.17-beta1.jar" size="1474208" download="eager" />
+    <jar href="lib\poi-ooxml-schemas-3.17-beta1.jar" size="5912174" download="eager" />
+    <jar href="lib\poi-scratchpad-3.17-beta1.jar" size="1386329" download="eager" />
+    <jar href="lib\xmlbeans-2.6.0.jar" size="2730866" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="ProgramaContabil" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="br.com.programacontabil"  name="ProgramaContabil" />
+  <update check="always"/>
+</jnlp>
