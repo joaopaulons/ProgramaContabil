@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoEconomicaCapivariController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0">
+         <image>
+            <Image url="@imagens/Fundo-importacao.png" />
+         </image>
+      </ImageView>
+      <Accordion maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+        <panes>
+          <TitledPane animated="false" prefHeight="470.0" prefWidth="800.0" text="Campos: DataVenc, Nome, DataMov, Terceiro">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="475.0" fitWidth="800.0">
+                           <image>
+                              <Image url="@imagens/Fundo-importacao.png" />
+                           </image>
+                        </ImageView>
+                        <SplitPane dividerPositions="0.25, 0.5, 0.75" layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane snapToPixel="false" SplitPane.resizableWithParent="false">
+                                 <children>
+                                    <TextArea fx:id="txtAreaDataVenc" layoutX="-29.0" layoutY="28.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira a data de vencimento..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="10.0" layoutY="6.0" text="Data de Vencimento:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane SplitPane.resizableWithParent="false">
+                                 <children>
+                                    <TextArea fx:id="txtAreaNome" layoutX="-16.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira o nome do favorecido..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="7.0" layoutY="2.0" text="Nome Favorecido:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane SplitPane.resizableWithParent="false">
+                                 <children>
+                                    <TextArea fx:id="txtDataMov" layoutX="-31.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira a data de Movimento..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="37.0" layoutY="5.0" text="Data de Movimento:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane SplitPane.resizableWithParent="false">
+                                 <children>
+                                    <TextArea fx:id="txtAreaTerceiro" layoutX="-69.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira o saldo..." text="Confira os  terceiros..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="54.0" layoutY="6.0" text="Terceiro:" AnchorPane.topAnchor="6.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" prefHeight="470.0" prefWidth="800.0" text="Campos: CodLoja, NumDocto, Valor, Pagamento">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="475.0" fitWidth="800.0">
+                           <image>
+                              <Image url="@imagens/Fundo-importacao.png" />
+                           </image>
+                        </ImageView>
+                        <SplitPane dividerPositions="0.25, 0.5, 0.75" layoutX="27.0" layoutY="58.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaCodigoLoja" layoutX="-21.0" layoutY="39.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira o código da loja..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="39.0" layoutY="6.0" text="Código loja:" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaNumDoc" layoutX="-42.0" layoutY="52.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira o numero do documento..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="14.0" layoutY="6.0" text="Número documento:" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaValor" layoutX="-51.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira o valor..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="54.0" layoutY="6.0" text="Valor:" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaPagamento" layoutX="-44.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira o pagamento..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="39.0" layoutY="6.0" text="Pagamento:" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" prefHeight="470.0" prefWidth="800.0" text="Outros campos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="475.0" fitWidth="800.0">
+                           <image>
+                              <Image url="@imagens/Fundo-importacao.png" />
+                           </image>
+                        </ImageView>
+                        <SplitPane dividerPositions="0.16, 0.33, 0.5, 0.68, 0.85" layoutX="18.6" layoutY="19.6" prefHeight="409.0" prefWidth="779.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaJuros" layoutX="-29.0" layoutY="23.0" prefHeight="200.0" prefWidth="69.0" promptText="Conferir juros..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="29.0" layoutY="6.0" text="Juros:" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaMulta" layoutX="-31.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" promptText="Conferir multa..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="28.0" layoutY="6.0" text="Multa:" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaDesconto" layoutX="-49.0" layoutY="-18.0" prefHeight="200.0" prefWidth="200.0" promptText="Conferir desconto..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="19.0" layoutY="6.0" text="Desconto:" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="303.0" prefWidth="95.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaTarifa" layoutX="-73.0" layoutY="35.0" prefHeight="200.0" prefWidth="200.0" promptText="Conferir tarifa..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="32.0" layoutY="6.0" text="Tarifa:" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaCredito" layoutX="-63.0" layoutY="27.0" prefHeight="200.0" prefWidth="200.0" promptText="Conferir crédito..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="24.0" layoutY="6.0" text="Credito:" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="txtAreaOutros" layoutX="-66.0" layoutY="35.0" prefHeight="200.0" prefWidth="200.0" promptText="Conferir outros..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <Label layoutX="4.0" layoutY="6.0" text="Outras Formas:" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="3.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+            <TitledPane animated="false" prefHeight="470.0" prefWidth="800.0" text="Verificar Arquivo e Importar">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="475.0" fitWidth="800.0" layoutX="-2.0" layoutY="1.0" AnchorPane.bottomAnchor="-12.0">
+                           <image>
+                              <Image url="@imagens/Fundo-importacao.png" />
+                           </image>
+                        </ImageView>
+                        <ButtonBar layoutX="308.0" layoutY="225.0" prefHeight="40.0" prefWidth="157.0">
+                          <buttons>
+                            <Button mnemonicParsing="false" onAction="#buttonVerificar" styleClass="round-red" stylesheets="@css/css.css" text="Verificar" />
+                              <Button mnemonicParsing="false" onAction="#butonImportar" styleClass="round-red" stylesheets="@css/css.css" text="Importar" />
+                          </buttons>
+                           <effect>
+                              <Reflection fraction="0.8" topOffset="-10.0" />
+                           </effect>
+                        </ButtonBar>
+                        <SplitPane fx:id="splitPaneContas" layoutX="249.0" layoutY="166.0" prefHeight="48.0" prefWidth="300.0" AnchorPane.leftAnchor="249.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="46.0" prefWidth="501.0" AnchorPane.rightAnchor="0.0">
+                                 <children>
+                                    <TextField fx:id="txtContaCredito" layoutX="117.0" layoutY="11.0" promptText="Conta Crédito..." />
+                                    <Label layoutX="14.0" layoutY="15.0" text="Conta Crédito:" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="14.0" layoutY="379.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0">
+                           <image>
+                              <Image url="@imagens/Logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="89.0" layoutY="385.0" text="NSystem Solutions" textFill="WHITE" AnchorPane.bottomAnchor="5.0">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+      <Label layoutX="161.0" text="Drograria Econômica de Capivari" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <effect>
+            <InnerShadow color="WHITE">
+               <input>
+                  <DropShadow color="WHITE" spread="0.3" />
+               </input>
+            </InnerShadow>
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

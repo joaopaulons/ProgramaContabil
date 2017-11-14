@@ -1,0 +1,18 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.1'
+    dexOptions {
+        incremental true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    buildTypes {
+    }
+}
+dependencies {
+    compile files('dist/ProgramaContabil.jar')
+}

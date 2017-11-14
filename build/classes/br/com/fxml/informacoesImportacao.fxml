@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.InformacoesImportacaoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.InformacoesImportacaoController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.57">
+      <ImageView fitHeight="575.0" fitWidth="800.0" opacity="0.57">
          <image>
             <Image url="@imagens/fundo-importacao.jpg" />
          </image>
@@ -25,7 +25,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <Label layoutX="157.0" layoutY="-4.0" text="Importação InfoPeças" textFill="WHITE">
+      <Label layoutX="281.0" layoutY="6.0" text="Importação InfoPeças" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
@@ -33,24 +33,24 @@
             <DropShadow />
          </effect>
       </Label>
-      <TextField fx:id="txtBanco" layoutX="73.0" layoutY="61.0" promptText="Digite aqui..." />
-      <Label layoutX="21.0" layoutY="65.0" text="Banco:" textFill="WHITE">
+      <TextField fx:id="txtBanco" layoutX="74.0" layoutY="61.0" promptText="Digite aqui..." />
+      <Label layoutX="22.0" layoutY="65.0" text="Banco:" textFill="WHITE">
          <effect>
             <DropShadow spread="0.38" />
          </effect></Label>
-      <ChoiceBox fx:id="choiceBoxRecPag" layoutX="414.0" layoutY="61.0" prefWidth="150.0" />
-      <Label layoutX="357.0" layoutY="65.0" text="Rec/Pag:" textFill="WHITE">
+      <ChoiceBox fx:id="choiceBoxRecPag" layoutX="590.0" layoutY="61.0" prefWidth="150.0" />
+      <Label layoutX="519.0" layoutY="65.0" text="Rec/Pag:" textFill="WHITE">
          <effect>
             <DropShadow spread="0.38" />
          </effect></Label>
-      <Separator layoutY="97.0" prefHeight="0.0" prefWidth="600.0" />
-      <HBox layoutX="413.0" layoutY="342.0" prefWidth="171.0" spacing="5.0" stylesheets="@css/css.css">
+      <Separator layoutY="97.0" prefHeight="0.0" prefWidth="800.0" />
+      <HBox layoutX="590.0" layoutY="498.0" prefWidth="171.0" spacing="5.0" stylesheets="@css/css.css">
          <children>
-            <Button mnemonicParsing="false" onAction="#buttonVerificar" prefWidth="80.0" styleClass="glass-grey" stylesheets="@css/css.css" text="Verificar">
+            <Button mnemonicParsing="false" onAction="#buttonVerificar" prefWidth="80.0" styleClass="round-red" stylesheets="@css/css.css" text="Verificar">
                <font>
                   <Font size="14.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#buttonImportar" prefWidth="80.0" styleClass="glass-grey" stylesheets="@css/css.css" text="Importar">
+            <Button mnemonicParsing="false" onAction="#buttonImportar" prefWidth="80.0" styleClass="round-red" stylesheets="@css/css.css" text="Importar">
                <font>
                   <Font size="14.0" />
                </font>
@@ -60,13 +60,13 @@
             <Reflection bottomOpacity="0.34" />
          </effect>
       </HBox>
-      <HBox layoutX="10.0" layoutY="131.0" prefHeight="179.0" prefWidth="580.0" spacing="10.0">
+      <HBox layoutX="10.0" layoutY="131.0" prefHeight="325.0" prefWidth="778.0" spacing="10.0">
          <children>
-            <TextArea fx:id="txtareaConf" editable="false" prefHeight="212.0" prefWidth="140.0" promptText="Confira a inscrição..." />
-            <TextArea fx:id="txtareaNumero" editable="false" prefHeight="212.0" prefWidth="100.0" promptText="Confira Numero..." />
-            <TextArea fx:id="txtareaValorPago" editable="false" prefHeight="212.0" prefWidth="100.0" promptText="Confira os valores..." />
-            <TextArea fx:id="txtareaDataPagto" editable="false" prefHeight="212.0" prefWidth="100.0" promptText="Confira a Data..." />
-            <TextArea fx:id="txtareaControle" editable="false" prefHeight="212.0" prefWidth="100.0" promptText="Confira o Controle..." />
+            <TextArea fx:id="txtareaConf" editable="false" prefHeight="212.0" prefWidth="140.0" promptText="Confira a inscrição..." HBox.hgrow="ALWAYS" />
+            <TextArea fx:id="txtareaNumero" editable="false" prefHeight="212.0" prefWidth="100.0" promptText="Confira Numero..." HBox.hgrow="ALWAYS" />
+            <TextArea fx:id="txtareaValorPago" editable="false" prefHeight="212.0" prefWidth="100.0" promptText="Confira os valores..." HBox.hgrow="ALWAYS" />
+            <TextArea fx:id="txtareaDataPagto" editable="false" prefHeight="212.0" prefWidth="100.0" promptText="Confira a Data..." HBox.hgrow="ALWAYS" />
+            <TextArea fx:id="txtareaControle" editable="false" prefHeight="212.0" prefWidth="100.0" promptText="Confira o Controle..." HBox.hgrow="ALWAYS" />
          </children>
          <effect>
             <InnerShadow>
@@ -76,32 +76,44 @@
             </InnerShadow>
          </effect>
       </HBox>
-      <Label layoutX="40.0" layoutY="106.0" text="Inscrição:" textFill="WHITE">
+      <Label layoutX="57.0" layoutY="106.0" text="Inscrição:" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="168.0" layoutY="106.0" text="Numero:" textFill="WHITE">
+      <Label layoutX="242.0" layoutY="106.0" text="Numero:" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="276.0" layoutY="106.0" text="Valor Pago:" textFill="WHITE">
+      <Label layoutX="374.0" layoutY="106.0" text="Valor Pago:" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="393.0" layoutY="106.0" text="Data Pgto:" textFill="WHITE">
+      <Label layoutX="528.0" layoutY="106.0" text="Data Pgto:" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="498.0" layoutY="106.0" text="Controle:" textFill="WHITE">
+      <Label layoutX="686.0" layoutY="106.0" text="Controle:" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Separator layoutY="331.0" prefHeight="3.0" prefWidth="600.0" />
+      <Separator layoutY="472.0" prefHeight="0.0" prefWidth="800.0" />
+      <Label layoutX="242.0" layoutY="65.0" text="Outros bancos:" textFill="WHITE" />
+      <TextField fx:id="txtOutrosBrancos" layoutX="340.0" layoutY="61.0" promptText="Outros bancos..." />
+      <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="11.0" layoutY="475.0">
+         <image>
+            <Image url="@imagens/Logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="124.0" layoutY="498.0" text="NSystem Solutions" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
    <effect>
       <DropShadow />

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoFolleCostaController">
+   <children>
+      <ButtonBar layoutY="346.0" prefHeight="40.0" prefWidth="180.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="20.0">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#buttonVerificar" styleClass="round-red" stylesheets="@css/css.css" text="Verificar">
+               <effect>
+                  <Reflection />
+               </effect>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#buttonImportar" styleClass="round-red" stylesheets="@css/css.css" text="Importar">
+               <effect>
+                  <Reflection />
+               </effect>
+            </Button>
+        </buttons>
+      </ButtonBar>
+      <SplitPane dividerPositions="0.15570934256055363, 0.5017301038062284, 0.7681660899653979" layoutX="10.0" layoutY="94.0" prefHeight="250.0" prefWidth="580.0" style="-fx-background-color: BLACK; -fx-border-color: white; -fx-border-width: 4;" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="94.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="122.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <Label layoutX="48.0" layoutY="6.0" text="Data" textFill="WHITE" AnchorPane.leftAnchor="48.0" />
+                  <TextArea fx:id="txtareaData" layoutX="-65.0" layoutY="14.0" prefHeight="218.0" prefWidth="87.0" promptText="Confira as datas..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <Label layoutX="108.0" layoutY="6.0" prefHeight="17.0" prefWidth="52.0" text="Histórico" textFill="WHITE" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="6.0" />
+                  <TextArea fx:id="txtareaDescricao" layoutX="14.0" layoutY="44.0" prefHeight="218.0" prefWidth="201.0" promptText="Confira o histórico..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <Label layoutX="71.0" layoutY="6.0" text="Documento" textFill="WHITE" />
+                  <TextArea fx:id="txtareaDocumento" layoutY="25.0" prefHeight="218.0" prefWidth="153.0" promptText="Confira o documento..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
+               <children>
+                  <Label layoutX="75.0" layoutY="6.0" prefHeight="17.0" prefWidth="30.0" text="Valor" textFill="WHITE" wrapText="true" />
+                  <TextArea fx:id="txtareaValor" layoutY="31.0" prefHeight="218.0" prefWidth="136.0" promptText="Confira os valores..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0" />
+               </children>
+            </AnchorPane>
+        </items>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </SplitPane>
+      <TextField fx:id="txtContaCredito" layoutX="14.0" layoutY="51.0" promptText="Digite a conta crédito..." AnchorPane.leftAnchor="10.0" />
+      <TextField fx:id="txtContaDebito" layoutX="437.0" layoutY="51.0" promptText="Digite a conta débito..." AnchorPane.rightAnchor="10.0" />
+      <Label layoutX="46.0" layoutY="34.0" text="Conta Crédito:" textFill="WHITE" AnchorPane.leftAnchor="45.0" />
+      <Label layoutX="479.0" layoutY="34.0" text="Conta Débito:" textFill="WHITE" AnchorPane.rightAnchor="45.0" />
+      <Label layoutX="287.0" layoutY="14.0" text="Folle e Costa">
+         <font>
+            <Font size="40.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="WHITE" />
+                  <Stop color="WHITE" offset="0.007662835249042145" />
+                  <Stop color="#b9b5b5" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <effect>
+            <DropShadow color="WHITE" />
+         </effect>
+      </Label>
+      <Label layoutX="73.0" layoutY="523.0" text="NSystem Solutions" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="10.0" layoutY="521.0">
+         <image>
+            <Image url="@imagens/Logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

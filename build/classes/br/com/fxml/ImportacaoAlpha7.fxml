@@ -1,25 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.ImportacaoAlpha7Controller">
+<AnchorPane prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoAlpha7Controller">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0">
-         <image>
-            <Image url="@imagens/fundo%20excel.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="195.0" layoutY="-4.0" text="Importação Alpha7" textFill="WHITE">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Separator layoutY="47.0" prefHeight="0.0" prefWidth="600.0" />
+      <Pane layoutX="9.0" layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="fundoImagem" fitHeight="575.0" fitWidth="800.0">
+               <image>
+                  <Image url="@imagens/fundo%20excel.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="285.0" text="Importação Alpha7" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Separator layoutY="47.0" prefHeight="0.0" prefWidth="800.0" />
+            <HBox layoutX="17.0" layoutY="72.0" prefHeight="365.0" prefWidth="764.0" spacing="10.0">
+               <children>
+                  <TextArea fx:id="txtTerceiros" prefHeight="200.0" prefWidth="140.0" promptText="Veirifique o CNPJ..." HBox.hgrow="ALWAYS" />
+                  <TextArea fx:id="txtNumeroNota" prefHeight="200.0" prefWidth="97.0" promptText="Virifique o numero da Nota..." HBox.hgrow="ALWAYS" />
+                  <TextArea fx:id="txtValorNota" prefHeight="200.0" prefWidth="97.0" promptText="Verifique o valor da NF..." HBox.hgrow="ALWAYS" />
+                  <TextArea fx:id="txtDataEntrada" prefHeight="200.0" prefWidth="107.0" promptText="Verifique a data de Entrada..." HBox.hgrow="ALWAYS" />
+                  <TextArea fx:id="txtJuros" prefHeight="365.0" prefWidth="118.0" promptText="Verifique os Juros..." HBox.hgrow="ALWAYS" />
+               </children>
+               <effect>
+                  <DropShadow spread="0.48">
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </DropShadow>
+               </effect>
+            </HBox>
+            <Label layoutX="688.0" layoutY="55.0" text="Juros:" textFill="WHITE" />
+            <Label layoutX="92.0" layoutY="55.0" text="CNPJ:" textFill="WHITE" />
+            <Label layoutX="244.0" layoutY="55.0" text="NUM. NF:" textFill="WHITE" />
+            <Label layoutX="375.0" layoutY="55.0" text="Valor NF:" textFill="WHITE" />
+            <Label layoutX="513.0" layoutY="55.0" text="Data Entrada:" textFill="WHITE" />
+            <Separator layoutX="7.0" layoutY="447.0" prefWidth="800.0" />
+            <HBox layoutX="495.0" layoutY="498.0" spacing="5.0" stylesheets="@css/css.css">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#buttonAbrirArquivo" styleClass="round-red" text="Abrir arquivo" />
+                  <Button mnemonicParsing="false" onAction="#buttonGerarJuros" prefWidth="85.0" styleClass="round-red" stylesheets="@css/css.css" text="Gerar Juros" />
+                  <Button mnemonicParsing="false" onAction="#buttonImportar" prefWidth="85.0" styleClass="round-red" stylesheets="@css/css.css" text="Importar" />
+               </children>
+               <effect>
+                  <Reflection />
+               </effect>
+            </HBox>
+            <TextField fx:id="txtContaCredito" layoutX="33.0" layoutY="485.0" promptText="Digite a conta cŕedito...">
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </TextField>
+            <Label layoutX="33.0" layoutY="466.0" text="Conta Crédito:" textFill="WHITE" />
+         </children>
+         <effect>
+            <DropShadow spread="0.68" />
+         </effect>
+      </Pane>
    </children>
-</Pane>
+</AnchorPane>

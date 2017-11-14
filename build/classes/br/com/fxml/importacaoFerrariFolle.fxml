@@ -14,34 +14,34 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="painelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.ImportacaoFerrariFolleController">
+<Pane fx:id="painelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoFerrariFolleController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.74">
+      <ImageView fitHeight="575.0" fitWidth="800.0">
          <image>
             <Image url="@imagens/Fundo%20Ferrari%20Folle.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtContaDebito" layoutX="82.0" layoutY="85.0" promptText="Insira a conta débito...">
+      <TextField fx:id="txtContaDebito" layoutX="93.0" layoutY="97.0" promptText="Insira a conta débito...">
          <effect>
             <Reflection />
          </effect></TextField>
-      <Label layoutX="121.0" layoutY="61.0" text="Conta Débito" textFill="WHITE" />
-      <Label layoutX="206.0" layoutY="1.0" text="Importação Ferrari Folle" textFill="WHITE">
+      <Label layoutX="132.0" layoutY="73.0" text="Conta Débito" textFill="WHITE" />
+      <Label layoutX="177.0" prefHeight="45.0" prefWidth="343.0" text="Importação Ferrari Folle" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="413.0" layoutY="61.0" text="Conta Crédito:" textFill="WHITE" />
-      <TextField fx:id="txtContaCredito" layoutX="377.0" layoutY="85.0" promptText="Conta crédito...">
+      <Label layoutX="612.0" layoutY="73.0" text="Conta Crédito:" textFill="WHITE" />
+      <TextField fx:id="txtContaCredito" layoutX="576.0" layoutY="97.0" promptText="Conta crédito...">
          <effect>
             <Reflection />
          </effect></TextField>
-      <HBox layoutX="7.0" layoutY="152.0" spacing="2.0">
+      <HBox layoutX="7.0" layoutY="152.0" prefHeight="339.0" prefWidth="784.0" spacing="2.0">
          <children>
-            <TextArea fx:id="txtareaData" editable="false" prefHeight="167.0" prefWidth="116.0" promptText="Conferir Data..." />
-            <TextArea fx:id="txtareaDescricao" editable="false" prefHeight="167.0" prefWidth="239.0" promptText="Conferir Descrição..." />
-            <TextArea fx:id="txtareaDocumento" editable="false" prefHeight="167.0" prefWidth="116.0" promptText="Conferir Documento..." />
-            <TextArea fx:id="txtareaValor" editable="false" prefHeight="167.0" prefWidth="107.0" promptText="Conferir Valor..." />
+            <TextArea fx:id="txtareaData" editable="false" prefHeight="167.0" prefWidth="116.0" promptText="Conferir Data..." HBox.hgrow="ALWAYS" />
+            <TextArea fx:id="txtareaDescricao" editable="false" prefHeight="167.0" prefWidth="239.0" promptText="Conferir Descrição..." HBox.hgrow="ALWAYS" />
+            <TextArea fx:id="txtareaDocumento" editable="false" prefHeight="167.0" prefWidth="116.0" promptText="Conferir Documento..." HBox.hgrow="ALWAYS" />
+            <TextArea fx:id="txtareaValor" editable="false" prefHeight="167.0" prefWidth="107.0" promptText="Conferir Valor..." HBox.hgrow="ALWAYS" />
          </children>
          <effect>
             <InnerShadow choke="0.58">
@@ -51,14 +51,14 @@
             </InnerShadow>
          </effect>
       </HBox>
-      <HBox layoutX="376.0" layoutY="344.0" spacing="10.0">
+      <HBox layoutX="576.0" layoutY="514.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#buttonVerificar" prefHeight="15.0" prefWidth="100.0" styleClass="glass-grey" stylesheets="@css/css.css" text="Verificar">
+            <Button mnemonicParsing="false" onAction="#buttonVerificar" prefHeight="15.0" prefWidth="100.0" styleClass="round-red" stylesheets="@css/css.css" text="Verificar">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#buttonImportar" prefHeight="15.0" prefWidth="100.0" styleClass="glass-grey" stylesheets="@css/css.css" text="Importar">
+            <Button mnemonicParsing="false" onAction="#buttonImportar" prefHeight="15.0" prefWidth="100.0" styleClass="round-red" stylesheets="@css/css.css" text="Importar">
                <font>
                   <Font size="14.0" />
                </font>
@@ -69,10 +69,10 @@
          </effect>
       </HBox>
       <Label layoutX="49.0" layoutY="135.0" text="DATA:" textFill="WHITE" />
-      <Label layoutX="209.0" layoutY="135.0" text="DESCRIÇÃO:" textFill="WHITE" />
-      <Label layoutX="381.0" layoutY="135.0" text="DOCUMENTO:" textFill="WHITE" />
-      <Label layoutX="520.0" layoutY="135.0" text="VALOR:" textFill="WHITE" />
-      <Separator layoutY="332.0" prefHeight="0.0" prefWidth="600.0" />
-      <Separator layoutY="45.0" prefHeight="0.0" prefWidth="600.0" />
+      <Label layoutX="283.0" layoutY="135.0" text="DESCRIÇÃO:" textFill="WHITE" />
+      <Label layoutX="508.0" layoutY="135.0" text="DOCUMENTO:" textFill="WHITE" />
+      <Label layoutX="681.0" layoutY="135.0" text="VALOR:" textFill="WHITE" />
+      <Separator layoutX="7.0" layoutY="500.0" prefHeight="0.0" prefWidth="800.0" />
+      <Separator layoutY="54.0" prefHeight="0.0" prefWidth="800.0" />
    </children>
 </Pane>

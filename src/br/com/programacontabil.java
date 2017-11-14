@@ -6,6 +6,7 @@
 package br.com;
 
 import java.io.IOException;
+import java.util.Locale;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,9 +29,10 @@ public class programacontabil extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/TelaPrincipal.fxml"));        
+        Locale.setDefault(Locale.forLanguageTag("pt-BR"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/TelaMain.fxml"));        
         Scene scene = new Scene(root);    
-        primaryStage.setResizable(false);
+        
         primaryStage.setTitle("Programa Contabil");
         primaryStage.setScene(scene);
         primaryStage.show();
