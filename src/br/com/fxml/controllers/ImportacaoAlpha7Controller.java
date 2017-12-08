@@ -159,10 +159,12 @@ public class ImportacaoAlpha7Controller implements Initializable {
                             DecimalFormat formatnf = new DecimalFormat("00000");
                             NumberFormat nf = NumberFormat.getInstance();
                             nf.setMinimumIntegerDigits(5);
-                            float formatar_valor = Float.parseFloat(as3.replace(".", "").replace(",", "."));
+                            float formatar_valor = Float.parseFloat(as3.replace(".", "").replace(",", ".").replace("$", "0"));
 
                             gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as4.replace("/", "") + "1" + formatnf.format(Float.parseFloat(as2)).replace(",", "") + "                                          " + "79999" + as1.replace("/", "").replace(".", "").replace("-", "") + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "- RECEBIDO DUPL.      " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
                         }
+                    }else {
+                        a = a - 1;
                     }
 
                 }
@@ -207,10 +209,12 @@ public class ImportacaoAlpha7Controller implements Initializable {
                         DecimalFormat formatnf = new DecimalFormat("00000");
                         NumberFormat nf = NumberFormat.getInstance();
                         nf.setMinimumIntegerDigits(5);
-                        float formatar_valor = Float.parseFloat(as3.replace(".", "").replace(",", "."));
+                        float formatar_valor = Float.parseFloat(as3.replace(".", "").replace(",", ".").replace("$", ""));
 
-                        gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as4.replace("/", "") + formatnf.format(Float.parseFloat(as2)).replace(",", "") + "                                           " + txtContaCredito.getText() + "              " + "00000" + "79999" + as1.replace("/", "").replace(".", "").replace("-", "") + formatvalor.format(formatar_valor).replace(",", ".") + "- RECEBIDO DUPL.      " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
-                    }
+                        gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as4.replace("/", "") + formatnf.format(Float.parseFloat(as2)).replace(",", "") + "                                           " + txtContaCredito.getText() + "              " + "00000" + "79999" + as1.replace("/", "").replace(".", "").replace("-", "") + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "- RECEBIDO DUPL.      " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
+                    }else{
+                    a = a - 1;
+                }
 
                 }
             }

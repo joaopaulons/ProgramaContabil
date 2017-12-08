@@ -5,9 +5,6 @@
  */
 package br.com.fxml.depara.controllers;
 
-import static br.com.fxml.controllers.ExtratoDrogaEcoCapivariController.array_caminho;
-import static br.com.fxml.controllers.ExtratoDrogaEcoCapivariController.file;
-import static br.com.fxml.controllers.ImportacaoFolleCostaController.file;
 import br.com.programacontabil;
 import java.io.File;
 import java.io.FileWriter;
@@ -48,16 +45,15 @@ public class ItensJavaController implements Initializable {
     public static String salvarArquivo;
     public static PrintWriter gravarArq;
     public static File file;
-
     @FXML
-    private TextArea txtAreaExemplo;
+    private TextArea txtAreaConferir;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // TODO
     }
 
     public void arrayOpen() throws SAXException, IOException, ParserConfigurationException, ParserConfigurationException {
@@ -89,75 +85,7 @@ public class ItensJavaController implements Initializable {
     }
 
     @FXML
-    private void buttonLerXML(ActionEvent event) throws SAXException, IOException, ParserConfigurationException {
-        /*----------------------------------*/
-//////////////////////////////       |
-// <editor-fold defaultstate="collapsed" desc="VARIÁVEIS CFOP DE SAIDA">
-        String var5101 = "5101";
-        String var5102 = "5102";
-        String var5104 = "5104";
-        String var5106 = "5106";
-        String var5109 = "5109";
-        String var5122 = "5122";
-        String var5124 = "5124";
-        String var5125 = "5125";
-        String var5152 = "5152";
-        String var5201 = "5201";
-        String var5202 = "5202";
-        String var5401 = "5401";
-        String var5402 = "5402";
-        String var5403 = "5403";
-        String var5405 = "5405";
-        String var5409 = "5409";
-        String var5410 = "5410";
-        String var5411 = "5411";
-        String var5556 = "5556";
-        String var1411 = "1411";
-        String var5901 = "5901";
-        String var5902 = "5902";
-        String var5910 = "5910";
-        String var5911 = "5911";
-        String var5915 = "5915";
-        String var5916 = "5916";
-        String var5920 = "5920";
-        String var5921 = "5921";
-        String var5924 = "5924";
-        String var5925 = "5925";
-        String var5929 = "5929";
-        String var5949 = "5949";
-        String var6101 = "6101";
-        String var6102 = "6102";
-        String var6104 = "6104";
-        String var6106 = "6101";
-        String var6152 = "6152";
-        String var6201 = "6201";
-        String var6202 = "6202";
-        String var6401 = "6401";
-        String var6402 = "6402";
-        String var6403 = "6403";
-        String var6404 = "6404";
-        String var6409 = "6409";
-        String var6410 = "6410";
-        String var6411 = "6411";
-        String var6413 = "6413";
-        String var6556 = "6556";
-        String var6901 = "6901";
-        String var6902 = "6902";
-        String var6910 = "6910";
-        String var6911 = "6911";
-        String var6915 = "6915";
-        String var6916 = "6916";
-        String var6920 = "6920";
-        String var6921 = "6921";
-        String var6924 = "6924";
-        String var6925 = "6925";
-        String var6929 = "6929";
-        String var6949 = "6949";
-        String var1410 = "1410";
-        String var5105 = "5105";
-
-//</editor-fold>     *       |
-//////////////////////////////       |
+    private void buttonLerXml(ActionEvent event) throws ParserConfigurationException, SAXException, IOException {
 /*----------------------------------*/
 ///////////////////////////////      |
 // <editor-fold defaultstate="collapsed" desc="VARIÁVEL DE VERIFICAÇÃO">
@@ -997,7 +925,6 @@ public class ItensJavaController implements Initializable {
         for (Object caminho_ob : array_caminho) {
 
             File diretorio = new File((String) caminho_ob);
-
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(diretorio);
@@ -1487,242 +1414,77 @@ public class ItensJavaController implements Initializable {
                                         // <editor-fold defaultstate="collapsed" desc="CFOP">
                                         case "CFOP":
                                             cfop = elementodados.getTextContent();
+                                            switch (cfop) {
+                                                case "5405":
+                                                    flag5405 = 1;
+                                                    cfopat1403 = "1403";
+                                                    break;
+                                                case "5102":
+                                                    flag5102 = 1;
+                                                    cfopat1102 = "1102";
+                                                    break;
+                                                case "5101":
+                                                    cfopat1102 = "1102";
+                                                    flag5101 = 1;
+                                                    break;
+                                                case "5401":
+                                                    flag5401 = 1;
+                                                    cfopat1403 = "1403";
+                                                    break;
+                                                case "5910":
+                                                    flag5910 = 1;
+                                                    cfopat1910 = "1403";
+                                                    break;
+                                                case "5949":
+                                                    flag5949 = 1;
+                                                    cfopat1949 = "1949";
+                                                    break;
+                                                case "5104":
+                                                    flag5104 = 1;
+                                                    cfopat1102 = "1102";
+                                                    break;
+                                                case "5403":
+                                                    flag5403 = 1;
+                                                    cfopat1403 = "1403";
+                                                    break;
+                                                case "1411":
+                                                    flag1411 = 1;
+                                                    cfopat1411 = "1411";
+                                                    break;
+                                                case "5929":
+                                                    flag5929 = 1;
 
-                                            palavras = cfop.split(" ");
-
-                                            for (a = 0; a < palavras.length; a++) {
-
-                                                // <editor-fold defaultstate="collapsed" desc="CONDIÇÕES CFOP DE SAIDA">
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5405">
-                                                if (flag5405 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var5405)) {
-                                                        quant++;
-                                                        flag5405 = 1;
-                                                        cfopat1403 = "1403";
-                                                        saida5405 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5102">
-                                                if (flag5102 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5102)) {
-                                                        quant++;
-                                                        flag5102 = 1;
-                                                        cfopat1102 = "1102";
-                                                        saida5102 = quant;
-
-                                                    }
-
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5101">
-                                                if (flag5101 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5101)) {
-                                                        quant++;
-                                                        cfopat1102 = "1102";
-                                                        flag5101 = 1;
-                                                        saida5101 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5401">
-                                                if (flag5401 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5401)) {
-                                                        quant++;
-                                                        flag5401 = 1;
-                                                        cfopat1403 = "1403";
-                                                        saida5401 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5910">
-                                                if (flag5910 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5910)) {
-                                                        quant++;
-                                                        flag5910 = 1;
-                                                        cfopat1910 = "1910";
-                                                        saida5910 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5949">
-                                                if (flag5949 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5949)) {
-                                                        quant++;
-                                                        flag5949 = 1;
-                                                        cfopat1949 = "1949";
-                                                        saida5949 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5104">
-                                                if (flag5104 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5104)) {
-                                                        quant++;
-                                                        flag5104 = 1;
-                                                        cfopat1102 = "1102";
-                                                        saida5104 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5403">
-                                                if (flag5403 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5403)) {
-                                                        quant++;
-                                                        flag5403 = 1;
-                                                        cfopat1403 = "1403";
-                                                        saida5403 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 1411">
-                                                if (flag1411 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var1411)) {
-                                                        quant++;
-                                                        flag1411 = 1;
-                                                        cfopat1411 = "1411";
-                                                        saida1411 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5929">
-                                                if (flag5929 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var5929)) {
-                                                        quant++;
-                                                        flag5929 = 1;
-                                                        saida5929 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 1410">
-                                                if (flag1410 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var1410)) {
-                                                        quant++;
-                                                        flag1410 = 1;
-                                                        cfopat1410 = "1410";
-                                                        saida1410 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 6910">
-                                                if (flag6910 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var6910)) {
-                                                        quant++;
-                                                        flag6910 = 1;
-                                                        cfopat2910 = "2910";
-                                                        saida6910 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 6102">
-                                                if (flag6102 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var6102)) {
-                                                        quant++;
-                                                        flag6102 = 1;
-                                                        cfopat2102 = "2102";
-                                                        saida6102 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5911">
-                                                if (flag5911 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5911)) {
-                                                        quant++;
-                                                        flag5911 = 1;
-                                                        cfopat1911 = "1911";
-                                                        saida5911 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5106">
-                                                if (flag5106 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5106)) {
-                                                        quant++;
-                                                        flag5106 = 1;
-                                                        cfopat1102 = "1102";
-                                                        saida5106 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5105">
-                                                if (flag5105 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5105)) {
-                                                        quant++;
-                                                        flag5105 = 1;
-                                                        cfopat1102 = "1102";
-                                                        saida5105 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-// </editor-fold>   
+                                                    break;
+                                                case "1410":
+                                                    flag1410 = 1;
+                                                    cfopat1410 = "1410";
+                                                    break;
+                                                case "6910":
+                                                    flag6910 = 1;
+                                                    cfopat2910 = "2910";
+                                                    break;
+                                                case "6102":
+                                                    flag6102 = 1;
+                                                    cfopat2102 = "2102";
+                                                    break;
+                                                case "5911":
+                                                    flag5911 = 1;
+                                                    cfopat1911 = "1911";
+                                                    break;
+                                                case "5106":
+                                                    flag5106 = 1;
+                                                    cfopat1102 = "1102";
+                                                    break;
+                                                case "5105":
+                                                    flag5105 = 1;
+                                                    cfopat1102 = "1102";
+                                                    break;
+                                                default:
+                                                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                                                    alerta.setTitle("CFOP não encontrado!");
+                                                    alerta.setContentText("Por favor informe este CFOP ao T.I: " + cfop);
+                                                    alerta.showAndWait();
+                                                    break;
                                             }
                                             break;
 //</editor-fold>
@@ -1731,118 +1493,59 @@ public class ItensJavaController implements Initializable {
                                         case "vDesc":
                                             vdesc = elementodados.getTextContent();
                                             soma_vdesc = Float.parseFloat(vdesc);
+                                            switch (cfop) {
+                                                case "5405":
+                                                    vdesc5405 = vdesc5405 + soma_vdesc;
+                                                    break;
+                                                case "5102":
+                                                    vdesc5102 = vdesc5102 + soma_vdesc;
+                                                    break;
+                                                case "5101":
+                                                    vdesc5101 = vdesc5101 + soma_vdesc;
+                                                    break;
+                                                case "5401":
+                                                    vdesc5401 = vdesc5401 + soma_vdesc;
+                                                    break;
+                                                case "5910":
+                                                    vdesc5910 = vdesc5910 + soma_vdesc;
+                                                    break;
+                                                case "5949":
+                                                    vdesc5949 = vdesc5949 + soma_vdesc;
+                                                    break;
+                                                case "5104":
+                                                    vdesc5104 = vdesc5104 + soma_vdesc;
+                                                    break;
+                                                case "5403":
+                                                    vdesc5403 = vdesc5403 + soma_vdesc;
+                                                    break;
+                                                case "1411":
+                                                    vdesc1411 = vdesc1411 + soma_vdesc;
+                                                    break;
+                                                case "5929":
+                                                    vdesc5929 = vdesc5929 + soma_vdesc;
+                                                    break;
+                                                case "1410":
+                                                    vdesc1410 = vdesc1410 + soma_vdesc;
+                                                    break;
+                                                case "6910":
+                                                    vdesc6910 = vdesc6910 + soma_vdesc;
+                                                    break;
+                                                case "6102":
+                                                    vdesc6102 = vdesc6102 + soma_vdesc;
+                                                    break;
+                                                case "5911":
+                                                    vdesc5911 = vdesc5911 + soma_vdesc;
+                                                    break;
+                                                case "5106":
+                                                    vdesc5106 = vdesc5106 + soma_vdesc;
+                                                    break;
+                                                case "5105":
+                                                    vdesc5105 = vdesc5105 + soma_vdesc;
+                                                    break;
+                                                default:
 
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5405">
-                                            if (cfop.equals(var5405)) {
-                                                vdesc5405 = vdesc5405 + soma_vdesc;
-
+                                                    break;
                                             }
-                                            // </editor-fold>    
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5102">    
-                                            if (cfop.equals(var5102)) {
-                                                vdesc5102 = vdesc5102 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5101">
-                                            if (cfop.equals(var5101)) {
-                                                vdesc5101 = vdesc5101 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>                                             
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5104">    
-                                            if (cfop.equals(var5104)) {
-                                                vdesc5104 = vdesc5104 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5910">    
-                                            if (cfop.equals(var5910)) {
-                                                vdesc5910 = vdesc5910 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5401">    
-                                            if (cfop.equals(var5401)) {
-                                                vdesc5401 = vdesc5401 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5949">    
-                                            if (cfop.equals(var5949)) {
-                                                vdesc5949 = vdesc5949 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5403">    
-                                            if (cfop.equals(var5403)) {
-                                                vdesc5403 = vdesc5403 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>   
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC1411">
-                                            if (cfop.equals(var1411)) {
-                                                vdesc1411 = vdesc1411 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5929">
-                                            if (cfop.equals(var5929)) {
-                                                vdesc5929 = vdesc5929 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC1410">
-                                            if (cfop.equals(var1410)) {
-                                                vdesc1410 = vdesc1410 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC6910">
-                                            if (cfop.equals(var6910)) {
-                                                vdesc6910 = vdesc6910 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC6102">
-                                            if (cfop.equals(var6102)) {
-                                                vdesc6102 = vdesc6102 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5911">    
-                                            if (cfop.equals(var5911)) {
-                                                vdesc5911 = vdesc5911 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5106">    
-                                            if (cfop.equals(var5106)) {
-                                                vdesc5106 = vdesc5106 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5105">    
-                                            if (cfop.equals(var5105)) {
-                                                vdesc5105 = vdesc5105 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
                                             break;
                                         // </editor-fold>
 
@@ -1859,399 +1562,59 @@ public class ItensJavaController implements Initializable {
                                             voutro = elementodados.getTextContent();
 
                                             float parsefloatvoutro = Float.parseFloat(voutro);
-                                            // <editor-fold defaultstate="collapsed" desc="CONDIÇÕES VOUTRO">
+                                            switch (cfop) {
+                                                case "5405":
+                                                    voutroverif5405 = parsefloatvoutro + voutroverif5405;
+                                                    break;
+                                                case "5102":
+                                                    voutroverif5102 = parsefloatvoutro + voutroverif5102;
+                                                    break;
+                                                case "5101":
+                                                    voutroverif5101 = parsefloatvoutro + voutroverif5101;
+                                                    break;
+                                                case "5401":
+                                                    voutroverif5401 = parsefloatvoutro + voutroverif5401;
+                                                    break;
+                                                case "5910":
+                                                    voutroverif5910 = parsefloatvoutro + voutroverif5910;
+                                                    break;
+                                                case "5949":
+                                                    voutroverif5949 = parsefloatvoutro + voutroverif5949;
+                                                    break;
+                                                case "5104":
+                                                    voutroverif5104 = parsefloatvoutro + voutroverif5104;
+                                                    break;
+                                                case "5403":
+                                                    voutroverif5403 = parsefloatvoutro + voutroverif5403;
+                                                    break;
+                                                case "1411":
+                                                    voutroverif1411 = parsefloatvoutro + voutroverif1411;
+                                                    break;
+                                                case "5929":
+                                                    voutroverif5929 = parsefloatvoutro + voutroverif5929;
+                                                    break;
+                                                case "1410":
+                                                    voutroverif5929 = parsefloatvoutro + voutroverif5929;
+                                                    break;
+                                                case "6910":
+                                                    voutroverif6910 = parsefloatvoutro + voutroverif6910;
+                                                    break;
+                                                case "6102":
+                                                    voutroverif6102 = parsefloatvoutro + voutroverif6102;
+                                                    break;
+                                                case "5911":
+                                                    voutroverif5911 = parsefloatvoutro + voutroverif5911;
+                                                    break;
+                                                case "5106":
+                                                    voutroverif5106 = parsefloatvoutro + voutroverif5106;
+                                                    break;
+                                                case "5105":
+                                                    voutroverif5105 = parsefloatvoutro + voutroverif5105;
+                                                    break;
+                                                default:
 
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5102">
-                                            if ("5102".equals(cfop)) {
-                                                voutroverif5102 = parsefloatvoutro + voutroverif5102;
-
-                                            } else {
-
+                                                    break;
                                             }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5405">
-                                            if (cfop.equals("5405")) {
-                                                voutroverif5405 = parsefloatvoutro + voutroverif5405;
-
-                                            } else {
-
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5101">
-                                            if (cfop.equals("5101")) {
-                                                voutroverif5101 = parsefloatvoutro + voutroverif5101;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5104">
-                                            if (cfop.equals("5104")) {
-                                                voutroverif5104 = parsefloatvoutro + voutroverif5104;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5106">
-                                            if (cfop.equals("5106")) {
-                                                voutroverif5106 = parsefloatvoutro + voutroverif5106;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5109">
-                                            if (cfop.equals("5109")) {
-                                                voutroverif5109 = parsefloatvoutro + voutroverif5109;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5122">
-                                            if (cfop.equals("5122")) {
-                                                voutroverif5122 = parsefloatvoutro + voutroverif5122;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5124">
-                                            if (cfop.equals("5124")) {
-                                                voutroverif5124 = parsefloatvoutro + voutroverif5124;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5125">
-                                            if (cfop.equals("5125")) {
-                                                voutroverif5125 = parsefloatvoutro + voutroverif5125;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5152">
-                                            if (cfop.equals("5152")) {
-                                                voutroverif5152 = parsefloatvoutro + voutroverif5152;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5201">
-                                            if (cfop.equals("5201")) {
-                                                voutroverif5201 = parsefloatvoutro + voutroverif5201;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5401">
-                                            if (cfop.equals("5401")) {
-                                                voutroverif5401 = parsefloatvoutro + voutroverif5401;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5402">
-                                            if (cfop.equals("5402")) {
-                                                voutroverif5402 = parsefloatvoutro + voutroverif5402;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5403">
-                                            if (cfop.equals("5403")) {
-                                                voutroverif5403 = parsefloatvoutro + voutroverif5403;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5409">
-                                            if (cfop.equals("5409")) {
-                                                voutroverif5409 = parsefloatvoutro + voutroverif5409;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5410">
-                                            if (cfop.equals("5410")) {
-                                                voutroverif5410 = parsefloatvoutro + voutroverif5410;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5411">
-                                            if (cfop.equals("5411")) {
-                                                voutroverif5411 = parsefloatvoutro + voutroverif5411;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5556">
-                                            if (cfop.equals("5556")) {
-                                                voutroverif5556 = parsefloatvoutro + voutroverif5556;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5556">
-                                            if (cfop.equals("5556")) {
-                                                voutroverif5556 = parsefloatvoutro + voutroverif5556;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5901">
-                                            if (cfop.equals("5901")) {
-                                                voutroverif5901 = parsefloatvoutro + voutroverif5901;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5902">
-                                            if (cfop.equals("5902")) {
-                                                voutroverif5902 = parsefloatvoutro + voutroverif5902;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5910">
-                                            if (cfop.equals("5910")) {
-                                                voutroverif5910 = parsefloatvoutro + voutroverif5910;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5911">
-                                            if (cfop.equals("5911")) {
-                                                voutroverif5911 = parsefloatvoutro + voutroverif5911;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5915">
-                                            if (cfop.equals("5915")) {
-                                                voutroverif5915 = parsefloatvoutro + voutroverif5915;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5916">
-                                            if (cfop.equals("5916")) {
-                                                voutroverif5916 = parsefloatvoutro + voutroverif5916;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5920">
-                                            if (cfop.equals("5920")) {
-                                                voutroverif5920 = parsefloatvoutro + voutroverif5920;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5921">
-                                            if (cfop.equals("5921")) {
-                                                voutroverif5921 = parsefloatvoutro + voutroverif5921;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5924">
-                                            if (cfop.equals("5924")) {
-                                                voutroverif5924 = parsefloatvoutro + voutroverif5924;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5925">
-                                            if (cfop.equals("5925")) {
-                                                voutroverif5925 = parsefloatvoutro + voutroverif5915;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5929">
-                                            if (cfop.equals("5929")) {
-                                                voutroverif5929 = parsefloatvoutro + voutroverif5929;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5949">
-                                            if (cfop.equals("5949")) {
-                                                voutroverif5949 = parsefloatvoutro + voutroverif5949;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6101">
-                                            if (cfop.equals("6101")) {
-                                                voutroverif6101 = parsefloatvoutro + voutroverif6101;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6102">
-                                            if (cfop.equals("6102")) {
-                                                voutroverif6102 = parsefloatvoutro + voutroverif6102;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6104">
-                                            if (cfop.equals("6104")) {
-                                                voutroverif6104 = parsefloatvoutro + voutroverif6104;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6106">
-                                            if (cfop.equals("6106")) {
-                                                voutroverif6106 = parsefloatvoutro + voutroverif6106;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6152">
-                                            if (cfop.equals("6152")) {
-                                                voutroverif6152 = parsefloatvoutro + voutroverif6152;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6201">
-                                            if (cfop.equals("6201")) {
-                                                voutroverif6201 = parsefloatvoutro + voutroverif6201;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6202">
-                                            if (cfop.equals("6202")) {
-                                                voutroverif6202 = parsefloatvoutro + voutroverif6202;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6401">
-                                            if (cfop.equals("6401")) {
-                                                voutroverif6401 = parsefloatvoutro + voutroverif6401;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6402">
-                                            if (cfop.equals("6402")) {
-                                                voutroverif6402 = parsefloatvoutro + voutroverif6402;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6403">
-                                            if (cfop.equals("6403")) {
-                                                voutroverif6403 = parsefloatvoutro + voutroverif6403;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6404">
-                                            if (cfop.equals("6404")) {
-                                                voutroverif6404 = parsefloatvoutro + voutroverif6404;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6409">
-                                            if (cfop.equals("6409")) {
-                                                voutroverif6409 = parsefloatvoutro + voutroverif6409;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6410">
-                                            if (cfop.equals("6410")) {
-                                                voutroverif6410 = parsefloatvoutro + voutroverif6410;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6411">
-                                            if (cfop.equals("6411")) {
-                                                voutroverif6411 = parsefloatvoutro + voutroverif6411;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6413">
-                                            if (cfop.equals("6413")) {
-                                                voutroverif6413 = parsefloatvoutro + voutroverif6413;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6556">
-                                            if (cfop.equals("6556")) {
-                                                voutroverif6556 = parsefloatvoutro + voutroverif6556;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6901">
-                                            if (cfop.equals("6901")) {
-                                                voutroverif6901 = parsefloatvoutro + voutroverif6901;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6902">
-                                            if (cfop.equals("6902")) {
-                                                voutroverif6902 = parsefloatvoutro + voutroverif6902;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6910">
-                                            if (cfop.equals("6910")) {
-                                                voutroverif6910 = parsefloatvoutro + voutroverif6910;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5915">
-                                            if (cfop.equals("5915")) {
-                                                voutroverif5915 = parsefloatvoutro + voutroverif5915;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6911">
-                                            if (cfop.equals("6911")) {
-                                                voutroverif6911 = parsefloatvoutro + voutroverif6911;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6915">
-                                            if (cfop.equals("6915")) {
-                                                voutroverif6915 = parsefloatvoutro + voutroverif6915;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6916">
-                                            if (cfop.equals("6916")) {
-                                                voutroverif6916 = parsefloatvoutro + voutroverif6916;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6920">
-                                            if (cfop.equals("6920")) {
-                                                voutroverif6920 = parsefloatvoutro + voutroverif6920;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6921">
-                                            if (cfop.equals("6921")) {
-                                                voutroverif6921 = parsefloatvoutro + voutroverif6921;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6924">
-                                            if (cfop.equals("6924")) {
-                                                voutroverif6924 = parsefloatvoutro + voutroverif6924;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6925">
-                                            if (cfop.equals("6925")) {
-                                                voutroverif6925 = parsefloatvoutro + voutroverif6925;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6929">
-                                            if (cfop.equals("6929")) {
-                                                voutroverif6929 = parsefloatvoutro + voutroverif6929;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6949">
-                                            if (cfop.equals("6949")) {
-                                                voutroverif6949 = parsefloatvoutro + voutroverif6949;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif1411">
-                                            if (cfop.equals("1411")) {
-                                                voutroverif1411 = parsefloatvoutro + voutroverif1411;
-
-                                            } else {
-
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif1410">
-                                            if (cfop.equals("1410")) {
-                                                voutroverif1410 = parsefloatvoutro + voutroverif1410;
-
-                                            } else {
-
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5105">
-                                            if (cfop.equals("5105")) {
-                                                voutroverif5105 = parsefloatvoutro + voutroverif5105;
-                                            }
-                                            //</editor-fold>
-
-//</editor-fold>
                                             break;
                                         //</editor-fold>
 
@@ -2533,214 +1896,1093 @@ public class ItensJavaController implements Initializable {
                                                             cst = elementodadoss.getTextContent();
                                                             parsefloat = Float.parseFloat(vprod);
 
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5405">
-                                                            if (cfop.equals(var5405) && cst.equals(cst60) || cfop.equals(var5405) && cst.equals(cst00) || cfop.equals(var5405) && cst.equals(cst10)
-                                                                    || cfop.equals(var5405) && cst.equals(cst20) || cfop.equals(var5405) && cst.equals(cst30) || cfop.equals(var5405) && cst.equals(cst40)
-                                                                    || cfop.equals(var5405) && cst.equals(cst41) || cfop.equals(var5405) && cst.equals(cst50) || cfop.equals(var5405) && cst.equals(cst51)
-                                                                    || cfop.equals(var5405) && cst.equals(cst70) || cfop.equals(var5405) && cst.equals(cst90)) {
+                                                            // <editor-fold defaultstate="collapsed" desc="Todas CST">
+                                                            switch (cfop) {
 
-                                                                vprod5405 = parsefloat + vprod5405;
-                                                                total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
-                                                                valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5405">
+                                                                case "5405":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        default:
 
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5102">
+                                                                case "5102":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "40":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "41":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "50":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "102":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "103":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "3":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5101">
+                                                                case "5101":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "40":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "41":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "50":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "102":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "103":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "3":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5401">
+                                                                case "5401":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5910">
+                                                                case "5910":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5949">
+                                                                case "5949":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5104">
+                                                                case "5104":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5403">
+                                                                case "5403":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST1411">
+                                                                case "1411":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5929">
+                                                                case "5929":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1102";
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1102";
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1102";
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1102";
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST1410">
+                                                                case "1410":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST6910">
+                                                                case "6910":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST6102">
+                                                                case "6102":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5911">
+                                                                case "5911":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5106">
+                                                                case "5106":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5105">
+                                                                case "5105":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                default:
+
+                                                                    break;
+                                                                //</editor-fold>
                                                             }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5102">
-                                                            if (cfop.equals(var5102) && cst.equals(cst60) || cfop.equals(var5102) && cst.equals(cst00) || cfop.equals(var5102) && cst.equals(cst10)
-                                                                    || cfop.equals(var5102) && cst.equals(cst20) || cfop.equals(var5102) && cst.equals(cst30) || cfop.equals(var5102) && cst.equals(cst40)
-                                                                    || cfop.equals(var5102) && cst.equals(cst41) || cfop.equals(var5102) && cst.equals(cst50) || cfop.equals(var5102) && cst.equals(cst51)
-                                                                    || cfop.equals(var5102) && cst.equals(cst70) || cfop.equals(var5102) && cst.equals(cst90)) {
-
-                                                                vprod5102 = parsefloat + vprod5102;
-                                                                valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
-
-                                                                if (cst.equals(cst40) || cst.equals(cst41) || cst.equals(50) || cst.equals(icmssn102) || cst.equals(icmssn103) || cst.equals(icmssn3)) {
-
-                                                                    valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
-
-                                                                }
-                                                                total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5101">
-                                                            if (cfop.equals(var5101) && cst.equals(cst60) || cfop.equals(var5101) && cst.equals(cst00) || cfop.equals(var5101) && cst.equals(cst10)
-                                                                    || cfop.equals(var5101) && cst.equals(cst20) || cfop.equals(var5101) && cst.equals(cst30) || cfop.equals(var5101) && cst.equals(cst40)
-                                                                    || cfop.equals(var5101) && cst.equals(cst41) || cfop.equals(var5101) && cst.equals(cst50) || cfop.equals(var5101) && cst.equals(cst51)
-                                                                    || cfop.equals(var5101) && cst.equals(cst70) || cfop.equals(var5101) && cst.equals(cst90)) {
-
-                                                                vprod5101 = parsefloat + vprod5101;
-
-                                                                valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
-
-                                                                if (cst.equals(cst40) || cst.equals(cst41) || cst.equals(50) || cst.equals(icmssn102) || cst.equals(icmssn103) || cst.equals(icmssn3)) {
-
-                                                                    valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
-
-                                                                }
-                                                                total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5104">
-                                                            if (cfop.equals(var5104) && cst.equals(cst60) || cfop.equals(var5104) && cst.equals(cst00) || cfop.equals(var5104) && cst.equals(cst10)
-                                                                    || cfop.equals(var5104) && cst.equals(cst20) || cfop.equals(var5104) && cst.equals(cst30) || cfop.equals(var5104) && cst.equals(cst40)
-                                                                    || cfop.equals(var5104) && cst.equals(cst41) || cfop.equals(var5104) && cst.equals(cst50) || cfop.equals(var5104) && cst.equals(cst51)
-                                                                    || cfop.equals(var5104) && cst.equals(cst70) || cfop.equals(var5104) && cst.equals(cst90)) {
-
-                                                                vprod5104 = parsefloat + vprod5104;
-                                                                valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
-                                                                total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5403">
-                                                            if (cfop.equals(var5403) && cst.equals(cst60) || cfop.equals(var5403) && cst.equals(cst00) || cfop.equals(var5403) && cst.equals(cst10)
-                                                                    || cfop.equals(var5403) && cst.equals(cst20) || cfop.equals(var5403) && cst.equals(cst30) || cfop.equals(var5403) && cst.equals(cst40)
-                                                                    || cfop.equals(var5403) && cst.equals(cst41) || cfop.equals(var5403) && cst.equals(cst50) || cfop.equals(var5403) && cst.equals(cst51)
-                                                                    || cfop.equals(var5403) && cst.equals(cst70) || cfop.equals(var5403) && cst.equals(cst90)) {
-
-                                                                vprod5403 = parsefloat + vprod5403;
-                                                                valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
-                                                                total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5401">
-                                                            if (cfop.equals(var5401) && cst.equals(cst60) || cfop.equals(var5401) && cst.equals(cst00) || cfop.equals(var5401) && cst.equals(cst10)
-                                                                    || cfop.equals(var5401) && cst.equals(cst20) || cfop.equals(var5401) && cst.equals(cst30) || cfop.equals(var5401) && cst.equals(cst40)
-                                                                    || cfop.equals(var5401) && cst.equals(cst41) || cfop.equals(var5401) && cst.equals(cst50) || cfop.equals(var5401) && cst.equals(cst51)
-                                                                    || cfop.equals(var5401) && cst.equals(cst70) || cfop.equals(var5401) && cst.equals(cst90)) {
-                                                                vprod5401 = parsefloat + vprod5401;
-                                                                valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
-                                                                total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5910">
-                                                            if (cfop.equals(var5910) && cst.equals(cst60) || cfop.equals(var5910) && cst.equals(cst00) || cfop.equals(var5910) && cst.equals(cst10)
-                                                                    || cfop.equals(var5910) && cst.equals(cst20) || cfop.equals(var5910) && cst.equals(cst30) || cfop.equals(var5910) && cst.equals(cst40)
-                                                                    || cfop.equals(var5910) && cst.equals(cst41) || cfop.equals(var5910) && cst.equals(cst50) || cfop.equals(var5910) && cst.equals(cst51)
-                                                                    || cfop.equals(var5910) && cst.equals(cst70) || cfop.equals(var5910) && cst.equals(cst90)) {
-                                                                vprod5910 = parsefloat + vprod5910;
-                                                                valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
-                                                                total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5949">
-                                                            if (cfop.equals(var5949) && cst.equals(cst60) || cfop.equals(var5949) && cst.equals(cst00) || cfop.equals(var5949) && cst.equals(cst10)
-                                                                    || cfop.equals(var5949) && cst.equals(cst20) || cfop.equals(var5949) && cst.equals(cst30) || cfop.equals(var5949) && cst.equals(cst40)
-                                                                    || cfop.equals(var5949) && cst.equals(cst41) || cfop.equals(var5949) && cst.equals(cst50) || cfop.equals(var5949) && cst.equals(cst51)
-                                                                    || cfop.equals(var5949) && cst.equals(cst70) || cfop.equals(var5949) && cst.equals(cst90)) {
-                                                                vprod5949 = parsefloat + vprod5949;
-                                                                valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
-                                                                total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST1411">
-                                                            if (cfop.equals(var1411) && cst.equals(cst60) || cfop.equals(var1411) && cst.equals(cst00) || cfop.equals(var1411) && cst.equals(cst10)
-                                                                    || cfop.equals(var1411) && cst.equals(cst20) || cfop.equals(var1411) && cst.equals(cst30) || cfop.equals(var1411) && cst.equals(cst40)
-                                                                    || cfop.equals(var1411) && cst.equals(cst41) || cfop.equals(var1411) && cst.equals(cst50) || cfop.equals(var1411) && cst.equals(cst51)
-                                                                    || cfop.equals(var1411) && cst.equals(cst70) || cfop.equals(var1411) && cst.equals(cst90)) {
-                                                                vprod1411 = parsefloat + vprod1411;
-                                                                valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
-                                                                total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5929">
-                                                            if (cfop.equals(var5929) && cst.equals(cst60) || cfop.equals(var5929) && cst.equals(cst00) || cfop.equals(var5929) && cst.equals(cst10)
-                                                                    || cfop.equals(var5929) && cst.equals(cst20) || cfop.equals(var5929) && cst.equals(cst30) || cfop.equals(var5929) && cst.equals(cst40)
-                                                                    || cfop.equals(var5929) && cst.equals(cst41) || cfop.equals(var5929) && cst.equals(cst50) || cfop.equals(var5929) && cst.equals(cst51)
-                                                                    || cfop.equals(var5929) && cst.equals(cst70) || cfop.equals(var5929) && cst.equals(cst90)) {
-
-                                                                vprod5929 = parsefloat + vprod5929;
-                                                                total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
-                                                                valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
-                                                                if (cst.equals(cst00) || cst.equals(cst40) || cst.equals(cst41) || cst.equals(cst20)) {
-                                                                    cfopat1949 = "1102";
-                                                                } else {
-                                                                    cfopat1949 = "1403";
-                                                                }
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST1410">
-                                                            if (cfop.equals(var1410) && cst.equals(cst60) || cfop.equals(var1410) && cst.equals(cst00) || cfop.equals(var1410) && cst.equals(cst10)
-                                                                    || cfop.equals(var1410) && cst.equals(cst20) || cfop.equals(var1410) && cst.equals(cst30) || cfop.equals(var1410) && cst.equals(cst40)
-                                                                    || cfop.equals(var1410) && cst.equals(cst41) || cfop.equals(var1410) && cst.equals(cst50) || cfop.equals(var1410) && cst.equals(cst51)
-                                                                    || cfop.equals(var1410) && cst.equals(cst70) || cfop.equals(var1410) && cst.equals(cst90)) {
-                                                                vprod1410 = parsefloat + vprod1410;
-                                                                valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
-                                                                total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST6910">
-                                                            if (cfop.equals(var6910) && cst.equals(cst60) || cfop.equals(var6910) && cst.equals(cst00) || cfop.equals(var6910) && cst.equals(cst10)
-                                                                    || cfop.equals(var6910) && cst.equals(cst20) || cfop.equals(var6910) && cst.equals(cst30) || cfop.equals(var6910) && cst.equals(cst40)
-                                                                    || cfop.equals(var6910) && cst.equals(cst41) || cfop.equals(var6910) && cst.equals(cst50) || cfop.equals(var6910) && cst.equals(cst51)
-                                                                    || cfop.equals(var6910) && cst.equals(cst70) || cfop.equals(var6910) && cst.equals(cst90)) {
-
-                                                                vprod6910 = parsefloat + vprod6910;
-                                                                total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
-                                                                valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST6102">
-                                                            if (cfop.equals(var6102) && cst.equals(cst60) || cfop.equals(var6102) && cst.equals(cst00) || cfop.equals(var6102) && cst.equals(cst10)
-                                                                    || cfop.equals(var6102) && cst.equals(cst20) || cfop.equals(var6102) && cst.equals(cst30) || cfop.equals(var6102) && cst.equals(cst40)
-                                                                    || cfop.equals(var6102) && cst.equals(cst41) || cfop.equals(var6102) && cst.equals(cst50) || cfop.equals(var6102) && cst.equals(cst51)
-                                                                    || cfop.equals(var6102) && cst.equals(cst70) || cfop.equals(var6102) && cst.equals(cst90)) {
-
-                                                                vprod6102 = parsefloat + vprod6102;
-                                                                total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
-                                                                valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5911">
-                                                            if (cfop.equals(var5911) && cst.equals(cst60) || cfop.equals(var5911) && cst.equals(cst00) || cfop.equals(var5911) && cst.equals(cst10)
-                                                                    || cfop.equals(var5911) && cst.equals(cst20) || cfop.equals(var5911) && cst.equals(cst30) || cfop.equals(var5911) && cst.equals(cst40)
-                                                                    || cfop.equals(var5911) && cst.equals(cst41) || cfop.equals(var5911) && cst.equals(cst50) || cfop.equals(var5911) && cst.equals(cst51)
-                                                                    || cfop.equals(var5911) && cst.equals(cst70) || cfop.equals(var5911) && cst.equals(cst90)) {
-                                                                vprod5911 = parsefloat + vprod5911;
-                                                                valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
-                                                                total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5106">
-                                                            if (cfop.equals(var5106) && cst.equals(cst60) || cfop.equals(var5106) && cst.equals(cst00) || cfop.equals(var5106) && cst.equals(cst10)
-                                                                    || cfop.equals(var5106) && cst.equals(cst20) || cfop.equals(var5106) && cst.equals(cst30) || cfop.equals(var5106) && cst.equals(cst40)
-                                                                    || cfop.equals(var5106) && cst.equals(cst41) || cfop.equals(var5106) && cst.equals(cst50) || cfop.equals(var5106) && cst.equals(cst51)
-                                                                    || cfop.equals(var5106) && cst.equals(cst70) || cfop.equals(var5106) && cst.equals(cst90)) {
-                                                                vprod5106 = parsefloat + vprod5106;
-                                                                valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
-                                                                total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5105">
-                                                            if (cfop.equals(var5105) && cst.equals(cst60) || cfop.equals(var5105) && cst.equals(cst00) || cfop.equals(var5105) && cst.equals(cst10)
-                                                                    || cfop.equals(var5105) && cst.equals(cst20) || cfop.equals(var5105) && cst.equals(cst30) || cfop.equals(var5105) && cst.equals(cst40)
-                                                                    || cfop.equals(var5105) && cst.equals(cst41) || cfop.equals(var5105) && cst.equals(cst50) || cfop.equals(var5105) && cst.equals(cst51)
-                                                                    || cfop.equals(var5105) && cst.equals(cst70) || cfop.equals(var5105) && cst.equals(cst90)) {
-                                                                vprod5105 = parsefloat + vprod5105;
-                                                                valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
-                                                                total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
-                                                            }
-                                                            //</editor-fold>
                                                             break;
                                                     }
                                                 }
@@ -2765,214 +3007,1052 @@ public class ItensJavaController implements Initializable {
                                                             valor_csosn = elementodadoss.getTextContent();
                                                             parsefloat = Float.parseFloat(vprod);
 
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5405">
-                                                            if (cfop.equals(var5405) && valor_csosn.equals(icmssn101) || cfop.equals(var5405) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5405) && valor_csosn.equals(icmssn103) || cfop.equals(var5405) && valor_csosn.equals(icmssn3) || cfop.equals(var5405) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5405) && valor_csosn.equals(icmssn202) || cfop.equals(var5405) && valor_csosn.equals(icmssn203) || cfop.equals(var5405) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5405) && valor_csosn.equals(icmssn500) || cfop.equals(var5405) && valor_csosn.equals(icmssn900) || cfop.equals(var5405) && valor_csosn.equals(icmssn300) || cfop.equals(var5405) && valor_csosn.equals(icmssn400)) {
+                                                            // <editor-fold defaultstate="collapsed" desc="Switch CSOSN">
+                                                            switch (cfop) {
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5405">
+                                                                case "5405":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        default:
 
-                                                                vprod5405 = parsefloat + vprod5405;
-                                                                total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
-                                                                valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
 
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5102">
+                                                                case "5102":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5101">
+                                                                case "5101":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5401">
+                                                                case "5401":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5910">
+                                                                case "5910":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5949">
+                                                                case "5949":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5104">
+                                                                case "5104":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5403">
+                                                                case "5403":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST1411">
+                                                                case "1411":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5929">
+                                                                case "5929":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST1410">
+                                                                case "1410":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST6910">
+                                                                case "6910":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST6102">
+                                                                case "6102":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5911">
+                                                                case "5911":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5106">
+                                                                case "5106":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5105">
+                                                                case "5105":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                default:
+
+                                                                    break;
                                                             }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5102">
-                                                            if (cfop.equals(var5102) && valor_csosn.equals(icmssn101) || cfop.equals(var5102) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5102) && valor_csosn.equals(icmssn103) || cfop.equals(var5102) && valor_csosn.equals(icmssn3) || cfop.equals(var5102) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5102) && valor_csosn.equals(icmssn202) || cfop.equals(var5102) && valor_csosn.equals(icmssn203) || cfop.equals(var5102) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5102) && valor_csosn.equals(icmssn500) || cfop.equals(var5102) && valor_csosn.equals(icmssn900) || cfop.equals(var5102) && valor_csosn.equals(icmssn300) || cfop.equals(var5102) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5102 = parsefloat + vprod5102;
-                                                                valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
-
-                                                                if (valor_csosn.equals(icmssn102) || valor_csosn.equals(icmssn103) || valor_csosn.equals(icmssn3)) {
-
-                                                                    valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
-
-                                                                }
-                                                                total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5101">
-                                                            if (cfop.equals(var5101) && valor_csosn.equals(icmssn101) || cfop.equals(var5101) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5101) && valor_csosn.equals(icmssn103) || cfop.equals(var5101) && valor_csosn.equals(icmssn3) || cfop.equals(var5101) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5101) && valor_csosn.equals(icmssn202) || cfop.equals(var5101) && valor_csosn.equals(icmssn203) || cfop.equals(var5101) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5101) && valor_csosn.equals(icmssn500) || cfop.equals(var5101) && valor_csosn.equals(icmssn900) || cfop.equals(var5101) && valor_csosn.equals(icmssn300) || cfop.equals(var5101) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5101 = parsefloat + vprod5101;
-
-                                                                valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
-
-                                                                if (valor_csosn.equals(icmssn102) || valor_csosn.equals(icmssn103) || valor_csosn.equals(icmssn3)) {
-
-                                                                    valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
-
-                                                                }
-                                                                total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5104">
-                                                            if (cfop.equals(var5104) && valor_csosn.equals(icmssn101) || cfop.equals(var5104) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5104) && valor_csosn.equals(icmssn103) || cfop.equals(var5104) && valor_csosn.equals(icmssn3) || cfop.equals(var5104) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5104) && valor_csosn.equals(icmssn202) || cfop.equals(var5104) && valor_csosn.equals(icmssn203) || cfop.equals(var5104) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5104) && valor_csosn.equals(icmssn500) || cfop.equals(var5104) && valor_csosn.equals(icmssn900) || cfop.equals(var5104) && valor_csosn.equals(icmssn300) || cfop.equals(var5104) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5104 = parsefloat + vprod5104;
-                                                                valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
-                                                                total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5403">
-                                                            if (cfop.equals(var5403) && valor_csosn.equals(icmssn101) || cfop.equals(var5403) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5403) && valor_csosn.equals(icmssn103) || cfop.equals(var5403) && valor_csosn.equals(icmssn3) || cfop.equals(var5403) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5403) && valor_csosn.equals(icmssn202) || cfop.equals(var5403) && valor_csosn.equals(icmssn203) || cfop.equals(var5403) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5403) && valor_csosn.equals(icmssn500) || cfop.equals(var5403) && valor_csosn.equals(icmssn900) || cfop.equals(var5403) && valor_csosn.equals(icmssn300) || cfop.equals(var5403) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5403 = parsefloat + vprod5403;
-                                                                valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
-                                                                total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5401">
-                                                            if (cfop.equals(5401) && valor_csosn.equals(icmssn101) || cfop.equals(5401) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5401) && valor_csosn.equals(icmssn103) || cfop.equals(5401) && valor_csosn.equals(icmssn3) || cfop.equals(5401) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5401) && valor_csosn.equals(icmssn202) || cfop.equals(5401) && valor_csosn.equals(icmssn203) || cfop.equals(5401) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5401) && valor_csosn.equals(icmssn500) || cfop.equals(5401) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5401 = parsefloat + vprod5401;
-                                                                valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
-                                                                total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5910">
-                                                            if (cfop.equals(5910) && valor_csosn.equals(icmssn101) || cfop.equals(5910) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5910) && valor_csosn.equals(icmssn103) || cfop.equals(5910) && valor_csosn.equals(icmssn3) || cfop.equals(5910) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5910) && valor_csosn.equals(icmssn202) || cfop.equals(5910) && valor_csosn.equals(icmssn203) || cfop.equals(5910) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5910) && valor_csosn.equals(icmssn500) || cfop.equals(5910) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5910 = parsefloat + vprod5910;
-                                                                valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
-                                                                total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5949">
-                                                            if (cfop.equals(var5949) && valor_csosn.equals(icmssn101) || cfop.equals(var5949) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5949) && valor_csosn.equals(icmssn103) || cfop.equals(var5949) && valor_csosn.equals(icmssn3) || cfop.equals(var5949) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5949) && valor_csosn.equals(icmssn202) || cfop.equals(var5949) && valor_csosn.equals(icmssn203) || cfop.equals(var5949) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5949) && valor_csosn.equals(icmssn500) || cfop.equals(var5949) && valor_csosn.equals(icmssn900) || cfop.equals(var5949) && valor_csosn.equals(icmssn300) || cfop.equals(var5949) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5949 = parsefloat + vprod5949;
-                                                                valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
-                                                                total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST1411">
-                                                            if (cfop.equals(var1411) && valor_csosn.equals(icmssn101) || cfop.equals(var1411) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var1411) && valor_csosn.equals(icmssn103) || cfop.equals(var1411) && valor_csosn.equals(icmssn3) || cfop.equals(var1411) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var1411) && valor_csosn.equals(icmssn202) || cfop.equals(var1411) && valor_csosn.equals(icmssn203) || cfop.equals(var1411) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var1411) && valor_csosn.equals(icmssn500) || cfop.equals(var1411) && valor_csosn.equals(icmssn900) || cfop.equals(var1411) && valor_csosn.equals(icmssn300) || cfop.equals(var1411) && valor_csosn.equals(icmssn400)) {
-                                                                vprod1411 = parsefloat + vprod1411;
-                                                                valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
-                                                                total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5929">
-                                                            if (cfop.equals(var5929) && valor_csosn.equals(icmssn101) || cfop.equals(var5929) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5929) && valor_csosn.equals(icmssn103) || cfop.equals(var5929) && valor_csosn.equals(icmssn3) || cfop.equals(var5929) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5929) && valor_csosn.equals(icmssn202) || cfop.equals(var5929) && valor_csosn.equals(icmssn203) || cfop.equals(var5929) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5929) && valor_csosn.equals(icmssn500) || cfop.equals(var5929) && valor_csosn.equals(icmssn900) || cfop.equals(var5929) && valor_csosn.equals(icmssn300) || cfop.equals(var5929) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5929 = parsefloat + vprod5929;
-                                                                total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
-                                                                valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
-                                                                if (valor_csosn.equals(icmssn101) || valor_csosn.equals(icmssn103) || valor_csosn.equals(icmssn300) || valor_csosn.equals(icmssn400)) {
-                                                                    cfopat1949 = "1102";
-                                                                } else {
-                                                                    cfopat1949 = "1403";
-                                                                }
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST1410">
-                                                            if (cfop.equals(var1410) && valor_csosn.equals(icmssn101) || cfop.equals(var1410) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var1410) && valor_csosn.equals(icmssn103) || cfop.equals(var1410) && valor_csosn.equals(icmssn3) || cfop.equals(var1410) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var1410) && valor_csosn.equals(icmssn202) || cfop.equals(var1410) && valor_csosn.equals(icmssn203) || cfop.equals(var1410) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var1410) && valor_csosn.equals(icmssn500) || cfop.equals(var1410) && valor_csosn.equals(icmssn900) || cfop.equals(var1410) && valor_csosn.equals(icmssn300) || cfop.equals(var1410) && valor_csosn.equals(icmssn400)) {
-                                                                vprod1410 = parsefloat + vprod1410;
-                                                                valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
-                                                                total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST6910">
-                                                            if (cfop.equals(var6910) && valor_csosn.equals(icmssn101) || cfop.equals(var6910) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var6910) && valor_csosn.equals(icmssn103) || cfop.equals(var6910) && valor_csosn.equals(icmssn3) || cfop.equals(var6910) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var6910) && valor_csosn.equals(icmssn202) || cfop.equals(var6910) && valor_csosn.equals(icmssn203) || cfop.equals(var6910) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var6910) && valor_csosn.equals(icmssn500) || cfop.equals(var6910) && valor_csosn.equals(icmssn900)) {
-
-                                                                vprod6910 = parsefloat + vprod6910;
-                                                                total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
-                                                                valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST6102">
-                                                            if (cfop.equals(var6102) && valor_csosn.equals(icmssn101) || cfop.equals(var6102) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var6102) && valor_csosn.equals(icmssn103) || cfop.equals(var6102) && valor_csosn.equals(icmssn3) || cfop.equals(var6102) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var6102) && valor_csosn.equals(icmssn202) || cfop.equals(var6102) && valor_csosn.equals(icmssn203) || cfop.equals(var6102) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var6102) && valor_csosn.equals(icmssn500) || cfop.equals(var6102) && valor_csosn.equals(icmssn900)) {
-
-                                                                vprod6102 = parsefloat + vprod6102;
-                                                                total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
-                                                                valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5911">
-                                                            if (cfop.equals(5911) && valor_csosn.equals(icmssn101) || cfop.equals(5911) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5911) && valor_csosn.equals(icmssn103) || cfop.equals(5911) && valor_csosn.equals(icmssn3) || cfop.equals(5911) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5911) && valor_csosn.equals(icmssn202) || cfop.equals(5911) && valor_csosn.equals(icmssn203) || cfop.equals(5911) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5911) && valor_csosn.equals(icmssn500) || cfop.equals(5911) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5911 = parsefloat + vprod5911;
-                                                                valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
-                                                                total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5106">
-                                                            if (cfop.equals(5106) && valor_csosn.equals(icmssn101) || cfop.equals(5106) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5106) && valor_csosn.equals(icmssn103) || cfop.equals(5106) && valor_csosn.equals(icmssn3) || cfop.equals(5106) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5106) && valor_csosn.equals(icmssn202) || cfop.equals(5106) && valor_csosn.equals(icmssn203) || cfop.equals(5106) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5106) && valor_csosn.equals(icmssn500) || cfop.equals(5106) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5106 = parsefloat + vprod5106;
-                                                                valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
-                                                                total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5105">
-                                                            if (cfop.equals(5105) && valor_csosn.equals(icmssn101) || cfop.equals(5105) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5105) && valor_csosn.equals(icmssn103) || cfop.equals(5105) && valor_csosn.equals(icmssn3) || cfop.equals(5105) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5105) && valor_csosn.equals(icmssn202) || cfop.equals(5105) && valor_csosn.equals(icmssn203) || cfop.equals(5105) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5105) && valor_csosn.equals(icmssn500) || cfop.equals(5105) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5105 = parsefloat + vprod5105;
-                                                                valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
-                                                                total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
-                                                            }
-                                                            //</editor-fold>
 
                                                             break;
                                                         //</editor-fold>
@@ -3007,6 +4087,8 @@ public class ItensJavaController implements Initializable {
 
             }
 //</editor-fold>
+            //</editor-fold>
+            //</editor-fold>
 
             // <editor-fold defaultstate="collapsed" desc="DESDOBRAMENTO 5405">
             if (flag5405 == 1) {
@@ -3150,7 +4232,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5405 + "        " + df.format(vprod5405).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5405).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5405).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5405 + "        " + df.format(vprod5405).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5405).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5405).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5405).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5405).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5405).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3178,7 +4260,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5102 + "        " + df.format(vprod5102).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(valor_isentas_naotributadas5102).replace(",", ".") + df.format(total_outras5102).replace(",", ".").replace("-", "") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5102).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5102 + "        " + df.format(vprod5102).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(valor_isentas_naotributadas5102).replace(",", ".") + df.format(total_outras5102).replace(",", ".").replace("-", "") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5102).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5102).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5102).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5102).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3206,7 +4288,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5101 + "        " + df.format(vprod5101).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(valor_isentas_naotributadas5101).replace(",", ".") + df.format(total_outras5101).replace(",", ".").replace("-", "") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5101).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5101 + "        " + df.format(vprod5101).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(valor_isentas_naotributadas5101).replace(",", ".") + df.format(total_outras5101).replace(",", ".").replace("-", "") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5101).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5101).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5101).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5101).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3227,7 +4309,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>                        
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5949 + "        " + df.format(vprod5949).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5949).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5949).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5949 + "        " + df.format(vprod5949).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5949).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5949).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1949 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5949).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5949).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5949).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3248,7 +4330,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>                        
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5403 + "        " + df.format(vprod5403).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5403).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5403).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5403 + "        " + df.format(vprod5403).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5403).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5403).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5403).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5403).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5403).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3269,7 +4351,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>                        
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5104 + "        " + df.format(vprod5104).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5104).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5104).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5104 + "        " + df.format(vprod5104).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5104).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5104).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5104).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5104).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5104).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3290,7 +4372,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5401 + "        " + df.format(vprod5401).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5401).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5401).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5401 + "        " + df.format(vprod5401).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5401).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5401).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5401).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5401).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5401).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3311,8 +4393,8 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5910 + "        " + df.format(vprod5910).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5910).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5910).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                        + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5910).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5910).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5910).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5910 + "        " + df.format(vprod5910).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5910).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5910).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                        + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1910 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5910).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5910).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5910).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
             //</editor-fold>
@@ -3332,7 +4414,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida1411 + "        " + df.format(vprod1411).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras1411).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota1411).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida1411 + "        " + df.format(vprod1411).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras1411).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota1411).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1411 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif1411).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc1411).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras1411).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3353,7 +4435,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5929 + "        " + df.format(vprod5929).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5929).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5929).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5929 + "        " + df.format(vprod5929).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5929).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5929).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1949 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5929).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5929).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5929).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3374,7 +4456,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida1410 + "        " + df.format(vprod1410).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras1410).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota1410).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida1410 + "        " + df.format(vprod1410).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras1410).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota1410).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1410 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif1410).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc1410).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras1410).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3395,7 +4477,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida6910 + "        " + df.format(vprod6910).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras6910).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota6910).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida6910 + "        " + df.format(vprod6910).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras6910).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota6910).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat2910 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif6910).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc6910).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras6910).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3416,7 +4498,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida6102 + "        " + df.format(vprod6102).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras6102).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota6102).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida6102 + "        " + df.format(vprod6102).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras6102).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota6102).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat2102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif6102).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc6102).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras6102).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3437,7 +4519,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5911 + "        " + df.format(vprod5911).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5911).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5911).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5911 + "        " + df.format(vprod5911).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5911).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5911).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1911 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5911).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5911).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5911).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3458,7 +4540,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5106 + "        " + df.format(vprod5106).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5106).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5106).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5106 + "        " + df.format(vprod5106).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5106).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5106).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5106).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5106).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5106).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3479,7 +4561,7 @@ public class ItensJavaController implements Initializable {
                 }
                 //</editor-fold>   
 
-                txtAreaExemplo.appendText("    " + cnp + emi + emi + "            " + saida5105 + "        " + df.format(vprod5105).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5105).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5105).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
+                txtAreaConferir.appendText("    " + cnp + emi + emi + "            " + saida5105 + "        " + df.format(vprod5105).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5105).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5105).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
                         + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5105).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5105).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5105).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" + "\n");
 
             }
@@ -3630,75 +4712,7 @@ public class ItensJavaController implements Initializable {
     }
 
     @FXML
-    private void buttonGerarTxt(ActionEvent event) throws ParserConfigurationException, SAXException, IOException {
-        /*----------------------------------*/
-//////////////////////////////       |
-// <editor-fold defaultstate="collapsed" desc="VARIÁVEIS CFOP DE SAIDA">
-        String var5101 = "5101";
-        String var5102 = "5102";
-        String var5104 = "5104";
-        String var5106 = "5106";
-        String var5109 = "5109";
-        String var5122 = "5122";
-        String var5124 = "5124";
-        String var5125 = "5125";
-        String var5152 = "5152";
-        String var5201 = "5201";
-        String var5202 = "5202";
-        String var5401 = "5401";
-        String var5402 = "5402";
-        String var5403 = "5403";
-        String var5405 = "5405";
-        String var5409 = "5409";
-        String var5410 = "5410";
-        String var5411 = "5411";
-        String var5556 = "5556";
-        String var1411 = "1411";
-        String var5901 = "5901";
-        String var5902 = "5902";
-        String var5910 = "5910";
-        String var5911 = "5911";
-        String var5915 = "5915";
-        String var5916 = "5916";
-        String var5920 = "5920";
-        String var5921 = "5921";
-        String var5924 = "5924";
-        String var5925 = "5925";
-        String var5929 = "5929";
-        String var5949 = "5949";
-        String var6101 = "6101";
-        String var6102 = "6102";
-        String var6104 = "6104";
-        String var6106 = "6101";
-        String var6152 = "6152";
-        String var6201 = "6201";
-        String var6202 = "6202";
-        String var6401 = "6401";
-        String var6402 = "6402";
-        String var6403 = "6403";
-        String var6404 = "6404";
-        String var6409 = "6409";
-        String var6410 = "6410";
-        String var6411 = "6411";
-        String var6413 = "6413";
-        String var6556 = "6556";
-        String var6901 = "6901";
-        String var6902 = "6902";
-        String var6910 = "6910";
-        String var6911 = "6911";
-        String var6915 = "6915";
-        String var6916 = "6916";
-        String var6920 = "6920";
-        String var6921 = "6921";
-        String var6924 = "6924";
-        String var6925 = "6925";
-        String var6929 = "6929";
-        String var6949 = "6949";
-        String var1410 = "1410";
-        String var5105 = "5105";
-
-//</editor-fold>     *       |
-//////////////////////////////       |
+    private void buttonLerImportar(ActionEvent event) throws ParserConfigurationException, SAXException, IOException {
 /*----------------------------------*/
 ///////////////////////////////      |
 // <editor-fold defaultstate="collapsed" desc="VARIÁVEL DE VERIFICAÇÃO">
@@ -4538,7 +5552,6 @@ public class ItensJavaController implements Initializable {
         for (Object caminho_ob : array_caminho) {
 
             File diretorio = new File((String) caminho_ob);
-
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(diretorio);
@@ -5028,242 +6041,77 @@ public class ItensJavaController implements Initializable {
                                         // <editor-fold defaultstate="collapsed" desc="CFOP">
                                         case "CFOP":
                                             cfop = elementodados.getTextContent();
+                                            switch (cfop) {
+                                                case "5405":
+                                                    flag5405 = 1;
+                                                    cfopat1403 = "1403";
+                                                    break;
+                                                case "5102":
+                                                    flag5102 = 1;
+                                                    cfopat1102 = "1102";
+                                                    break;
+                                                case "5101":
+                                                    cfopat1102 = "1102";
+                                                    flag5101 = 1;
+                                                    break;
+                                                case "5401":
+                                                    flag5401 = 1;
+                                                    cfopat1403 = "1403";
+                                                    break;
+                                                case "5910":
+                                                    flag5910 = 1;
+                                                    cfopat1910 = "1403";
+                                                    break;
+                                                case "5949":
+                                                    flag5949 = 1;
+                                                    cfopat1949 = "1949";
+                                                    break;
+                                                case "5104":
+                                                    flag5104 = 1;
+                                                    cfopat1102 = "1102";
+                                                    break;
+                                                case "5403":
+                                                    flag5403 = 1;
+                                                    cfopat1403 = "1403";
+                                                    break;
+                                                case "1411":
+                                                    flag1411 = 1;
+                                                    cfopat1411 = "1411";
+                                                    break;
+                                                case "5929":
+                                                    flag5929 = 1;
 
-                                            palavras = cfop.split(" ");
-
-                                            for (a = 0; a < palavras.length; a++) {
-
-                                                // <editor-fold defaultstate="collapsed" desc="CONDIÇÕES CFOP DE SAIDA">
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5405">
-                                                if (flag5405 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var5405)) {
-                                                        quant++;
-                                                        flag5405 = 1;
-                                                        cfopat1403 = "1403";
-                                                        saida5405 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5102">
-                                                if (flag5102 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5102)) {
-                                                        quant++;
-                                                        flag5102 = 1;
-                                                        cfopat1102 = "1102";
-                                                        saida5102 = quant;
-
-                                                    }
-
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5101">
-                                                if (flag5101 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5101)) {
-                                                        quant++;
-                                                        cfopat1102 = "1102";
-                                                        flag5101 = 1;
-                                                        saida5101 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5401">
-                                                if (flag5401 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5401)) {
-                                                        quant++;
-                                                        flag5401 = 1;
-                                                        cfopat1403 = "1403";
-                                                        saida5401 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5910">
-                                                if (flag5910 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5910)) {
-                                                        quant++;
-                                                        flag5910 = 1;
-                                                        cfopat1910 = "1910";
-                                                        saida5910 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5949">
-                                                if (flag5949 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5949)) {
-                                                        quant++;
-                                                        flag5949 = 1;
-                                                        cfopat1949 = "1949";
-                                                        saida5949 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5104">
-                                                if (flag5104 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5104)) {
-                                                        quant++;
-                                                        flag5104 = 1;
-                                                        cfopat1102 = "1102";
-                                                        saida5104 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5403">
-                                                if (flag5403 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5403)) {
-                                                        quant++;
-                                                        flag5403 = 1;
-                                                        cfopat1403 = "1403";
-                                                        saida5403 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 1411">
-                                                if (flag1411 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var1411)) {
-                                                        quant++;
-                                                        flag1411 = 1;
-                                                        cfopat1411 = "1411";
-                                                        saida1411 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5929">
-                                                if (flag5929 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var5929)) {
-                                                        quant++;
-                                                        flag5929 = 1;
-                                                        saida5929 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 1410">
-                                                if (flag1410 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var1410)) {
-                                                        quant++;
-                                                        flag1410 = 1;
-                                                        cfopat1410 = "1410";
-                                                        saida1410 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 6910">
-                                                if (flag6910 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var6910)) {
-                                                        quant++;
-                                                        flag6910 = 1;
-                                                        cfopat2910 = "2910";
-                                                        saida6910 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 6102">
-                                                if (flag6102 == 1) {
-
-                                                } else {
-
-                                                    if (palavras[a].equals(var6102)) {
-                                                        quant++;
-                                                        flag6102 = 1;
-                                                        cfopat2102 = "2102";
-                                                        saida6102 = quant;
-
-                                                    }
-                                                }
-
-                                                //</editor-fold>
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5911">
-                                                if (flag5911 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5911)) {
-                                                        quant++;
-                                                        flag5911 = 1;
-                                                        cfopat1911 = "1911";
-                                                        saida5911 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5106">
-                                                if (flag5106 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5106)) {
-                                                        quant++;
-                                                        flag5106 = 1;
-                                                        cfopat1102 = "1102";
-                                                        saida5106 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-
-                                                // <editor-fold defaultstate="collapsed" desc="CFOP 5105">
-                                                if (flag5105 == 1) {
-
-                                                } else {
-                                                    if (palavras[a].equals(var5105)) {
-                                                        quant++;
-                                                        flag5105 = 1;
-                                                        cfopat1102 = "1102";
-                                                        saida5105 = quant;
-
-                                                    }
-                                                }
-//</editor-fold>
-// </editor-fold>   
+                                                    break;
+                                                case "1410":
+                                                    flag1410 = 1;
+                                                    cfopat1410 = "1410";
+                                                    break;
+                                                case "6910":
+                                                    flag6910 = 1;
+                                                    cfopat2910 = "2910";
+                                                    break;
+                                                case "6102":
+                                                    flag6102 = 1;
+                                                    cfopat2102 = "2102";
+                                                    break;
+                                                case "5911":
+                                                    flag5911 = 1;
+                                                    cfopat1911 = "1911";
+                                                    break;
+                                                case "5106":
+                                                    flag5106 = 1;
+                                                    cfopat1102 = "1102";
+                                                    break;
+                                                case "5105":
+                                                    flag5105 = 1;
+                                                    cfopat1102 = "1102";
+                                                    break;
+                                                default:
+                                                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                                                    alerta.setTitle("CFOP não encontrado!");
+                                                    alerta.setContentText("Por favor informe este CFOP ao T.I: " + cfop);
+                                                    alerta.showAndWait();
+                                                    break;
                                             }
                                             break;
 //</editor-fold>
@@ -5272,118 +6120,59 @@ public class ItensJavaController implements Initializable {
                                         case "vDesc":
                                             vdesc = elementodados.getTextContent();
                                             soma_vdesc = Float.parseFloat(vdesc);
+                                            switch (cfop) {
+                                                case "5405":
+                                                    vdesc5405 = vdesc5405 + soma_vdesc;
+                                                    break;
+                                                case "5102":
+                                                    vdesc5102 = vdesc5102 + soma_vdesc;
+                                                    break;
+                                                case "5101":
+                                                    vdesc5101 = vdesc5101 + soma_vdesc;
+                                                    break;
+                                                case "5401":
+                                                    vdesc5401 = vdesc5401 + soma_vdesc;
+                                                    break;
+                                                case "5910":
+                                                    vdesc5910 = vdesc5910 + soma_vdesc;
+                                                    break;
+                                                case "5949":
+                                                    vdesc5949 = vdesc5949 + soma_vdesc;
+                                                    break;
+                                                case "5104":
+                                                    vdesc5104 = vdesc5104 + soma_vdesc;
+                                                    break;
+                                                case "5403":
+                                                    vdesc5403 = vdesc5403 + soma_vdesc;
+                                                    break;
+                                                case "1411":
+                                                    vdesc1411 = vdesc1411 + soma_vdesc;
+                                                    break;
+                                                case "5929":
+                                                    vdesc5929 = vdesc5929 + soma_vdesc;
+                                                    break;
+                                                case "1410":
+                                                    vdesc1410 = vdesc1410 + soma_vdesc;
+                                                    break;
+                                                case "6910":
+                                                    vdesc6910 = vdesc6910 + soma_vdesc;
+                                                    break;
+                                                case "6102":
+                                                    vdesc6102 = vdesc6102 + soma_vdesc;
+                                                    break;
+                                                case "5911":
+                                                    vdesc5911 = vdesc5911 + soma_vdesc;
+                                                    break;
+                                                case "5106":
+                                                    vdesc5106 = vdesc5106 + soma_vdesc;
+                                                    break;
+                                                case "5105":
+                                                    vdesc5105 = vdesc5105 + soma_vdesc;
+                                                    break;
+                                                default:
 
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5405">
-                                            if (cfop.equals(var5405)) {
-                                                vdesc5405 = vdesc5405 + soma_vdesc;
-
+                                                    break;
                                             }
-                                            // </editor-fold>    
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5102">    
-                                            if (cfop.equals(var5102)) {
-                                                vdesc5102 = vdesc5102 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5101">
-                                            if (cfop.equals(var5101)) {
-                                                vdesc5101 = vdesc5101 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>                                             
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5104">    
-                                            if (cfop.equals(var5104)) {
-                                                vdesc5104 = vdesc5104 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5910">    
-                                            if (cfop.equals(var5910)) {
-                                                vdesc5910 = vdesc5910 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5401">    
-                                            if (cfop.equals(var5401)) {
-                                                vdesc5401 = vdesc5401 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5949">    
-                                            if (cfop.equals(var5949)) {
-                                                vdesc5949 = vdesc5949 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5403">    
-                                            if (cfop.equals(var5403)) {
-                                                vdesc5403 = vdesc5403 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>   
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC1411">
-                                            if (cfop.equals(var1411)) {
-                                                vdesc1411 = vdesc1411 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5929">
-                                            if (cfop.equals(var5929)) {
-                                                vdesc5929 = vdesc5929 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC1410">
-                                            if (cfop.equals(var1410)) {
-                                                vdesc1410 = vdesc1410 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC6910">
-                                            if (cfop.equals(var6910)) {
-                                                vdesc6910 = vdesc6910 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC6102">
-                                            if (cfop.equals(var6102)) {
-                                                vdesc6102 = vdesc6102 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5911">    
-                                            if (cfop.equals(var5911)) {
-                                                vdesc5911 = vdesc5911 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5106">    
-                                            if (cfop.equals(var5106)) {
-                                                vdesc5106 = vdesc5106 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="VDESC5105">    
-                                            if (cfop.equals(var5105)) {
-                                                vdesc5105 = vdesc5105 + soma_vdesc;
-
-                                            }
-                                            // </editor-fold>
                                             break;
                                         // </editor-fold>
 
@@ -5400,399 +6189,59 @@ public class ItensJavaController implements Initializable {
                                             voutro = elementodados.getTextContent();
 
                                             float parsefloatvoutro = Float.parseFloat(voutro);
-                                            // <editor-fold defaultstate="collapsed" desc="CONDIÇÕES VOUTRO">
+                                            switch (cfop) {
+                                                case "5405":
+                                                    voutroverif5405 = parsefloatvoutro + voutroverif5405;
+                                                    break;
+                                                case "5102":
+                                                    voutroverif5102 = parsefloatvoutro + voutroverif5102;
+                                                    break;
+                                                case "5101":
+                                                    voutroverif5101 = parsefloatvoutro + voutroverif5101;
+                                                    break;
+                                                case "5401":
+                                                    voutroverif5401 = parsefloatvoutro + voutroverif5401;
+                                                    break;
+                                                case "5910":
+                                                    voutroverif5910 = parsefloatvoutro + voutroverif5910;
+                                                    break;
+                                                case "5949":
+                                                    voutroverif5949 = parsefloatvoutro + voutroverif5949;
+                                                    break;
+                                                case "5104":
+                                                    voutroverif5104 = parsefloatvoutro + voutroverif5104;
+                                                    break;
+                                                case "5403":
+                                                    voutroverif5403 = parsefloatvoutro + voutroverif5403;
+                                                    break;
+                                                case "1411":
+                                                    voutroverif1411 = parsefloatvoutro + voutroverif1411;
+                                                    break;
+                                                case "5929":
+                                                    voutroverif5929 = parsefloatvoutro + voutroverif5929;
+                                                    break;
+                                                case "1410":
+                                                    voutroverif5929 = parsefloatvoutro + voutroverif5929;
+                                                    break;
+                                                case "6910":
+                                                    voutroverif6910 = parsefloatvoutro + voutroverif6910;
+                                                    break;
+                                                case "6102":
+                                                    voutroverif6102 = parsefloatvoutro + voutroverif6102;
+                                                    break;
+                                                case "5911":
+                                                    voutroverif5911 = parsefloatvoutro + voutroverif5911;
+                                                    break;
+                                                case "5106":
+                                                    voutroverif5106 = parsefloatvoutro + voutroverif5106;
+                                                    break;
+                                                case "5105":
+                                                    voutroverif5105 = parsefloatvoutro + voutroverif5105;
+                                                    break;
+                                                default:
 
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5102">
-                                            if ("5102".equals(cfop)) {
-                                                voutroverif5102 = parsefloatvoutro + voutroverif5102;
-
-                                            } else {
-
+                                                    break;
                                             }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5405">
-                                            if (cfop.equals("5405")) {
-                                                voutroverif5405 = parsefloatvoutro + voutroverif5405;
-
-                                            } else {
-
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5101">
-                                            if (cfop.equals("5101")) {
-                                                voutroverif5101 = parsefloatvoutro + voutroverif5101;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5104">
-                                            if (cfop.equals("5104")) {
-                                                voutroverif5104 = parsefloatvoutro + voutroverif5104;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5106">
-                                            if (cfop.equals("5106")) {
-                                                voutroverif5106 = parsefloatvoutro + voutroverif5106;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5109">
-                                            if (cfop.equals("5109")) {
-                                                voutroverif5109 = parsefloatvoutro + voutroverif5109;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5122">
-                                            if (cfop.equals("5122")) {
-                                                voutroverif5122 = parsefloatvoutro + voutroverif5122;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5124">
-                                            if (cfop.equals("5124")) {
-                                                voutroverif5124 = parsefloatvoutro + voutroverif5124;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5125">
-                                            if (cfop.equals("5125")) {
-                                                voutroverif5125 = parsefloatvoutro + voutroverif5125;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5152">
-                                            if (cfop.equals("5152")) {
-                                                voutroverif5152 = parsefloatvoutro + voutroverif5152;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5201">
-                                            if (cfop.equals("5201")) {
-                                                voutroverif5201 = parsefloatvoutro + voutroverif5201;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5401">
-                                            if (cfop.equals("5401")) {
-                                                voutroverif5401 = parsefloatvoutro + voutroverif5401;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5402">
-                                            if (cfop.equals("5402")) {
-                                                voutroverif5402 = parsefloatvoutro + voutroverif5402;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5403">
-                                            if (cfop.equals("5403")) {
-                                                voutroverif5403 = parsefloatvoutro + voutroverif5403;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5409">
-                                            if (cfop.equals("5409")) {
-                                                voutroverif5409 = parsefloatvoutro + voutroverif5409;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5410">
-                                            if (cfop.equals("5410")) {
-                                                voutroverif5410 = parsefloatvoutro + voutroverif5410;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5411">
-                                            if (cfop.equals("5411")) {
-                                                voutroverif5411 = parsefloatvoutro + voutroverif5411;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5556">
-                                            if (cfop.equals("5556")) {
-                                                voutroverif5556 = parsefloatvoutro + voutroverif5556;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5556">
-                                            if (cfop.equals("5556")) {
-                                                voutroverif5556 = parsefloatvoutro + voutroverif5556;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5901">
-                                            if (cfop.equals("5901")) {
-                                                voutroverif5901 = parsefloatvoutro + voutroverif5901;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5902">
-                                            if (cfop.equals("5902")) {
-                                                voutroverif5902 = parsefloatvoutro + voutroverif5902;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5910">
-                                            if (cfop.equals("5910")) {
-                                                voutroverif5910 = parsefloatvoutro + voutroverif5910;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5911">
-                                            if (cfop.equals("5911")) {
-                                                voutroverif5911 = parsefloatvoutro + voutroverif5911;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5915">
-                                            if (cfop.equals("5915")) {
-                                                voutroverif5915 = parsefloatvoutro + voutroverif5915;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5916">
-                                            if (cfop.equals("5916")) {
-                                                voutroverif5916 = parsefloatvoutro + voutroverif5916;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5920">
-                                            if (cfop.equals("5920")) {
-                                                voutroverif5920 = parsefloatvoutro + voutroverif5920;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5921">
-                                            if (cfop.equals("5921")) {
-                                                voutroverif5921 = parsefloatvoutro + voutroverif5921;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5924">
-                                            if (cfop.equals("5924")) {
-                                                voutroverif5924 = parsefloatvoutro + voutroverif5924;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5925">
-                                            if (cfop.equals("5925")) {
-                                                voutroverif5925 = parsefloatvoutro + voutroverif5915;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5929">
-                                            if (cfop.equals("5929")) {
-                                                voutroverif5929 = parsefloatvoutro + voutroverif5929;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5949">
-                                            if (cfop.equals("5949")) {
-                                                voutroverif5949 = parsefloatvoutro + voutroverif5949;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6101">
-                                            if (cfop.equals("6101")) {
-                                                voutroverif6101 = parsefloatvoutro + voutroverif6101;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6102">
-                                            if (cfop.equals("6102")) {
-                                                voutroverif6102 = parsefloatvoutro + voutroverif6102;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6104">
-                                            if (cfop.equals("6104")) {
-                                                voutroverif6104 = parsefloatvoutro + voutroverif6104;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6106">
-                                            if (cfop.equals("6106")) {
-                                                voutroverif6106 = parsefloatvoutro + voutroverif6106;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6152">
-                                            if (cfop.equals("6152")) {
-                                                voutroverif6152 = parsefloatvoutro + voutroverif6152;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6201">
-                                            if (cfop.equals("6201")) {
-                                                voutroverif6201 = parsefloatvoutro + voutroverif6201;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6202">
-                                            if (cfop.equals("6202")) {
-                                                voutroverif6202 = parsefloatvoutro + voutroverif6202;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6401">
-                                            if (cfop.equals("6401")) {
-                                                voutroverif6401 = parsefloatvoutro + voutroverif6401;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6402">
-                                            if (cfop.equals("6402")) {
-                                                voutroverif6402 = parsefloatvoutro + voutroverif6402;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6403">
-                                            if (cfop.equals("6403")) {
-                                                voutroverif6403 = parsefloatvoutro + voutroverif6403;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6404">
-                                            if (cfop.equals("6404")) {
-                                                voutroverif6404 = parsefloatvoutro + voutroverif6404;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6409">
-                                            if (cfop.equals("6409")) {
-                                                voutroverif6409 = parsefloatvoutro + voutroverif6409;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6410">
-                                            if (cfop.equals("6410")) {
-                                                voutroverif6410 = parsefloatvoutro + voutroverif6410;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6411">
-                                            if (cfop.equals("6411")) {
-                                                voutroverif6411 = parsefloatvoutro + voutroverif6411;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6413">
-                                            if (cfop.equals("6413")) {
-                                                voutroverif6413 = parsefloatvoutro + voutroverif6413;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6556">
-                                            if (cfop.equals("6556")) {
-                                                voutroverif6556 = parsefloatvoutro + voutroverif6556;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6901">
-                                            if (cfop.equals("6901")) {
-                                                voutroverif6901 = parsefloatvoutro + voutroverif6901;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6902">
-                                            if (cfop.equals("6902")) {
-                                                voutroverif6902 = parsefloatvoutro + voutroverif6902;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6910">
-                                            if (cfop.equals("6910")) {
-                                                voutroverif6910 = parsefloatvoutro + voutroverif6910;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5915">
-                                            if (cfop.equals("5915")) {
-                                                voutroverif5915 = parsefloatvoutro + voutroverif5915;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6911">
-                                            if (cfop.equals("6911")) {
-                                                voutroverif6911 = parsefloatvoutro + voutroverif6911;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6915">
-                                            if (cfop.equals("6915")) {
-                                                voutroverif6915 = parsefloatvoutro + voutroverif6915;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6916">
-                                            if (cfop.equals("6916")) {
-                                                voutroverif6916 = parsefloatvoutro + voutroverif6916;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6920">
-                                            if (cfop.equals("6920")) {
-                                                voutroverif6920 = parsefloatvoutro + voutroverif6920;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6921">
-                                            if (cfop.equals("6921")) {
-                                                voutroverif6921 = parsefloatvoutro + voutroverif6921;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6924">
-                                            if (cfop.equals("6924")) {
-                                                voutroverif6924 = parsefloatvoutro + voutroverif6924;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6925">
-                                            if (cfop.equals("6925")) {
-                                                voutroverif6925 = parsefloatvoutro + voutroverif6925;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6929">
-                                            if (cfop.equals("6929")) {
-                                                voutroverif6929 = parsefloatvoutro + voutroverif6929;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif6949">
-                                            if (cfop.equals("6949")) {
-                                                voutroverif6949 = parsefloatvoutro + voutroverif6949;
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif1411">
-                                            if (cfop.equals("1411")) {
-                                                voutroverif1411 = parsefloatvoutro + voutroverif1411;
-
-                                            } else {
-
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif1410">
-                                            if (cfop.equals("1410")) {
-                                                voutroverif1410 = parsefloatvoutro + voutroverif1410;
-
-                                            } else {
-
-                                            }
-                                            //</editor-fold>
-
-                                            // <editor-fold defaultstate="collapsed" desc="voutroverif5105">
-                                            if (cfop.equals("5105")) {
-                                                voutroverif5105 = parsefloatvoutro + voutroverif5105;
-                                            }
-                                            //</editor-fold>
-
-//</editor-fold>
                                             break;
                                         //</editor-fold>
 
@@ -6074,214 +6523,1093 @@ public class ItensJavaController implements Initializable {
                                                             cst = elementodadoss.getTextContent();
                                                             parsefloat = Float.parseFloat(vprod);
 
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5405">
-                                                            if (cfop.equals(var5405) && cst.equals(cst60) || cfop.equals(var5405) && cst.equals(cst00) || cfop.equals(var5405) && cst.equals(cst10)
-                                                                    || cfop.equals(var5405) && cst.equals(cst20) || cfop.equals(var5405) && cst.equals(cst30) || cfop.equals(var5405) && cst.equals(cst40)
-                                                                    || cfop.equals(var5405) && cst.equals(cst41) || cfop.equals(var5405) && cst.equals(cst50) || cfop.equals(var5405) && cst.equals(cst51)
-                                                                    || cfop.equals(var5405) && cst.equals(cst70) || cfop.equals(var5405) && cst.equals(cst90)) {
+                                                            // <editor-fold defaultstate="collapsed" desc="Todas CST">
+                                                            switch (cfop) {
 
-                                                                vprod5405 = parsefloat + vprod5405;
-                                                                total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
-                                                                valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5405">
+                                                                case "5405":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        default:
 
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5102">
+                                                                case "5102":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "40":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "41":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "50":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "102":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "103":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "3":
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5101">
+                                                                case "5101":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "40":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "41":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "50":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "102":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "103":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "3":
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5401">
+                                                                case "5401":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5910">
+                                                                case "5910":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5949">
+                                                                case "5949":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5104">
+                                                                case "5104":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5403">
+                                                                case "5403":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST1411">
+                                                                case "1411":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5929">
+                                                                case "5929":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1102";
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1102";
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1102";
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1102";
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            cfopat1949 = "1403";
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST1410">
+                                                                case "1410":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST6910">
+                                                                case "6910":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST6102">
+                                                                case "6102":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5911">
+                                                                case "5911":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5106">
+                                                                case "5106":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5105">
+                                                                case "5105":
+                                                                    switch (cst) {
+                                                                        case "60":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "00":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "10":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "20":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "30":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "40":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "41":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "50":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "51":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "70":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "90":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                default:
+
+                                                                    break;
+                                                                //</editor-fold>
                                                             }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5102">
-                                                            if (cfop.equals(var5102) && cst.equals(cst60) || cfop.equals(var5102) && cst.equals(cst00) || cfop.equals(var5102) && cst.equals(cst10)
-                                                                    || cfop.equals(var5102) && cst.equals(cst20) || cfop.equals(var5102) && cst.equals(cst30) || cfop.equals(var5102) && cst.equals(cst40)
-                                                                    || cfop.equals(var5102) && cst.equals(cst41) || cfop.equals(var5102) && cst.equals(cst50) || cfop.equals(var5102) && cst.equals(cst51)
-                                                                    || cfop.equals(var5102) && cst.equals(cst70) || cfop.equals(var5102) && cst.equals(cst90)) {
-
-                                                                vprod5102 = parsefloat + vprod5102;
-                                                                valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
-
-                                                                if (cst.equals(cst40) || cst.equals(cst41) || cst.equals(50) || cst.equals(icmssn102) || cst.equals(icmssn103) || cst.equals(icmssn3)) {
-
-                                                                    valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
-
-                                                                }
-                                                                total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5101">
-                                                            if (cfop.equals(var5101) && cst.equals(cst60) || cfop.equals(var5101) && cst.equals(cst00) || cfop.equals(var5101) && cst.equals(cst10)
-                                                                    || cfop.equals(var5101) && cst.equals(cst20) || cfop.equals(var5101) && cst.equals(cst30) || cfop.equals(var5101) && cst.equals(cst40)
-                                                                    || cfop.equals(var5101) && cst.equals(cst41) || cfop.equals(var5101) && cst.equals(cst50) || cfop.equals(var5101) && cst.equals(cst51)
-                                                                    || cfop.equals(var5101) && cst.equals(cst70) || cfop.equals(var5101) && cst.equals(cst90)) {
-
-                                                                vprod5101 = parsefloat + vprod5101;
-
-                                                                valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
-
-                                                                if (cst.equals(cst40) || cst.equals(cst41) || cst.equals(50) || cst.equals(icmssn102) || cst.equals(icmssn103) || cst.equals(icmssn3)) {
-
-                                                                    valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
-
-                                                                }
-                                                                total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5104">
-                                                            if (cfop.equals(var5104) && cst.equals(cst60) || cfop.equals(var5104) && cst.equals(cst00) || cfop.equals(var5104) && cst.equals(cst10)
-                                                                    || cfop.equals(var5104) && cst.equals(cst20) || cfop.equals(var5104) && cst.equals(cst30) || cfop.equals(var5104) && cst.equals(cst40)
-                                                                    || cfop.equals(var5104) && cst.equals(cst41) || cfop.equals(var5104) && cst.equals(cst50) || cfop.equals(var5104) && cst.equals(cst51)
-                                                                    || cfop.equals(var5104) && cst.equals(cst70) || cfop.equals(var5104) && cst.equals(cst90)) {
-
-                                                                vprod5104 = parsefloat + vprod5104;
-                                                                valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
-                                                                total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5403">
-                                                            if (cfop.equals(var5403) && cst.equals(cst60) || cfop.equals(var5403) && cst.equals(cst00) || cfop.equals(var5403) && cst.equals(cst10)
-                                                                    || cfop.equals(var5403) && cst.equals(cst20) || cfop.equals(var5403) && cst.equals(cst30) || cfop.equals(var5403) && cst.equals(cst40)
-                                                                    || cfop.equals(var5403) && cst.equals(cst41) || cfop.equals(var5403) && cst.equals(cst50) || cfop.equals(var5403) && cst.equals(cst51)
-                                                                    || cfop.equals(var5403) && cst.equals(cst70) || cfop.equals(var5403) && cst.equals(cst90)) {
-
-                                                                vprod5403 = parsefloat + vprod5403;
-                                                                valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
-                                                                total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5401">
-                                                            if (cfop.equals(var5401) && cst.equals(cst60) || cfop.equals(var5401) && cst.equals(cst00) || cfop.equals(var5401) && cst.equals(cst10)
-                                                                    || cfop.equals(var5401) && cst.equals(cst20) || cfop.equals(var5401) && cst.equals(cst30) || cfop.equals(var5401) && cst.equals(cst40)
-                                                                    || cfop.equals(var5401) && cst.equals(cst41) || cfop.equals(var5401) && cst.equals(cst50) || cfop.equals(var5401) && cst.equals(cst51)
-                                                                    || cfop.equals(var5401) && cst.equals(cst70) || cfop.equals(var5401) && cst.equals(cst90)) {
-                                                                vprod5401 = parsefloat + vprod5401;
-                                                                valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
-                                                                total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5910">
-                                                            if (cfop.equals(var5910) && cst.equals(cst60) || cfop.equals(var5910) && cst.equals(cst00) || cfop.equals(var5910) && cst.equals(cst10)
-                                                                    || cfop.equals(var5910) && cst.equals(cst20) || cfop.equals(var5910) && cst.equals(cst30) || cfop.equals(var5910) && cst.equals(cst40)
-                                                                    || cfop.equals(var5910) && cst.equals(cst41) || cfop.equals(var5910) && cst.equals(cst50) || cfop.equals(var5910) && cst.equals(cst51)
-                                                                    || cfop.equals(var5910) && cst.equals(cst70) || cfop.equals(var5910) && cst.equals(cst90)) {
-                                                                vprod5910 = parsefloat + vprod5910;
-                                                                valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
-                                                                total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5949">
-                                                            if (cfop.equals(var5949) && cst.equals(cst60) || cfop.equals(var5949) && cst.equals(cst00) || cfop.equals(var5949) && cst.equals(cst10)
-                                                                    || cfop.equals(var5949) && cst.equals(cst20) || cfop.equals(var5949) && cst.equals(cst30) || cfop.equals(var5949) && cst.equals(cst40)
-                                                                    || cfop.equals(var5949) && cst.equals(cst41) || cfop.equals(var5949) && cst.equals(cst50) || cfop.equals(var5949) && cst.equals(cst51)
-                                                                    || cfop.equals(var5949) && cst.equals(cst70) || cfop.equals(var5949) && cst.equals(cst90)) {
-                                                                vprod5949 = parsefloat + vprod5949;
-                                                                valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
-                                                                total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST1411">
-                                                            if (cfop.equals(var1411) && cst.equals(cst60) || cfop.equals(var1411) && cst.equals(cst00) || cfop.equals(var1411) && cst.equals(cst10)
-                                                                    || cfop.equals(var1411) && cst.equals(cst20) || cfop.equals(var1411) && cst.equals(cst30) || cfop.equals(var1411) && cst.equals(cst40)
-                                                                    || cfop.equals(var1411) && cst.equals(cst41) || cfop.equals(var1411) && cst.equals(cst50) || cfop.equals(var1411) && cst.equals(cst51)
-                                                                    || cfop.equals(var1411) && cst.equals(cst70) || cfop.equals(var1411) && cst.equals(cst90)) {
-                                                                vprod1411 = parsefloat + vprod1411;
-                                                                valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
-                                                                total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5929">
-                                                            if (cfop.equals(var5929) && cst.equals(cst60) || cfop.equals(var5929) && cst.equals(cst00) || cfop.equals(var5929) && cst.equals(cst10)
-                                                                    || cfop.equals(var5929) && cst.equals(cst20) || cfop.equals(var5929) && cst.equals(cst30) || cfop.equals(var5929) && cst.equals(cst40)
-                                                                    || cfop.equals(var5929) && cst.equals(cst41) || cfop.equals(var5929) && cst.equals(cst50) || cfop.equals(var5929) && cst.equals(cst51)
-                                                                    || cfop.equals(var5929) && cst.equals(cst70) || cfop.equals(var5929) && cst.equals(cst90)) {
-
-                                                                vprod5929 = parsefloat + vprod5929;
-                                                                total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
-                                                                valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
-                                                                if (cst.equals(cst00) || cst.equals(cst40) || cst.equals(cst41) || cst.equals(cst20)) {
-                                                                    cfopat1949 = "1102";
-                                                                } else {
-                                                                    cfopat1949 = "1403";
-                                                                }
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST1410">
-                                                            if (cfop.equals(var1410) && cst.equals(cst60) || cfop.equals(var1410) && cst.equals(cst00) || cfop.equals(var1410) && cst.equals(cst10)
-                                                                    || cfop.equals(var1410) && cst.equals(cst20) || cfop.equals(var1410) && cst.equals(cst30) || cfop.equals(var1410) && cst.equals(cst40)
-                                                                    || cfop.equals(var1410) && cst.equals(cst41) || cfop.equals(var1410) && cst.equals(cst50) || cfop.equals(var1410) && cst.equals(cst51)
-                                                                    || cfop.equals(var1410) && cst.equals(cst70) || cfop.equals(var1410) && cst.equals(cst90)) {
-                                                                vprod1410 = parsefloat + vprod1410;
-                                                                valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
-                                                                total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST6910">
-                                                            if (cfop.equals(var6910) && cst.equals(cst60) || cfop.equals(var6910) && cst.equals(cst00) || cfop.equals(var6910) && cst.equals(cst10)
-                                                                    || cfop.equals(var6910) && cst.equals(cst20) || cfop.equals(var6910) && cst.equals(cst30) || cfop.equals(var6910) && cst.equals(cst40)
-                                                                    || cfop.equals(var6910) && cst.equals(cst41) || cfop.equals(var6910) && cst.equals(cst50) || cfop.equals(var6910) && cst.equals(cst51)
-                                                                    || cfop.equals(var6910) && cst.equals(cst70) || cfop.equals(var6910) && cst.equals(cst90)) {
-
-                                                                vprod6910 = parsefloat + vprod6910;
-                                                                total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
-                                                                valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST6102">
-                                                            if (cfop.equals(var6102) && cst.equals(cst60) || cfop.equals(var6102) && cst.equals(cst00) || cfop.equals(var6102) && cst.equals(cst10)
-                                                                    || cfop.equals(var6102) && cst.equals(cst20) || cfop.equals(var6102) && cst.equals(cst30) || cfop.equals(var6102) && cst.equals(cst40)
-                                                                    || cfop.equals(var6102) && cst.equals(cst41) || cfop.equals(var6102) && cst.equals(cst50) || cfop.equals(var6102) && cst.equals(cst51)
-                                                                    || cfop.equals(var6102) && cst.equals(cst70) || cfop.equals(var6102) && cst.equals(cst90)) {
-
-                                                                vprod6102 = parsefloat + vprod6102;
-                                                                total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
-                                                                valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5911">
-                                                            if (cfop.equals(var5911) && cst.equals(cst60) || cfop.equals(var5911) && cst.equals(cst00) || cfop.equals(var5911) && cst.equals(cst10)
-                                                                    || cfop.equals(var5911) && cst.equals(cst20) || cfop.equals(var5911) && cst.equals(cst30) || cfop.equals(var5911) && cst.equals(cst40)
-                                                                    || cfop.equals(var5911) && cst.equals(cst41) || cfop.equals(var5911) && cst.equals(cst50) || cfop.equals(var5911) && cst.equals(cst51)
-                                                                    || cfop.equals(var5911) && cst.equals(cst70) || cfop.equals(var5911) && cst.equals(cst90)) {
-                                                                vprod5911 = parsefloat + vprod5911;
-                                                                valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
-                                                                total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5106">
-                                                            if (cfop.equals(var5106) && cst.equals(cst60) || cfop.equals(var5106) && cst.equals(cst00) || cfop.equals(var5106) && cst.equals(cst10)
-                                                                    || cfop.equals(var5106) && cst.equals(cst20) || cfop.equals(var5106) && cst.equals(cst30) || cfop.equals(var5106) && cst.equals(cst40)
-                                                                    || cfop.equals(var5106) && cst.equals(cst41) || cfop.equals(var5106) && cst.equals(cst50) || cfop.equals(var5106) && cst.equals(cst51)
-                                                                    || cfop.equals(var5106) && cst.equals(cst70) || cfop.equals(var5106) && cst.equals(cst90)) {
-                                                                vprod5106 = parsefloat + vprod5106;
-                                                                valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
-                                                                total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5105">
-                                                            if (cfop.equals(var5105) && cst.equals(cst60) || cfop.equals(var5105) && cst.equals(cst00) || cfop.equals(var5105) && cst.equals(cst10)
-                                                                    || cfop.equals(var5105) && cst.equals(cst20) || cfop.equals(var5105) && cst.equals(cst30) || cfop.equals(var5105) && cst.equals(cst40)
-                                                                    || cfop.equals(var5105) && cst.equals(cst41) || cfop.equals(var5105) && cst.equals(cst50) || cfop.equals(var5105) && cst.equals(cst51)
-                                                                    || cfop.equals(var5105) && cst.equals(cst70) || cfop.equals(var5105) && cst.equals(cst90)) {
-                                                                vprod5105 = parsefloat + vprod5105;
-                                                                valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
-                                                                total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
-                                                            }
-                                                            //</editor-fold>
                                                             break;
                                                     }
                                                 }
@@ -6306,214 +7634,1052 @@ public class ItensJavaController implements Initializable {
                                                             valor_csosn = elementodadoss.getTextContent();
                                                             parsefloat = Float.parseFloat(vprod);
 
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5405">
-                                                            if (cfop.equals(var5405) && valor_csosn.equals(icmssn101) || cfop.equals(var5405) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5405) && valor_csosn.equals(icmssn103) || cfop.equals(var5405) && valor_csosn.equals(icmssn3) || cfop.equals(var5405) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5405) && valor_csosn.equals(icmssn202) || cfop.equals(var5405) && valor_csosn.equals(icmssn203) || cfop.equals(var5405) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5405) && valor_csosn.equals(icmssn500) || cfop.equals(var5405) && valor_csosn.equals(icmssn900) || cfop.equals(var5405) && valor_csosn.equals(icmssn300) || cfop.equals(var5405) && valor_csosn.equals(icmssn400)) {
+                                                            // <editor-fold defaultstate="collapsed" desc="Switch CSOSN">
+                                                            switch (cfop) {
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5405">
+                                                                case "5405":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5405 = parsefloat + vprod5405;
+                                                                            total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                        default:
 
-                                                                vprod5405 = parsefloat + vprod5405;
-                                                                total_outras5405 = vprod5405 + voutroverif5405 - vdesc5405;
-                                                                valor_total_nota5405 = vprod5405 + voutroverif5405 - vdesc5405;
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
 
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5102">
+                                                                case "5102":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5102 = parsefloat + vprod5102;
+                                                                            valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
+                                                                            total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5101">
+                                                                case "5101":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat + voutroverif5101 - vdesc5101;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5101 = parsefloat + vprod5101;
+                                                                            valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
+                                                                            total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5401">
+                                                                case "5401":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5401 = parsefloat + vprod5401;
+                                                                            valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5910">
+                                                                case "5910":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5910 = parsefloat + vprod5910;
+                                                                            valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5949">
+                                                                case "5949":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5949 = parsefloat + vprod5949;
+                                                                            valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5104">
+                                                                case "5104":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5104 = parsefloat + vprod5104;
+                                                                            valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5403">
+                                                                case "5403":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5403 = parsefloat + vprod5403;
+                                                                            valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST1411">
+                                                                case "1411":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod1411 = parsefloat + vprod1411;
+                                                                            valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5929">
+                                                                case "5929":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5929 = parsefloat + vprod5929;
+                                                                            valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST1410">
+                                                                case "1410":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod1410 = parsefloat + vprod1410;
+                                                                            valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST6910">
+                                                                case "6910":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod6910 = parsefloat + vprod6910;
+                                                                            valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST6102">
+                                                                case "6102":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod6102 = parsefloat + vprod6102;
+                                                                            valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5911">
+                                                                case "5911":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5911 = parsefloat + vprod5911;
+                                                                            valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5106">
+                                                                case "5106":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5106 = parsefloat + vprod5106;
+                                                                            valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                // <editor-fold defaultstate="collapsed" desc="CST5105">
+                                                                case "5105":
+                                                                    switch (cst) {
+                                                                        case "101":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "102":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "103":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "3":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "201":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "202":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "203":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "500":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "900":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "300":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        case "400":
+                                                                            vprod5105 = parsefloat + vprod5105;
+                                                                            valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
+                                                                            break;
+                                                                        default:
+
+                                                                            break;
+                                                                    }
+                                                                    break;
+                                                                //</editor-fold>
+
+                                                                default:
+
+                                                                    break;
                                                             }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5102">
-                                                            if (cfop.equals(var5102) && valor_csosn.equals(icmssn101) || cfop.equals(var5102) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5102) && valor_csosn.equals(icmssn103) || cfop.equals(var5102) && valor_csosn.equals(icmssn3) || cfop.equals(var5102) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5102) && valor_csosn.equals(icmssn202) || cfop.equals(var5102) && valor_csosn.equals(icmssn203) || cfop.equals(var5102) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5102) && valor_csosn.equals(icmssn500) || cfop.equals(var5102) && valor_csosn.equals(icmssn900) || cfop.equals(var5102) && valor_csosn.equals(icmssn300) || cfop.equals(var5102) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5102 = parsefloat + vprod5102;
-                                                                valor_total_nota5102 = vprod5102 + voutroverif5102 - vdesc5102;
-
-                                                                if (valor_csosn.equals(icmssn102) || valor_csosn.equals(icmssn103) || valor_csosn.equals(icmssn3)) {
-
-                                                                    valor_isentas_naotributadas5102 = valor_isentas_naotributadas5102 + parsefloat + voutroverif5102 - vdesc5102;
-
-                                                                }
-                                                                total_outras5102 = vprod5102 + voutroverif5102 - vdesc5102 - valor_isentas_naotributadas5102;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5101">
-                                                            if (cfop.equals(var5101) && valor_csosn.equals(icmssn101) || cfop.equals(var5101) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5101) && valor_csosn.equals(icmssn103) || cfop.equals(var5101) && valor_csosn.equals(icmssn3) || cfop.equals(var5101) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5101) && valor_csosn.equals(icmssn202) || cfop.equals(var5101) && valor_csosn.equals(icmssn203) || cfop.equals(var5101) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5101) && valor_csosn.equals(icmssn500) || cfop.equals(var5101) && valor_csosn.equals(icmssn900) || cfop.equals(var5101) && valor_csosn.equals(icmssn300) || cfop.equals(var5101) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5101 = parsefloat + vprod5101;
-
-                                                                valor_total_nota5101 = vprod5101 + voutroverif5101 - vdesc5101;
-
-                                                                if (valor_csosn.equals(icmssn102) || valor_csosn.equals(icmssn103) || valor_csosn.equals(icmssn3)) {
-
-                                                                    valor_isentas_naotributadas5101 = valor_isentas_naotributadas5101 + parsefloat - vdesc5101 + voutroverif5101;
-
-                                                                }
-                                                                total_outras5101 = vprod5101 + voutroverif5101 - vdesc5101 - valor_isentas_naotributadas5101;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5104">
-                                                            if (cfop.equals(var5104) && valor_csosn.equals(icmssn101) || cfop.equals(var5104) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5104) && valor_csosn.equals(icmssn103) || cfop.equals(var5104) && valor_csosn.equals(icmssn3) || cfop.equals(var5104) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5104) && valor_csosn.equals(icmssn202) || cfop.equals(var5104) && valor_csosn.equals(icmssn203) || cfop.equals(var5104) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5104) && valor_csosn.equals(icmssn500) || cfop.equals(var5104) && valor_csosn.equals(icmssn900) || cfop.equals(var5104) && valor_csosn.equals(icmssn300) || cfop.equals(var5104) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5104 = parsefloat + vprod5104;
-                                                                valor_total_nota5104 = vprod5104 + voutroverif5104 - vdesc5104;
-                                                                total_outras5104 = vprod5104 + voutroverif5104 - vdesc5104;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5403">
-                                                            if (cfop.equals(var5403) && valor_csosn.equals(icmssn101) || cfop.equals(var5403) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5403) && valor_csosn.equals(icmssn103) || cfop.equals(var5403) && valor_csosn.equals(icmssn3) || cfop.equals(var5403) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5403) && valor_csosn.equals(icmssn202) || cfop.equals(var5403) && valor_csosn.equals(icmssn203) || cfop.equals(var5403) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5403) && valor_csosn.equals(icmssn500) || cfop.equals(var5403) && valor_csosn.equals(icmssn900) || cfop.equals(var5403) && valor_csosn.equals(icmssn300) || cfop.equals(var5403) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5403 = parsefloat + vprod5403;
-                                                                valor_total_nota5403 = vprod5403 + voutroverif5403 - vdesc5403;
-                                                                total_outras5403 = vprod5403 + voutroverif5403 - vdesc5403;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5401">
-                                                            if (cfop.equals(5401) && valor_csosn.equals(icmssn101) || cfop.equals(5401) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5401) && valor_csosn.equals(icmssn103) || cfop.equals(5401) && valor_csosn.equals(icmssn3) || cfop.equals(5401) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5401) && valor_csosn.equals(icmssn202) || cfop.equals(5401) && valor_csosn.equals(icmssn203) || cfop.equals(5401) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5401) && valor_csosn.equals(icmssn500) || cfop.equals(5401) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5401 = parsefloat + vprod5401;
-                                                                valor_total_nota5401 = vprod5401 + voutroverif5401 - vdesc5401;
-                                                                total_outras5401 = vprod5401 + voutroverif5401 - vdesc5401;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5910">
-                                                            if (cfop.equals(5910) && valor_csosn.equals(icmssn101) || cfop.equals(5910) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5910) && valor_csosn.equals(icmssn103) || cfop.equals(5910) && valor_csosn.equals(icmssn3) || cfop.equals(5910) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5910) && valor_csosn.equals(icmssn202) || cfop.equals(5910) && valor_csosn.equals(icmssn203) || cfop.equals(5910) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5910) && valor_csosn.equals(icmssn500) || cfop.equals(5910) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5910 = parsefloat + vprod5910;
-                                                                valor_total_nota5910 = vprod5910 + voutroverif5910 - vdesc5910;
-                                                                total_outras5910 = vprod5910 + voutroverif5910 - vdesc5910;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5949">
-                                                            if (cfop.equals(var5949) && valor_csosn.equals(icmssn101) || cfop.equals(var5949) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5949) && valor_csosn.equals(icmssn103) || cfop.equals(var5949) && valor_csosn.equals(icmssn3) || cfop.equals(var5949) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5949) && valor_csosn.equals(icmssn202) || cfop.equals(var5949) && valor_csosn.equals(icmssn203) || cfop.equals(var5949) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5949) && valor_csosn.equals(icmssn500) || cfop.equals(var5949) && valor_csosn.equals(icmssn900) || cfop.equals(var5949) && valor_csosn.equals(icmssn300) || cfop.equals(var5949) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5949 = parsefloat + vprod5949;
-                                                                valor_total_nota5949 = vprod5949 + voutroverif5949 - vdesc5949;
-                                                                total_outras5949 = vprod5949 + voutroverif5949 - vdesc5949;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST1411">
-                                                            if (cfop.equals(var1411) && valor_csosn.equals(icmssn101) || cfop.equals(var1411) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var1411) && valor_csosn.equals(icmssn103) || cfop.equals(var1411) && valor_csosn.equals(icmssn3) || cfop.equals(var1411) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var1411) && valor_csosn.equals(icmssn202) || cfop.equals(var1411) && valor_csosn.equals(icmssn203) || cfop.equals(var1411) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var1411) && valor_csosn.equals(icmssn500) || cfop.equals(var1411) && valor_csosn.equals(icmssn900) || cfop.equals(var1411) && valor_csosn.equals(icmssn300) || cfop.equals(var1411) && valor_csosn.equals(icmssn400)) {
-                                                                vprod1411 = parsefloat + vprod1411;
-                                                                valor_total_nota1411 = vprod1411 + voutroverif1411 - vdesc1411;
-                                                                total_outras1411 = vprod1411 + voutroverif1411 - vdesc1411;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5929">
-                                                            if (cfop.equals(var5929) && valor_csosn.equals(icmssn101) || cfop.equals(var5929) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var5929) && valor_csosn.equals(icmssn103) || cfop.equals(var5929) && valor_csosn.equals(icmssn3) || cfop.equals(var5929) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var5929) && valor_csosn.equals(icmssn202) || cfop.equals(var5929) && valor_csosn.equals(icmssn203) || cfop.equals(var5929) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var5929) && valor_csosn.equals(icmssn500) || cfop.equals(var5929) && valor_csosn.equals(icmssn900) || cfop.equals(var5929) && valor_csosn.equals(icmssn300) || cfop.equals(var5929) && valor_csosn.equals(icmssn400)) {
-
-                                                                vprod5929 = parsefloat + vprod5929;
-                                                                total_outras5929 = vprod5929 + voutroverif5929 - vdesc5929;
-                                                                valor_total_nota5929 = vprod5929 + voutroverif5929 - vdesc5929;
-                                                                if (valor_csosn.equals(icmssn101) || valor_csosn.equals(icmssn103) || valor_csosn.equals(icmssn300) || valor_csosn.equals(icmssn400)) {
-                                                                    cfopat1949 = "1102";
-                                                                } else {
-                                                                    cfopat1949 = "1403";
-                                                                }
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST1410">
-                                                            if (cfop.equals(var1410) && valor_csosn.equals(icmssn101) || cfop.equals(var1410) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var1410) && valor_csosn.equals(icmssn103) || cfop.equals(var1410) && valor_csosn.equals(icmssn3) || cfop.equals(var1410) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var1410) && valor_csosn.equals(icmssn202) || cfop.equals(var1410) && valor_csosn.equals(icmssn203) || cfop.equals(var1410) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var1410) && valor_csosn.equals(icmssn500) || cfop.equals(var1410) && valor_csosn.equals(icmssn900) || cfop.equals(var1410) && valor_csosn.equals(icmssn300) || cfop.equals(var1410) && valor_csosn.equals(icmssn400)) {
-                                                                vprod1410 = parsefloat + vprod1410;
-                                                                valor_total_nota1410 = vprod1410 + voutroverif1410 - vdesc1410;
-                                                                total_outras1410 = vprod1410 + voutroverif1410 - vdesc1410;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST6910">
-                                                            if (cfop.equals(var6910) && valor_csosn.equals(icmssn101) || cfop.equals(var6910) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var6910) && valor_csosn.equals(icmssn103) || cfop.equals(var6910) && valor_csosn.equals(icmssn3) || cfop.equals(var6910) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var6910) && valor_csosn.equals(icmssn202) || cfop.equals(var6910) && valor_csosn.equals(icmssn203) || cfop.equals(var6910) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var6910) && valor_csosn.equals(icmssn500) || cfop.equals(var6910) && valor_csosn.equals(icmssn900)) {
-
-                                                                vprod6910 = parsefloat + vprod6910;
-                                                                total_outras6910 = vprod6910 + voutroverif6910 - vdesc6910;
-                                                                valor_total_nota6910 = vprod6910 + voutroverif6910 - vdesc6910;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST6102">
-                                                            if (cfop.equals(var6102) && valor_csosn.equals(icmssn101) || cfop.equals(var6102) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(var6102) && valor_csosn.equals(icmssn103) || cfop.equals(var6102) && valor_csosn.equals(icmssn3) || cfop.equals(var6102) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(var6102) && valor_csosn.equals(icmssn202) || cfop.equals(var6102) && valor_csosn.equals(icmssn203) || cfop.equals(var6102) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(var6102) && valor_csosn.equals(icmssn500) || cfop.equals(var6102) && valor_csosn.equals(icmssn900)) {
-
-                                                                vprod6102 = parsefloat + vprod6102;
-                                                                total_outras6102 = vprod6102 + voutroverif6102 - vdesc6102;
-                                                                valor_total_nota6102 = vprod6102 + voutroverif6102 - vdesc6102;
-
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5911">
-                                                            if (cfop.equals(5911) && valor_csosn.equals(icmssn101) || cfop.equals(5911) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5911) && valor_csosn.equals(icmssn103) || cfop.equals(5911) && valor_csosn.equals(icmssn3) || cfop.equals(5911) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5911) && valor_csosn.equals(icmssn202) || cfop.equals(5911) && valor_csosn.equals(icmssn203) || cfop.equals(5911) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5911) && valor_csosn.equals(icmssn500) || cfop.equals(5911) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5911 = parsefloat + vprod5911;
-                                                                valor_total_nota5911 = vprod5911 + voutroverif5911 - vdesc5911;
-                                                                total_outras5911 = vprod5911 + voutroverif5911 - vdesc5911;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5106">
-                                                            if (cfop.equals(5106) && valor_csosn.equals(icmssn101) || cfop.equals(5106) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5106) && valor_csosn.equals(icmssn103) || cfop.equals(5106) && valor_csosn.equals(icmssn3) || cfop.equals(5106) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5106) && valor_csosn.equals(icmssn202) || cfop.equals(5106) && valor_csosn.equals(icmssn203) || cfop.equals(5106) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5106) && valor_csosn.equals(icmssn500) || cfop.equals(5106) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5106 = parsefloat + vprod5106;
-                                                                valor_total_nota5106 = vprod5106 + voutroverif5106 - vdesc5106;
-                                                                total_outras5106 = vprod5106 + voutroverif5106 - vdesc5106;
-                                                            }
-                                                            //</editor-fold>
-
-                                                            // <editor-fold defaultstate="collapsed" desc="CST5105">
-                                                            if (cfop.equals(5105) && valor_csosn.equals(icmssn101) || cfop.equals(5105) && valor_csosn.equals(icmssn102)
-                                                                    || cfop.equals(5105) && valor_csosn.equals(icmssn103) || cfop.equals(5105) && valor_csosn.equals(icmssn3) || cfop.equals(5105) && valor_csosn.equals(icmssn201)
-                                                                    || cfop.equals(5105) && valor_csosn.equals(icmssn202) || cfop.equals(5105) && valor_csosn.equals(icmssn203) || cfop.equals(5105) && valor_csosn.equals(icmssn203)
-                                                                    || cfop.equals(5105) && valor_csosn.equals(icmssn500) || cfop.equals(5105) && valor_csosn.equals(icmssn900) || cfop.equals(5929) && valor_csosn.equals(icmssn300) || cfop.equals(5929) && valor_csosn.equals(icmssn400)) {
-                                                                vprod5105 = parsefloat + vprod5105;
-                                                                valor_total_nota5105 = vprod5105 + voutroverif5105 - vdesc5105;
-                                                                total_outras5105 = vprod5105 + voutroverif5105 - vdesc5105;
-                                                            }
-                                                            //</editor-fold>
 
                                                             break;
                                                         //</editor-fold>
@@ -6548,6 +8714,8 @@ public class ItensJavaController implements Initializable {
 
             }
 //</editor-fold>
+            //</editor-fold>
+            //</editor-fold>
 
             // <editor-fold defaultstate="collapsed" desc="DESDOBRAMENTO 5405">
             if (flag5405 == 1) {
@@ -6677,6 +8845,7 @@ public class ItensJavaController implements Initializable {
             try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
                 // <editor-fold defaultstate="collapsed" desc="SAÍDA DAS INFORMAÇÕES">
                 // <editor-fold defaultstate="collapsed" desc="SAÍDA5405">
+                
                 if (flag5405 == 0) {
 
                 } else {
@@ -6720,7 +8889,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5102 + "        " + df.format(vprod5102).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(valor_isentas_naotributadas5102).replace(",", ".") + df.format(total_outras5102).replace(",", ".").replace("-", "") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5102).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5102).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5102).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5102).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5102).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5102).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5102).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6748,7 +8917,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5101 + "        " + df.format(vprod5101).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(valor_isentas_naotributadas5101).replace(",", ".") + df.format(total_outras5101).replace(",", ".").replace("-", "") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5101).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5101).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5101).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5101).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5101).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5101).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5101).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6769,7 +8938,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>                        
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5949 + "        " + df.format(vprod5949).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5949).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5949).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1949 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5949).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5949).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5949).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1949 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5949).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5949).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5949).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6790,7 +8959,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>                        
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5403 + "        " + df.format(vprod5403).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5403).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5403).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5403).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5403).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5403).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5403).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5403).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5403).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6811,7 +8980,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>                        
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5104 + "        " + df.format(vprod5104).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5104).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5104).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5104).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5104).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5104).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5104).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5104).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5104).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold> 
@@ -6832,7 +9001,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5401 + "        " + df.format(vprod5401).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5401).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5401).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5401).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5401).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5401).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5401).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5401).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5401).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6853,7 +9022,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5910 + "        " + df.format(vprod5910).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5910).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5910).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1403 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5910).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5910).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5910).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1910 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5910).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5910).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5910).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6874,7 +9043,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida1411 + "        " + df.format(vprod1411).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras1411).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota1411).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1411 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif1411).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc1411).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras1411).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1411 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif1411).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc1411).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras1411).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6895,7 +9064,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5929 + "        " + df.format(vprod5929).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5929).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5929).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1949 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5929).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5929).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5929).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1949 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5929).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5929).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5929).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6916,7 +9085,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida1410 + "        " + df.format(vprod1410).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras1410).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota1410).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1410 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif1410).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc1410).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras1410).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1410 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif1410).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc1410).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras1410).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6937,7 +9106,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida6910 + "        " + df.format(vprod6910).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras6910).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota6910).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat2910 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif6910).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc6910).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras6910).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat2910 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif6910).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc6910).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras6910).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6958,7 +9127,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida6102 + "        " + df.format(vprod6102).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras6102).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota6102).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat2102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif6102).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc6102).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras6102).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat2102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif6102).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc6102).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras6102).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -6979,7 +9148,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5911 + "        " + df.format(vprod5911).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5911).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5911).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1911 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5911).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5911).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5911).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1911 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5911).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5911).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5911).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -7000,7 +9169,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5106 + "        " + df.format(vprod5106).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5106).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5106).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5106).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5106).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5106).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5106).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5106).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5106).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -7021,7 +9190,7 @@ public class ItensJavaController implements Initializable {
                     //</editor-fold>   
 
                     gravarArq.println("    " + cnp + emi + emi + "            " + saida5105 + "        " + df.format(vprod5105).replace(",", ".") + df.format(base_calculo_icms).replace(",", ".") + df.format(icms_creditado).replace(",", ".") + df.format(isentas_naotributadas).replace(",", ".") + df.format(total_outras5105).replace(",", ".") + df.format(ipi_nao_creditado).replace(",", ".") + aliquo_icms.format(aliquota_icms).replace(",", ".") + df.format(base_calculo_ipi).replace(",", ".") + df.format(ipi_creditado).replace(",", ".") + df.format(ipi_creditado_50).replace(",", ".") + df.format(isentas_naotributadas_zerado).replace(",", ".") + df.format(outras_zerado).replace(",", ".") + df.format(valor_total_nota5105).replace(",", ".") + "1" + "     " + sit_especial.format(sit_especial_valor1).replace(",", ".") + sit_especial.format(sit_especial_valor2).replace(",", ".") + sit_especial.format(sit_especial_valor3).replace(",", ".") + sit_especial.format(sit_especial_valor4).replace(",", ".") + "                                                                                                                                                                                                                            "
-                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5105).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5105).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5105).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00" );
+                            + "" + insc_estadual + espaco + un_federal + "1" + "                                                                                                        " + cfopat1102 + cod_municipal + "                                                                                                                                            " + df.format(base_calc_subst_tribut).replace(",", ".") + df.format(imposto_retido_subst_tribut).replace(",", ".") + "      " + "0" + "      " + df.format(valor_frete).replace(",", ".") + df.format(valor_seguro).replace(",", ".") + df.format(voutroverif5105).replace(",", ".") + "NF-E" + " " + "0" + "1" + "    " + format_num_doc.format(float_num_doc) + "00000000000000000000" + "        " + hora_emi + "        " + "00000000000000000000000000000000000000000000000000" + nfe + "                                                                         " + "0" + "                                   " + format_vdesc.format(vdesc5105).replace(",", ".") + "00" + "                        " + "1" + "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                " + "000000000.000000.00000000000.00" + sit_especial.format(outras5105).replace(",", ".") + "    " + "000.0000" + "                    " + "00000000000000.000000000000000.000000000000000.000000000000000.00");
 
                 }
                 //</editor-fold>
@@ -7167,7 +9336,7 @@ public class ItensJavaController implements Initializable {
         alerta.setTitle("Gravar Dados");
         alerta.setHeaderText(null);
         alerta.setContentText("Dados gravados com sucesso!");
-
         alerta.showAndWait();
     }
+
 }

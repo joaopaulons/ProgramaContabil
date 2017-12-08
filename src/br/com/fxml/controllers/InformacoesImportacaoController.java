@@ -132,9 +132,14 @@ public class InformacoesImportacaoController implements Initializable {
                                     as2 = as2.substring(0, 10);
                                 }
                                 if (as6.equals("caixa")) {
-                                   conta = txtOutrosBrancos.getText();
-                                }else{
-                                    conta = txtBanco.getText();
+                                    conta = txtOutrosBrancos.getText();
+                                } else {
+                                     if (as6.equals("banco")) {
+                                        conta = "11202";
+                                    } else {
+                                        conta = txtBanco.getText();
+                                    }
+                                    
                                 }
                                 switch (as2.length()) {
                                     case 1:
@@ -215,10 +220,15 @@ public class InformacoesImportacaoController implements Initializable {
                                     as2 = as2.substring(0, 10);
                                 }
                                 if (as6.equals("caixa")) {
-                                   conta = txtOutrosBrancos.getText();
-                                }else{
-                                    conta = txtBanco.getText();
+                                    conta = txtOutrosBrancos.getText();
+                                } else {
+                                    if (as6.equals("banco")) {
+                                        conta = "11202";
+                                    } else {
+                                        conta = txtBanco.getText();
+                                    }
                                 }
+
                                 switch (as2.length()) {
                                     case 1:
                                         numero_valor_pagamento = Float.parseFloat(as3.replace(",", "."));
@@ -301,7 +311,7 @@ public class InformacoesImportacaoController implements Initializable {
             alerta.setTitle("Erro ao executar");
             alerta.setContentText("Ocorreu um erro ao executar a tarefa! Erro: " + ex);
             alerta.show();
-            
+
         }
     }
 

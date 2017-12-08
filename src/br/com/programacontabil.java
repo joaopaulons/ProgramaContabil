@@ -32,7 +32,7 @@ public class programacontabil extends Application {
         Locale.setDefault(Locale.forLanguageTag("pt-BR"));
         Parent root = FXMLLoader.load(getClass().getResource("fxml/TelaMain.fxml"));        
         Scene scene = new Scene(root);    
-        
+        primaryStage.setResizable(false);
         primaryStage.setTitle("Programa Contabil");
         primaryStage.setScene(scene);
         primaryStage.show();

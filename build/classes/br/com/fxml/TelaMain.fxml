@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -8,7 +9,9 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.effect.SepiaTone?>
 <?import javafx.scene.image.Image?>
@@ -20,11 +23,11 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.TelaMainController">
    <center>
-      <AnchorPane fx:id="painelImportacoes" prefHeight="575.0" prefWidth="666.0">
+      <AnchorPane fx:id="painelImportacoes" prefHeight="575.0" prefWidth="800.0">
          <children>
             <AnchorPane fx:id="telaPrincipal" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="561.0" fitWidth="800.0">
+                  <ImageView fitHeight="577.0" fitWidth="812.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-12.0" AnchorPane.topAnchor="0.0">
                      <image>
                         <Image url="@imagens/paris.jpg" />
                      </image>
@@ -32,15 +35,71 @@
                         <SepiaTone level="0.3" />
                      </effect>
                   </ImageView>
-                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="14.0">
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#easterEgg">
                      <image>
                         <Image url="@imagens/Logo.png" />
                      </image>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
                   </ImageView>
                   <Label layoutX="136.0" layoutY="38.0" text="NSystem Solutions" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>
+                     <effect>
+                        <DropShadow color="WHITE" />
+                     </effect>
+                  </Label>
+                  <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="613.0">
+                     <image>
+                        <Image url="@imagens/versão.png" />
+                     </image>
+                     <effect>
+                        <InnerShadow>
+                           <input>
+                              <DropShadow />
+                           </input>
+                        </InnerShadow>
+                     </effect>
+                  </ImageView>
+                  <Button fx:id="buttonResposta" layoutX="46.0" layoutY="253.0" mnemonicParsing="false" onAction="#ButtonResposta" prefHeight="25.0" prefWidth="106.0" styleClass="round-red" stylesheets="@css/css.css" text="Resposta" visible="false" />
+                  <Label fx:id="labelResposta" layoutX="56.0" layoutY="284.0" text="Resposta..." textFill="WHITE" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <effect>
+                        <DropShadow spread="0.81">
+                           <input>
+                              <InnerShadow color="WHITE" />
+                           </input>
+                        </DropShadow>
+                     </effect>
+                  </Label>
+                  <TextArea fx:id="labelFrases" layoutX="46.0" layoutY="200.0" opacity="0.77" prefHeight="38.0" prefWidth="667.0" visible="false" />
+                  <Button fx:id="ButtonGerarFrase" layoutX="46.0" layoutY="514.0" mnemonicParsing="false" onAction="#buttonGerarFrase" styleClass="round-red" stylesheets="@css/css.css" text="Gerar Frase" visible="false" />
+                  <Label fx:id="labelErro" layoutX="27.0" layoutY="201.0" text="Não foi dessa vez! Tente novamente!" textFill="WHITE" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="habilitarEasterEgg" layoutX="227.0" layoutY="38.0" onMouseClicked="#gerarEasterEgg" text="e" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Pane fx:id="BackgroundPane" layoutX="434.0" layoutY="278.0" prefHeight="200.0" prefWidth="200.0" />
+                  <Label layoutX="652.0" layoutY="99.0" prefHeight="30.0" prefWidth="123.0" rotate="47.3" text="Versão 2.0.0" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow color="WHITE">
+                           <input>
+                              <DropShadow color="#b58f8f" />
+                           </input>
+                        </InnerShadow>
+                     </effect>
                   </Label>
                </children>
             </AnchorPane>
@@ -169,6 +228,20 @@
                                           </AnchorPane>
                                       </content>
                                     </TitledPane>
+                                    <TitledPane animated="false" prefHeight="70.0" prefWidth="200.0" text="Conciliação Contábil">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="49.0" prefWidth="196.0">
+                                             <children>
+                                                <MenuButton layoutX="44.0" layoutY="10.0" mnemonicParsing="false" text="Empresas" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <items>
+                                                    <MenuItem mnemonicParsing="false" onAction="#buttonConciliacaoAmeripan" text="Ameripan" />
+                                                    <MenuItem mnemonicParsing="false" text="Action 2" />
+                                                  </items>
+                                                </MenuButton>
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </TitledPane>
                                 </panes>
                                  <effect>
                                     <InnerShadow color="WHITE" />
@@ -201,8 +274,23 @@
                                        <children>
                                           <MenuButton layoutX="51.0" layoutY="14.0" mnemonicParsing="false" text="Opções" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <items>
-                                              <MenuItem mnemonicParsing="false" onAction="#buttonItens" text="Capa" />
-                                              <MenuItem mnemonicParsing="false" onAction="#menuButtonCapa" text="Itens" />
+                                              <MenuItem mnemonicParsing="false" onAction="#buttonCapa" text="Alpha Capa">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0">
+                                                         <image>
+                                                            <Image url="@imagens/alfa.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic></MenuItem>
+                                              <MenuItem mnemonicParsing="false" onAction="#menuButtonItens" text="Beta Itens">
+                                                   <graphic>
+                                                      <ImageView fitHeight="30.0" fitWidth="30.0">
+                                                         <image>
+                                                            <Image url="@imagens/beta.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic></MenuItem>
+                                                <MenuItem mnemonicParsing="false" onAction="#menuButtonGammaCapa" text="Gamma Capa" />
                                             </items>
                                           </MenuButton>
                                        </children>

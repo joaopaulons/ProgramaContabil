@@ -116,14 +116,16 @@ public class ImportacaoFerrariFolleController implements Initializable {
             System.out.println("Iniciando a leitura da planilha XLS:");
             for (int i = 0; i < linhas; i++) {
                 Cell a1 = sheet.getCell(0, i);
-                Cell a2 = sheet.getCell(2, i);
-                Cell a3 = sheet.getCell(3, i);
-                Cell a4 = sheet.getCell(4, i);
+                Cell a2 = sheet.getCell(1, i);
+                Cell a3 = sheet.getCell(2, i);
+                Cell a4 = sheet.getCell(3, i);
+                
 
                 String as1 = a1.getContents();
                 String as2 = a2.getContents();
                 String as3 = a3.getContents();
                 String as4 = a4.getContents();
+                
 
                 txtareaData.setEditable(true);
                 txtareaDescricao.setEditable(true);
@@ -174,19 +176,19 @@ public class ImportacaoFerrariFolleController implements Initializable {
             for (int i = 0; i < linhas; i++) {
                 a++;
                 Cell a1 = sheet.getCell(0, i);
-                Cell a2 = sheet.getCell(2, i);
-                Cell a3 = sheet.getCell(3, i);
-                Cell a4 = sheet.getCell(4, i);
-                Cell a5 = sheet.getCell(5, i);
+                Cell a2 = sheet.getCell(1, i);
+                Cell a3 = sheet.getCell(2, i);
+                Cell a4 = sheet.getCell(3, i);
+                
 
                 String as1 = a1.getContents();
                 String as2 = a2.getContents();
                 String as3 = a3.getContents();
                 String as4 = a4.getContents();
-                String as5 = a5.getContents();
+                
 
                 try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
-                    if (as1.equals("Data") || as2.equals("Histórico") || as3.equals("Docto.") || as4.equals("Valor R$") || as2.equals("SALDO ANTERIOR") || as4.startsWith("-")) {
+                    if (as1.equals("Data") || as2.equals("Histórico") || as3.equals("Docto.") || as4.equals("Valor R$") || as2.equals("SALDO ANTERIOR") || as4.contains("-") || as4.equals("0")) {
                         a = a - 1;
 
                     } else {
@@ -198,8 +200,81 @@ public class ImportacaoFerrariFolleController implements Initializable {
                         DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
                         NumberFormat nf = NumberFormat.getInstance();
                         nf.setMinimumIntegerDigits(5);
+                        String espaco = "";
                         float teste = Float.parseFloat(as4.replace(".", "").replace(",", ".").replace("Valor R$", ""));
-                        gravarArq.println("LC1" + nf.format(a).replace(".", "").replace("-", "0") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2.substring(0, 10) + "                                      " + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "            " + as2 + "  " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                        switch(as2){
+                            case "CTAO CRED.MASTERCARD- REDECARD":
+                                as2 = as2.replace("CTAO CRED.MASTERCARD- REDECARD", "DEPOSITO");
+                                break;
+                            case "CARTAO CRED. VISA - REDECARD":
+                                as2 = as2.replace("CARTAO CRED. VISA - REDECARD", "DEPOSITO");
+                                break;
+                            case "CARTAO HIPERCARD CRED REDECARD":
+                                as2 = as2.replace("CARTAO HIPERCARD CRED REDECARD", "DEPOSITO");
+                                break;
+                            case "CARTAO DEB.MASTERCARD-REDECARD":
+                                as2 = as2.replace("CARTAO DEB.MASTERCARD-REDECARD", "DEPOSITO");
+                                break;
+                            case "CARTAO DEB.VISA - REDECARD":
+                                as2 = as2.replace("CARTAO DEB.VISA - REDECARD", "DEPOSITO");
+                                break;
+                            case "TED C RECEBIDA - BANCO SANTANDER S.A.":
+                                as2 = as2.replace("TED C RECEBIDA - BANCO SANTANDER S.A.", "DEPOSITO");
+                                break;
+                            case "TED C RECEBIDA - SOROCRED":
+                                as2 = as2.replace("TED C RECEBIDA - SOROCRED", "DEPOSITO");
+                                break;  
+                            case "CARTAO CREDITO CABAL - REDECAR":
+                                as2 = as2.replace("CARTAO CREDITO CABAL - REDECAR", "DEPOSITO");
+                                break;  
+                            case "ELO DEB REDE":
+                                as2 = as2.replace("ELO DEB REDE", "DEPOSITO");
+                                break;
+                            case "CARTAO SUPER COMPRAS":
+                                as2  = as2.replace("CARTAO SUPER COMPRAS", "DEPOSITO");
+                                break;
+                            case "ESTORNO RECEBIMENTO LOJA SC":
+                                as2 = as2.replace("ESTORNO RECEBIMENTO LOJA SC", "DEPOSITO");
+                                break;
+                            case "CARTAO CREDSYSTEM CRED REDECAR":
+                                as2 = as2.replace("CARTAO CREDSYSTEM CRED REDECAR", "DEPOSITO");
+                                break;
+                            case "CARTAO CRED.VISA - CIELO":
+                                as2 = as2.replace("CARTAO CRED.VISA - CIELO", "DEPOSITO");
+                                break;
+                            case "CARTAO DEBITO CABAL - REDECARD":
+                                as2 = as2.replace("CARTAO DEBITO CABAL - REDECARD", "DEPOSITO");
+                                break;
+                            case "CARTAO CRED.MASTERCARD - CIELO":
+                                as2 = as2.replace("CARTAO CRED.MASTERCARD - CIELO", "DEPOSITO");
+                                break;
+                            case "TRANSF.AUTOMATICA SALDO  - COBRANCA":
+                                as2 = as2.replace("TRANSF.AUTOMATICA SALDO  - COBRANCA", "DEPOSITO");
+                                break;
+                            case "CARTAO DEB.VISA - CIELO":
+                                as2 = as2.replace("CARTAO DEB.VISA - CIELO", "DEPOSITO");
+                                break;
+                            case "CARTAO DEB.MASTERCARD - CIELO ":
+                                as2 = as2.replace("CARTAO DEB.MASTERCARD - CIELO ", "DEPOSITO");
+                                break;
+                            case "CARTAO DEB.MASTERCARD - CIELO":
+                                as2 = as2.replace("CARTAO DEB.MASTERCARD - CIELO ", "DEPOSITO");
+                                break;
+                            case "TED C RECEBIDA - GETNET ADQUIRENCIA E":
+                                as2 = as2.replace("TED C RECEBIDA - GETNET ADQUIRENCIA E", "DEPOSITO");
+                                break;
+                            case "DINERS CRED REDECARD":
+                                as2 = as2.replace("DINERS CRED REDECARD", "DEPOSITO");
+                                break; 
+                            default:
+                                break;
+                        }
+                        if(as2.equals("DEPOSITO")){
+                            espaco = "                                        ";
+                        }else{
+                            
+                        }
+                        gravarArq.println("LC1" + nf.format(a).replace(".", "").replace("-", "0") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espaco+ txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "-" + " " + as2 + "  " + "                                                                                                                                                                                                                                                                                                                  ");
                     }
                 }
 

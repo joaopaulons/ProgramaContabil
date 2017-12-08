@@ -96,7 +96,6 @@ public class ExtratoDrogaEcoCapivariController implements Initializable {
                 Cell a2 = sheet.getCell(1, i);
                 Cell a3 = sheet.getCell(2, i);
                 Cell a4 = sheet.getCell(3, i);
-                
 
                 Cell titulo1 = sheet.getCell(0, 0);
                 Cell titulo2 = sheet.getCell(1, 0);
@@ -173,6 +172,27 @@ public class ExtratoDrogaEcoCapivariController implements Initializable {
                         case "RECEBIMENTO FORNECEDOR FUNCIONAL CARD":
                             as3 = as3.replace("RECEBIMENTO FORNECEDOR FUNCIONAL CARD", "DEPOSITO");
                             break;
+                        case "TED-TRANSF ELET DISPON REMET.BANCO SANTANDER S.A.":
+                            as3 = as3.replace("TED-TRANSF ELET DISPON REMET.BANCO SANTANDER S.A.", "DEPOSITO");
+                            break;
+                        case "RECEBIMENTO FORNECEDOR MAPA ADM DE CONVENIOS E CARTOE":
+                            as3 = as3.replace("RECEBIMENTO FORNECEDOR MAPA ADM DE CONVENIOS E CARTOE", "DEPOSITO");
+                            break;
+                        case "TED-TRANSF ELET DISPON REMET.UNIMED DE CAPIVARI":
+                            as3 = as3.replace("TED-TRANSF ELET DISPON REMET.UNIMED DE CAPIVARI", "DEPOSITO");
+                            break;
+                        case "TRANSF CC PARA CC PJ MICROSAL INDUSTRIA E COMERCIO LT":
+                            as3 = as3.replace("TRANSF CC PARA CC PJ MICROSAL INDUSTRIA E COMERCIO LT", "DEPOSITO");
+                            break;
+                        case "TED-TRANSF ELET DISPON REMET.VIDALINK DO BRASIL S":
+                            as3 = as3.replace("TED-TRANSF ELET DISPON REMET.VIDALINK DO BRASIL S", "DEPOSITO");
+                            break;
+                        case "DOC CREDITO AUTOMATICO* CLAUDIA GOMES RODRIGUES":
+                            as3 = as3.replace("DOC CREDITO AUTOMATICO* CLAUDIA GOMES RODRIGUES", "DEPOSITO");
+                            break;
+                        case "RECEBIMENTO FORNECEDOR FAMILLY CARD ADMINISTRADORA DE":
+                            as3 = as3.replace("RECEBIMENTO FORNECEDOR FAMILLY CARD ADMINISTRADORA DE", "DEPOSITO");
+                            break;
                         default:
                             break;
                     }
@@ -181,8 +201,7 @@ public class ExtratoDrogaEcoCapivariController implements Initializable {
                     txtAreaDocumento.appendText(as2 + "\n");
                     txtAreaHistorico.appendText(as3 + "\n");
                     txtAreaValor.appendText(as4.replace("C", "").replace("*", "").replace("D", "") + "\n");
-                    
-                    
+
                 }
 
             }
@@ -201,7 +220,7 @@ public class ExtratoDrogaEcoCapivariController implements Initializable {
             System.out.println("Iniciando a leitura da planilha XLS:");
             for (int i = 1; i < linhas; i++) {
                 a++;
-
+                String deposito = "- DEPOSITO";
                 Cell titulo1 = sheet.getCell(0, 0);
                 Cell titulo2 = sheet.getCell(1, 0);
                 Cell titulo3 = sheet.getCell(2, 0);
@@ -282,22 +301,52 @@ public class ExtratoDrogaEcoCapivariController implements Initializable {
                             case "RECEBIMENTO FORNECEDOR FUNCIONAL CARD":
                                 as3 = as3.replace("RECEBIMENTO FORNECEDOR FUNCIONAL CARD", "DEPOSITO");
                                 break;
+                            case "TED-TRANSF ELET DISPON REMET.BANCO SANTANDER S.A.":
+                                as3 = as3.replace("TED-TRANSF ELET DISPON REMET.BANCO SANTANDER S.A.", "DEPOSITO");
+                                break;
+                            case "RECEBIMENTO FORNECEDOR MAPA ADM DE CONVENIOS E CARTOE":
+                                as3 = as3.replace("RECEBIMENTO FORNECEDOR MAPA ADM DE CONVENIOS E CARTOE", "DEPOSITO");
+                                break;
+                            case "TED-TRANSF ELET DISPON REMET.UNIMED DE CAPIVARI":
+                                as3 = as3.replace("TED-TRANSF ELET DISPON REMET.UNIMED DE CAPIVARI", "DEPOSITO");
+                                break;
+                            case "TRANSF CC PARA CC PJ MICROSAL INDUSTRIA E COMERCIO LT":
+                                as3 = as3.replace("TRANSF CC PARA CC PJ MICROSAL INDUSTRIA E COMERCIO LT", "DEPOSITO");
+                                break;
+                            case "TED-TRANSF ELET DISPON REMET.VIDALINK DO BRASIL S":
+                                as3 = as3.replace("TED-TRANSF ELET DISPON REMET.VIDALINK DO BRASIL S", "DEPOSITO");
+                                break;
+                            case "DOC CREDITO AUTOMATICO* CLAUDIA GOMES RODRIGUES":
+                                as3 = as3.replace("DOC CREDITO AUTOMATICO* CLAUDIA GOMES RODRIGUES", "DEPOSITO");
+                                break;
+                            case "RECEBIMENTO FORNECEDOR FAMILLY CARD ADMINISTRADORA DE":
+                                as3 = as3.replace("RECEBIMENTO FORNECEDOR FAMILLY CARD ADMINISTRADORA DE", "DEPOSITO");
+                                break;
+                            case "CR COMPRAS CRE OUTRAS BANDEIRAS-CIELO":
+                                as3 = as3.replace("CR COMPRAS CRE OUTRAS BANDEIRAS-CIELO", "DEPOSITO");
+                                break;
+                            case "CR COMPRAS DEB OUTRAS BANDEIRAS-CIELO":
+                                as3 = as3.replace("CR COMPRAS DEB OUTRAS BANDEIRAS-CIELO", "DEPOSITO");
+                                break;
+                            case "CRÉD.LIQUIDAÇÃO COBRANÇA":
+                                as3 = as3.replace("CRÉD.LIQUIDAÇÃO COBRANÇA", "DEPOSITO");
                             default:
                                 break;
                         }
                         try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
                             as4 = as4.replace("C", "").replace("D", "").replace("*", "");
+
                             DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
                             DecimalFormat formatnf = new DecimalFormat("00000");
                             NumberFormat nf = NumberFormat.getInstance();
                             nf.setMinimumIntegerDigits(5);
                             float formatar_valor = Float.parseFloat(as4.replace(".", "").replace(",", "."));
                             String espaco = "                                      ";
-                            String format_as3 = as3;
-                            if (format_as3.length() > 10) {
-                                format_as3 = format_as3.substring(0, 10);
+                            String format_as2 = as2;
+                            if (format_as2.length() > 10) {
+                                format_as2 = format_as2.substring(0, 10);
                             } else {
-                                switch (format_as3.length()) {
+                                switch (format_as2.length()) {
                                     case 1:
                                         espaco = "                                               ";
                                         break;
@@ -333,10 +382,11 @@ public class ExtratoDrogaEcoCapivariController implements Initializable {
                                         break;
                                 }
                             }
-                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("/", "") + format_as3 + espaco + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "- DEPOSITO" + "            " + as3 + "     "+ as2 + "                                                                                                                                                                                                                                                                                                                  ");
+
+                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("/", "") + as2 + espaco + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "-" + " " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
                         }
                     }
-                }else if (t2.equals("Lançamento")){
+                } else if (t2.equals("Lançamento")) {
                     if (as1.equals("") || as2.equals("") || as3.equals("") || as4.equals("")) {
                         a = a - 1;
                     } else {
@@ -392,9 +442,90 @@ public class ExtratoDrogaEcoCapivariController implements Initializable {
                             case "RECEBIMENTO FORNECEDOR FUNCIONAL CARD":
                                 as2 = as2.replace("RECEBIMENTO FORNECEDOR FUNCIONAL CARD", "DEPOSITO");
                                 break;
+                            case "RECEBIMENTO FORNECEDOR BANCO TOPAZIO S/A":
+                                as2 = as2.replace("RECEBIMENTO FORNECEDOR BANCO TOPAZIO S/A", "DEPOSITO");
+                                break;
+                            case "TED-TRANSF ELET DISPON REMET.BANCO SANTANDER S.A.":
+                                as2 = as2.replace("TED-TRANSF ELET DISPON REMET.BANCO SANTANDER S.A.", "DEPOSITO");
+                                break;
+                            case "RECEBIMENTO FORNECEDOR MAPA ADM DE CONVENIOS E CARTOE":
+                                as2 = as2.replace("RECEBIMENTO FORNECEDOR MAPA ADM DE CONVENIOS E CARTOE", "DEPOSITO");
+                                break;
+                            case "TED-TRANSF ELET DISPON REMET.UNIMED DE CAPIVARI":
+                                as2 = as2.replace("TED-TRANSF ELET DISPON REMET.UNIMED DE CAPIVARI", "DEPOSITO");
+                                break;
+                            case "TRANSF CC PARA CC PJ MICROSAL INDUSTRIA E COMERCIO LT":
+                                as2 = as2.replace("TRANSF CC PARA CC PJ MICROSAL INDUSTRIA E COMERCIO LT", "DEPOSITO");
+                                break;
+                            case "TED-TRANSF ELET DISPON REMET.VIDALINK DO BRASIL S":
+                                as2 = as2.replace("TED-TRANSF ELET DISPON REMET.VIDALINK DO BRASIL S", "DEPOSITO");
+                                break;
+                            case "DOC CREDITO AUTOMATICO* CLAUDIA GOMES RODRIGUES":
+                                as2 = as2.replace("DOC CREDITO AUTOMATICO* CLAUDIA GOMES RODRIGUES", "DEPOSITO");
+                                break;
+                            case "RECEBIMENTO FORNECEDOR FAMILLY CARD ADMINISTRADORA DE":
+                                as2 = as2.replace("RECEBIMENTO FORNECEDOR FAMILLY CARD ADMINISTRADORA DE", "DEPOSITO");
+                                break;
+
                             default:
                                 break;
                         }
+                        try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
+                            as4 = as4.replace("C", "").replace("D", "").replace("*", "");
+                            DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
+                            DecimalFormat formatnf = new DecimalFormat("00000");
+                            NumberFormat nf = NumberFormat.getInstance();
+                            nf.setMinimumIntegerDigits(5);
+                            float formatar_valor = Float.parseFloat(as4.replace(".", "").replace(",", "."));
+                            String espaco = "                                      ";
+                            String format_as3 = as3;
+                            if (format_as3.length() > 10) {
+                                format_as3 = format_as3.substring(0, 10);
+                            } else {
+                                switch (format_as3.length()) {
+                                    case 1:
+                                        espaco = "                                               ";
+                                        break;
+                                    case 2:
+                                        espaco = "                                              ";
+                                        break;
+                                    case 3:
+                                        espaco = "                                             ";
+                                        break;
+                                    case 4:
+                                        espaco = "                                            ";
+                                        break;
+                                    case 5:
+                                        espaco = "                                           ";
+                                        break;
+                                    case 6:
+                                        espaco = "                                          ";
+                                        break;
+                                    case 7:
+                                        espaco = "                                         ";
+                                        break;
+                                    case 8:
+                                        espaco = "                                        ";
+                                        break;
+                                    case 9:
+                                        espaco = "                                       ";
+                                        break;
+                                    case 10:
+                                        espaco = "                                      ";
+                                        break;
+                                    default:
+
+                                        break;
+                                }
+                            }
+
+                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("/", "") + format_as3 + espaco + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "-" + " " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
+                        }
+                    }
+                } else if (t2.equals("ID. DOC")) {
+                    if (as1.equals("") || as2.equals("") || as3.equals("") || as4.equals("") || as4.contains("-")) {
+                        a = a - 1;
+                    } else {
                         try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
                             as4 = as4.replace("C", "").replace("D", "").replace("*", "");
                             DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
@@ -443,7 +574,8 @@ public class ExtratoDrogaEcoCapivariController implements Initializable {
                                         break;
                                 }
                             }
-                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("/", "") + format_as2 + espaco + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "- DEPOSITO" + "            " + as2 + "      " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+
+                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("/", "") + format_as2 + espaco + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "-" + " " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
                         }
                     }
                 }

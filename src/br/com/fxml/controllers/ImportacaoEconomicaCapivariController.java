@@ -150,13 +150,13 @@ public class ImportacaoEconomicaCapivariController implements Initializable {
                 txtAreaNome.appendText(as2 + "\n");
                 txtAreaTerceiro.appendText(as3 + "\n");
                 txtDataMov.appendText(as4 + "\n");
-                txtAreaNumDoc.appendText(as5 + "\n");
-                txtAreaValor.appendText(as6 + "\n");
-                txtAreaPagamento.appendText(as7 + "\n");
-                txtAreaJuros.appendText(as8 + "\n");
-                txtAreaMulta.appendText(as9 + "\n");
-                txtAreaDesconto.appendText(as10 + "\n");
-                txtAreaTarifa.appendText(as11 + "\n");
+                txtAreaNumDoc.appendText(as6 + "\n");
+                txtAreaValor.appendText(as7 + "\n");
+                txtAreaPagamento.appendText(as8 + "\n");
+                txtAreaJuros.appendText(as9 + "\n");
+                txtAreaMulta.appendText(as10 + "\n");
+                txtAreaDesconto.appendText(as11 + "\n");
+                txtAreaTarifa.appendText(as12 + "\n");
                 txtAreaCredito.appendText(as12 + "\n");
 
             }
@@ -200,6 +200,8 @@ public class ImportacaoEconomicaCapivariController implements Initializable {
                 String as10 = a10.getContents();
                 String as11 = a11.getContents();
                 String as12 = a12.getContents();
+                
+                
 
                 try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
 
@@ -251,18 +253,21 @@ public class ImportacaoEconomicaCapivariController implements Initializable {
                             dados_10 = as2.substring(0, 10);
                         }
                     }
+                    if (a1.getContents().length() == 8) {                            
+                            as1 = as1.substring(0, 6) + "2017";                            
+                        }
                     switch (as3.length()) {
                         case 14:
-                            teste = Float.parseFloat(as6.replace(".", "").replace(",", "."));
-                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + dados_10 + espaco + "29999" + as3 + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- PAGAMENTO DUPLICATA" + "   " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
+                            teste = Float.parseFloat(as7.replace(".", "").replace(",", "."));
+                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + dados_10 + espaco + "29999" + as3 + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- PG. DUPL." + " " + as6 + " " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
                             break;
                         case 5:
-                            teste = Float.parseFloat(as6.replace(".", "").replace(",", "."));
-                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + dados_10 + espaco + as3 + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- PAGAMENTO DUPLICATA" + "   " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
+                            teste = Float.parseFloat(as7.replace(".", "").replace(",", "."));
+                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + dados_10 + espaco + as3 + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- PG. DUPL." + " " + as6 + " " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
                             break;
                         case 11:
-                            teste = Float.parseFloat(as6.replace(".", "").replace(",", "."));
-                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + dados_10 + espaco + "29999" +as3 + "   " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- PAGAMENTO DUPLICATA" + "   " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
+                            teste = Float.parseFloat(as7.replace(".", "").replace(",", "."));
+                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + dados_10 + espaco + "29999" +as3 + "   " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- PG. DUPL." + " " + as6 + " " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
                             break;
 
                     }

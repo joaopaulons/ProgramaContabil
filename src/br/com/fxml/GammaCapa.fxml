@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.depara.controllers.GammaCapaController">
+   <children>
+      <ImageView fitHeight="575.0" fitWidth="820.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@imagens/capa%20-%20teste.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane layoutX="152.0" layoutY="177.0" prefHeight="575.0" prefWidth="810.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="700.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="@imagens/Logo.png" />
+                     </image>
+                     <effect>
+                        <InnerShadow />
+                     </effect>
+                  </ImageView>
+                  <Label layoutX="122.0" layoutY="17.0" text="Gamma Capa" textFill="WHITE">
+                     <font>
+                        <Font size="45.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow color="WHITE">
+                           <input>
+                              <DropShadow color="#4dbeff" spread="0.5" />
+                           </input>
+                        </InnerShadow>
+                     </effect>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+         <bottom>
+            <AnchorPane prefHeight="63.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ButtonBar layoutX="586.0" layoutY="12.0" prefHeight="20.0" prefWidth="300.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="12.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" onAction="#buttonLerXml" prefHeight="30.0" prefWidth="145.0" styleClass="round-red" stylesheets="@css/css.css" text="Ler XML">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <effect>
+                              <Reflection bottomOpacity="0.15" fraction="0.58" />
+                           </effect>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#buttonImportarXml" prefHeight="30.0" prefWidth="145.0" styleClass="round-red" stylesheets="@css/css.css" text="Importar XML">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <effect>
+                              <Reflection bottomOpacity="0.15" fraction="0.58" />
+                           </effect>
+                        </Button>
+                    </buttons>
+                  </ButtonBar>
+               </children>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </AnchorPane>
+         </bottom>
+         <center>
+            <TextArea fx:id="txtAreaConferir" opacity="0.72" prefHeight="200.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <effect>
+                  <InnerShadow>
+                     <input>
+                        <DropShadow />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </TextArea>
+         </center>
+      </BorderPane>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</AnchorPane>

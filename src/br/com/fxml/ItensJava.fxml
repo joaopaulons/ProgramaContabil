@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,75 +13,66 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.depara.controllers.ItensJavaController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.depara.controllers.ItensJavaController">
    <children>
-      <ImageView fitHeight="590.0" fitWidth="800.0" AnchorPane.bottomAnchor="-15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="575.0" fitWidth="800.0" layoutX="114.0" layoutY="279.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@imagens/itens.jpg" />
+            <Image url="@imagens/fundoitens.jpg" />
          </image>
       </ImageView>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <bottom>
-            <AnchorPane prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ButtonBar buttonMinWidth="20.0" layoutX="471.0" layoutY="50.0" prefHeight="20.0" prefWidth="300.0" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="29.0">
-                    <buttons>
-                      <Button mnemonicParsing="false" onAction="#buttonLerXML" prefHeight="20.0" prefWidth="120.0" styleClass="round-red" stylesheets="@css/css.css" text="Ler xml">
-                           <effect>
-                              <Reflection bottomOpacity="0.2" fraction="0.76" />
-                           </effect>
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#buttonGerarTxt" prefHeight="20.0" prefWidth="120.0" styleClass="round-red" stylesheets="@css/css.css" text="Gerar txt">
-                           <effect>
-                              <Reflection bottomOpacity="0.2" fraction="0.76" />
-                           </effect>
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Button>
-                    </buttons>
-                  </ButtonBar>
-               </children>
-            </AnchorPane>
-         </bottom>
          <center>
-            <AnchorPane BorderPane.alignment="CENTER">
+            <AnchorPane opacity="0.83" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
                <children>
-                  <TextArea fx:id="txtAreaExemplo" editable="false" opacity="0.8" prefHeight="200.0" prefWidth="200.0" promptText="Exemplo do arquivo txt..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
-                     <effect>
-                        <InnerShadow color="#9a9999" height="28.415" radius="15.561250000000001" width="35.83">
-                           <input>
-                              <DropShadow />
-                           </input>
-                        </InnerShadow>
-                     </effect></TextArea>
+                  <TextArea fx:id="txtAreaConferir" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Conferir xml's..." AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
                </children>
             </AnchorPane>
          </center>
-         <top>
-            <AnchorPane prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutX="182.0" layoutY="32.0" prefHeight="68.0" prefWidth="537.0" text="ALFA CAPA IMPORTAÇÃO" textFill="WHITE">
-                     <font>
-                        <Font size="46.0" />
-                     </font>
+         <bottom>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <buttons>
+                  <Button mnemonicParsing="false" onAction="#buttonLerXml" prefHeight="30.0" prefWidth="200.0" styleClass="round-red" stylesheets="@css/css.css" text="Ler XML">
                      <effect>
-                        <DropShadow radius="10.7425" spread="0.34" width="23.97">
-                           <input>
-                              <Reflection bottomOpacity="0.06" fraction="1.0" topOffset="-10.0" topOpacity="0.41" />
-                           </input></DropShadow>
+                        <Reflection />
                      </effect>
-                  </Label>
-                  <ImageView fitHeight="131.0" fitWidth="131.0" layoutX="14.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#buttonLerImportar" styleClass="round-red" stylesheets="@css/css.css" text="Importar">
+                     <effect>
+                        <Reflection />
+                     </effect>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+              </buttons>
+               <BorderPane.margin>
+                  <Insets bottom="15.0" />
+               </BorderPane.margin>
+            </ButtonBar>
+         </bottom>
+         <top>
+            <Label text="IMPORTAÇÃO BETA ITENS " textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <effect>
+                  <DropShadow spread="0.36" />
+               </effect>
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0">
                      <image>
                         <Image url="@imagens/Logo.png" />
                      </image>
                   </ImageView>
-               </children>
-            </AnchorPane>
+               </graphic>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </Label>
          </top>
       </BorderPane>
    </children>
