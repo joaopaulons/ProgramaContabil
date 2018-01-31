@@ -5,6 +5,7 @@
  */
 package br.com.fxml;
 
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
@@ -48,13 +49,14 @@ public class TelaMainController implements Initializable {
     private Label habilitarEasterEgg;
     @FXML
     private Pane BackgroundPane;
+    @FXML
+    private AnchorPane telaSegundaria;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
     }
 
     @FXML
@@ -92,16 +94,6 @@ public class TelaMainController implements Initializable {
         telaPrincipal.getChildren().add(getNode("importacaoEconomicaCapivari.fxml"));
     }
 
-    public Node getNode(String node) {
-        Node no = null;
-        try {
-            no = FXMLLoader.load(getClass().getResource(node));
-        } catch (IOException e) {
-        }
-        return no;
-
-    }
-
     @FXML
     private void menuButtonDotta(ActionEvent event) {
         telaPrincipal.getChildren().clear();
@@ -120,7 +112,7 @@ public class TelaMainController implements Initializable {
     private void buttonCapa(ActionEvent event) {
         telaPrincipal.getChildren().clear();
         telaPrincipal.getClass();
-        telaPrincipal.getChildren().add(getNode("CapaJava.fxml"));
+        telaPrincipal.getChildren().add(getNode("alfaCapa.fxml"));
     }
 
     @FXML
@@ -186,7 +178,6 @@ public class TelaMainController implements Initializable {
     @FXML
     private void easterEgg(MouseEvent event) {
         labelErro.setVisible(true);
-
     }
 
     @FXML
@@ -207,5 +198,28 @@ public class TelaMainController implements Initializable {
         telaPrincipal.getChildren().clear();
         telaPrincipal.getClass();
         telaPrincipal.getChildren().add(getNode("ConciliacaoContabil.fxml"));
+    }
+
+    @FXML
+    private void buttonImportacao(ActionEvent event) throws IOException {
+        Process processo = Runtime.getRuntime().exec("cmd.exe /c start  S:\\TI\\ajuda\\tutorial.docx");
+
+    }
+
+    @FXML
+    private void buttonUsimed(ActionEvent event)  {
+        telaPrincipal.getChildren().clear();
+        telaPrincipal.getClass();
+        telaPrincipal.getChildren().add(getNode("ImportacaoUsimed.fxml"));               
+    }
+
+    public Node getNode(String node) {
+        Node no = null;
+        try {
+            no = FXMLLoader.load(getClass().getResource(node));
+        } catch (IOException e) {
+        }
+        return no;
+
     }
 }

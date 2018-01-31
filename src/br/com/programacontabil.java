@@ -11,6 +11,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -18,6 +19,7 @@ import javafx.stage.Stage;
  * @author joao.santos
  */
 public class programacontabil extends Application {
+
     public static Stage primaryStage;
 
     public static Stage getPrimaryStage() {
@@ -27,16 +29,18 @@ public class programacontabil extends Application {
     public static void setPrimaryStage(Stage primaryStage) {
         programacontabil.primaryStage = primaryStage;
     }
+
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {        
         Locale.setDefault(Locale.forLanguageTag("pt-BR"));
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/TelaMain.fxml"));        
-        Scene scene = new Scene(root);    
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/TelaMain.fxml"));
+        Scene scene = new Scene(root);        
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("fxml/imagens/icon.png")));  
         primaryStage.setResizable(false);
         primaryStage.setTitle("Programa Contabil");
         primaryStage.setScene(scene);
         primaryStage.show();
-       
+        
     }
 
     /**

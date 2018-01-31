@@ -4,20 +4,24 @@
     <title>ProgramaContabil</title>
     <vendor>joao.santos</vendor>
     <description>null</description>
-    <offline-allowed/>
+  <shortcut><desktop/></shortcut>
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ProgramaContabil.jar" size="6892361" download="eager" />
+    <jar href="ProgramaContabil.jar" size="11950838" download="eager" />
     <jar href="lib\commons-codec-1.10.jar" size="284184" download="eager" />
     <jar href="lib\commons-collections4-4.1.jar" size="751238" download="eager" />
+    <jar href="lib\commons-logging-1.1.jar" size="52592" download="eager" />
     <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="lib\curvesapi-1.04.jar" size="98365" download="eager" />
     <jar href="lib\dom4j-2.1.0.jar" size="322938" download="eager" />
+    <jar href="lib\fontbox-1.6.0.jar" size="174824" download="eager" />
     <jar href="lib\junit-4.12.jar" size="314932" download="eager" />
     <jar href="lib\jxl.jar" size="725735" download="eager" />
     <jar href="lib\log4j-1.2.17.jar" size="489884" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.43-bin.jar" size="999018" download="eager" />
+    <jar href="lib\pdfbox-1.6.0.jar" size="3824099" download="eager" />
     <jar href="lib\pdfbox-app-2.0.7.jar" size="8016707" download="eager" />
     <jar href="lib\poi-3.17-beta1.jar" size="2691216" download="eager" />
     <jar href="lib\poi-examples-3.17-beta1.jar" size="372489" download="eager" />
@@ -32,5 +36,5 @@
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
   <jfx:javafx-desc  width="800" height="600" main-class="br.com.programacontabil"  name="ProgramaContabil" />
-  <update check="always"/>
+  <update check="background"/>
 </jnlp>

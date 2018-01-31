@@ -6,6 +6,7 @@
 package br.com.fxml.depara.controllers;
 
 import static br.com.fxml.depara.controllers.ItensJavaController.array_caminho;
+import static br.com.fxml.depara.controllers.ItensJavaController.cfop_inexistente;
 import static br.com.fxml.depara.controllers.ItensJavaController.file;
 import br.com.programacontabil;
 import java.io.File;
@@ -44,6 +45,7 @@ import org.xml.sax.SAXException;
 public class GammaCapaController implements Initializable {
 
     public static ArrayList array_caminho = new ArrayList<>();
+    public static List cfop_inexistente = new ArrayList<>();
     public static String salvarArquivo;
     public static PrintWriter gravarArq;
     public static File file;
@@ -1482,10 +1484,7 @@ public class GammaCapaController implements Initializable {
                                                     cfopat1556 = "1556";
                                                     break;
                                                 default:
-                                                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                                                    alerta.setTitle("CFOP não encontrado!");
-                                                    alerta.setContentText("Por favor informe este CFOP ao T.I: " + cfop);
-                                                    alerta.showAndWait();
+                                                   cfop_inexistente.add(cfop);
                                                     break;
                                             }
                                             break;
@@ -4705,6 +4704,21 @@ public class GammaCapaController implements Initializable {
             voutroverif5105 = 0;
 //</editor-fold>
         }
+        for (int f = 0; f < cfop_inexistente.size(); f++) {
+            Object b = cfop_inexistente.get(f);
+            for (int c = f + 1; c < cfop_inexistente.size(); c++) {
+                Object d = cfop_inexistente.get(c);
+                if (b.equals(d)) {
+                    cfop_inexistente.remove(c);
+                    c--;
+                }
+            }
+        }
+        Alert alertaa = new Alert(Alert.AlertType.INFORMATION);
+        alertaa.setTitle("CFOP não encontrado!");
+        alertaa.setContentText("Por favor informe este CFOP ao T.I: " + cfop_inexistente);
+        alertaa.showAndWait();
+        
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Gravar Dados");
         alerta.setHeaderText(null);

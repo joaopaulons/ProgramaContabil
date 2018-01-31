@@ -83,6 +83,7 @@ public class InformacoesImportacaoController implements Initializable {
 
     @FXML
     private void buttonImportar(ActionEvent event) throws IOException, SQLException, BiffException {
+        
         a = 0;
         arquivoSave();
         for (Object caminho_ob : array_caminho) {
@@ -132,14 +133,13 @@ public class InformacoesImportacaoController implements Initializable {
                                     as2 = as2.substring(0, 10);
                                 }
                                 if (as6.equals("caixa")) {
-                                    conta = txtOutrosBrancos.getText();
+                                    conta = txtBanco.getText();
                                 } else {
-                                     if (as6.equals("banco")) {
-                                        conta = "11202";
+                                    if (as6.equals("banco")) {
+                                        conta = txtOutrosBrancos.getText();
                                     } else {
                                         conta = txtBanco.getText();
                                     }
-                                    
                                 }
                                 switch (as2.length()) {
                                     case 1:
@@ -201,7 +201,6 @@ public class InformacoesImportacaoController implements Initializable {
                             if (a4.getContents().length() == 8) {
                                 String formatar = "2017";
                                 as4 = as4.substring(0, 6) + formatar;
-
                             }
                             String formato_cpf_pagamento;
                             DecimalFormat format_pagamento = new DecimalFormat("0000000000000.00");
@@ -220,10 +219,10 @@ public class InformacoesImportacaoController implements Initializable {
                                     as2 = as2.substring(0, 10);
                                 }
                                 if (as6.equals("caixa")) {
-                                    conta = txtOutrosBrancos.getText();
+                                    conta = txtBanco.getText();
                                 } else {
                                     if (as6.equals("banco")) {
-                                        conta = "11202";
+                                        conta = txtOutrosBrancos.getText();
                                     } else {
                                         conta = txtBanco.getText();
                                     }

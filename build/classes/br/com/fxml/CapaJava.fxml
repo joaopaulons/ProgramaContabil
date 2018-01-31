@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.depara.controllers.CapaJavaController">
+<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.depara.controllers.CapaJavaControllers">
    <children>
-      <ImageView fitHeight="590.0" fitWidth="800.0" AnchorPane.bottomAnchor="-15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fitHeight="575.0" fitWidth="825.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-12.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@imagens/itens.jpg" />
          </image>
@@ -50,7 +50,7 @@
          <center>
             <AnchorPane BorderPane.alignment="CENTER">
                <children>
-                  <TextArea fx:id="txtAreaExemplo" editable="false" opacity="0.8" prefHeight="200.0" prefWidth="200.0" promptText="Exemplo do arquivo txt..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                  <TextArea fx:id="txtAreaExemplo" editable="false" opacity="0.8" prefHeight="324.0" prefWidth="813.0" promptText="Exemplo do arquivo txt..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                      <effect>
                         <InnerShadow color="#9a9999" height="28.415" radius="15.561250000000001" width="35.83">
                            <input>

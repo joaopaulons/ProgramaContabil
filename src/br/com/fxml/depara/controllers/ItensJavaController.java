@@ -5,6 +5,7 @@
  */
 package br.com.fxml.depara.controllers;
 
+import static br.com.fxml.depara.controllers.CapaJavaControllers.cfop_inexistente;
 import br.com.programacontabil;
 import java.io.File;
 import java.io.FileWriter;
@@ -42,6 +43,7 @@ import org.xml.sax.SAXException;
 public class ItensJavaController implements Initializable {
 
     public static ArrayList array_caminho = new ArrayList<>();
+    public static List cfop_inexistente = new ArrayList<>();
     public static String salvarArquivo;
     public static PrintWriter gravarArq;
     public static File file;
@@ -86,7 +88,7 @@ public class ItensJavaController implements Initializable {
 
     @FXML
     private void buttonLerXml(ActionEvent event) throws ParserConfigurationException, SAXException, IOException {
-/*----------------------------------*/
+        /*----------------------------------*/
 ///////////////////////////////      |
 // <editor-fold defaultstate="collapsed" desc="VARIÁVEL DE VERIFICAÇÃO">
         String cfopat1403 = null;
@@ -970,34 +972,20 @@ public class ItensJavaController implements Initializable {
 
 // <editor-fold defaultstate="collapsed" desc="CNPJ">
             NodeList emitente = doc.getElementsByTagName("emit");
-
             int contemit = emitente.getLength();
-
             for (int i = 0; i < contemit; i++) {
-
                 Node noEmit = emitente.item(i);
-
                 if (noEmit.getNodeType() == Node.ELEMENT_NODE) {
-
                     Element listaemit = (Element) noEmit;
-
                     NodeList listafilhoemit = listaemit.getChildNodes();
-
                     int tamanholistamit = listafilhoemit.getLength();
-
                     for (int j = 0; j < tamanholistamit; j++) {
-
                         Node noemit = listafilhoemit.item(j);
-
                         if (noemit.getNodeType() == Node.ELEMENT_NODE) {
-
                             Element elementofilhos = (Element) noemit;
-
                             switch (elementofilhos.getTagName()) {
-
                                 case "CNPJ":
                                     cnp = elementofilhos.getTextContent();
-
                                     break;
                             }
                         }
@@ -1480,10 +1468,8 @@ public class ItensJavaController implements Initializable {
                                                     cfopat1102 = "1102";
                                                     break;
                                                 default:
-                                                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                                                    alerta.setTitle("CFOP não encontrado!");
-                                                    alerta.setContentText("Por favor informe este CFOP ao T.I: " + cfop);
-                                                    alerta.showAndWait();
+                                                    cfop_inexistente.add(cfop);
+
                                                     break;
                                             }
                                             break;
@@ -4703,6 +4689,21 @@ public class ItensJavaController implements Initializable {
             voutroverif5105 = 0;
 //</editor-fold>
         }
+        for (int f = 0; f < cfop_inexistente.size(); f++) {
+            Object b = cfop_inexistente.get(f);
+            for (int c = f + 1; c < cfop_inexistente.size(); c++) {
+                Object d = cfop_inexistente.get(c);
+                if (b.equals(d)) {
+                    cfop_inexistente.remove(c);
+                    c--;
+                }
+            }
+        }
+        Alert alertaa = new Alert(Alert.AlertType.INFORMATION);
+        alertaa.setTitle("CFOP não encontrado!");
+        alertaa.setContentText("Por favor informe este CFOP ao T.I: " + cfop_inexistente);
+        alertaa.showAndWait();
+        
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setTitle("Gravar Dados");
         alerta.setHeaderText(null);
@@ -4713,7 +4714,7 @@ public class ItensJavaController implements Initializable {
 
     @FXML
     private void buttonLerImportar(ActionEvent event) throws ParserConfigurationException, SAXException, IOException {
-/*----------------------------------*/
+        /*----------------------------------*/
 ///////////////////////////////      |
 // <editor-fold defaultstate="collapsed" desc="VARIÁVEL DE VERIFICAÇÃO">
         String cfopat1403 = null;
@@ -5840,30 +5841,18 @@ public class ItensJavaController implements Initializable {
 
 // <editor-fold defaultstate="collapsed" desc="UNIDADE FEDERAL FORNECEDOR">
             NodeList enderemit = doc.getElementsByTagName("enderEmit");
-
             int enderemite = enderemit.getLength();
-
             for (int i = 0; i < enderemite; i++) {
-
                 Node noide = enderemit.item(i);
-
                 if (noide.getNodeType() == Node.ELEMENT_NODE) {
-
                     Element listaide = (Element) noide;
-
                     NodeList listafilhoide = listaide.getChildNodes();
-
                     int tamanholistaide = listafilhoide.getLength();
-
                     for (int j = 0; j < tamanholistaide; j++) {
-
                         Node idei = listafilhoide.item(j);
-
                         if (idei.getNodeType() == Node.ELEMENT_NODE) {
-
                             Element elementofilho = (Element) idei;
                             switch (elementofilho.getTagName()) {
-
                                 case "UF":
                                     un_federal = elementofilho.getTextContent();
                                     break;
@@ -5968,39 +5957,22 @@ public class ItensJavaController implements Initializable {
 
 // <editor-fold defaultstate="collapsed" desc="DET">
             NodeList listaDePessoas = doc.getElementsByTagName("det");
-
             int tamanhoLista = listaDePessoas.getLength();
-
             for (int i = 0; i < tamanhoLista; i++) {
-
                 Node noPessoa = listaDePessoas.item(i);
-
                 if (noPessoa.getNodeType() == Node.ELEMENT_NODE) {
-
                     Element elementoPessoa = (Element) noPessoa;
-
                     NodeList listaDeFilhosDaPessoa = elementoPessoa.getChildNodes();
-
                     int tamanhoListaFilhos = listaDeFilhosDaPessoa.getLength();
-
                     for (int j = 0; j < tamanhoListaFilhos; j++) {
-
                         Node noFilho = listaDeFilhosDaPessoa.item(j);
-
                         if (noFilho.getNodeType() == Node.ELEMENT_NODE) {
-
                             Element elementoFilho = (Element) noFilho;
-
                             NodeList dados = elementoFilho.getChildNodes();
-
                             int tamanhodados = dados.getLength();
-
                             for (int w = 0; w < tamanhodados; w++) {
-
                                 Node noFilhos = dados.item(w);
-
                                 if (noFilhos.getNodeType() == Node.ELEMENT_NODE) {
-
                                     Element elementodados = (Element) noFilhos;
                                     switch (elementodados.getTagName()) {
 
@@ -6008,7 +5980,7 @@ public class ItensJavaController implements Initializable {
                                         case "cProd":
                                             cprod = elementodados.getTextContent();
                                             break;
-//</editor-fold>
+                                        //</editor-fold>
 
                                         // <editor-fold defaultstate="collapsed" desc="cEAN">
                                         case "cEAN":
@@ -6107,10 +6079,7 @@ public class ItensJavaController implements Initializable {
                                                     cfopat1102 = "1102";
                                                     break;
                                                 default:
-                                                    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-                                                    alerta.setTitle("CFOP não encontrado!");
-                                                    alerta.setContentText("Por favor informe este CFOP ao T.I: " + cfop);
-                                                    alerta.showAndWait();
+                                                   
                                                     break;
                                             }
                                             break;
@@ -8845,7 +8814,7 @@ public class ItensJavaController implements Initializable {
             try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
                 // <editor-fold defaultstate="collapsed" desc="SAÍDA DAS INFORMAÇÕES">
                 // <editor-fold defaultstate="collapsed" desc="SAÍDA5405">
-                
+
                 if (flag5405 == 0) {
 
                 } else {

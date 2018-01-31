@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoAlpha7Controller">
+<AnchorPane prefHeight="575.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoAlpha7Controller">
    <children>
       <Pane layoutX="9.0" layoutY="13.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="fundoImagem" fitHeight="575.0" fitWidth="800.0">
+            <ImageView fx:id="fundoImagem" fitHeight="575.0" fitWidth="813.0">
                <image>
                   <Image url="@imagens/fundo%20excel.jpg" />
                </image>
@@ -29,7 +29,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Separator layoutY="47.0" prefHeight="0.0" prefWidth="800.0" />
+            <Separator layoutY="47.0" prefHeight="0.0" prefWidth="813.0" />
             <HBox layoutX="17.0" layoutY="72.0" prefHeight="365.0" prefWidth="764.0" spacing="10.0">
                <children>
                   <TextArea fx:id="txtTerceiros" prefHeight="200.0" prefWidth="140.0" promptText="Veirifique o CNPJ..." HBox.hgrow="ALWAYS" />
@@ -51,7 +51,7 @@
             <Label layoutX="244.0" layoutY="55.0" text="NUM. NF:" textFill="WHITE" />
             <Label layoutX="375.0" layoutY="55.0" text="Valor NF:" textFill="WHITE" />
             <Label layoutX="513.0" layoutY="55.0" text="Data Entrada:" textFill="WHITE" />
-            <Separator layoutX="7.0" layoutY="447.0" prefWidth="800.0" />
+            <Separator layoutX="7.0" layoutY="447.0" prefWidth="813.0" />
             <HBox layoutX="495.0" layoutY="498.0" spacing="5.0" stylesheets="@css/css.css">
                <children>
                   <Button mnemonicParsing="false" onAction="#buttonAbrirArquivo" styleClass="round-red" text="Abrir arquivo" />
@@ -67,7 +67,7 @@
                   <InnerShadow />
                </effect>
             </TextField>
-            <Label layoutX="33.0" layoutY="466.0" text="Conta Crédito:" textFill="WHITE" />
+            <Label layoutX="33.0" layoutY="466.0" text="Conta Débito:" textFill="WHITE" />
          </children>
          <effect>
             <DropShadow spread="0.68" />

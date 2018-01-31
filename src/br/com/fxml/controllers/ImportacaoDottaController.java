@@ -17,10 +17,12 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -62,141 +64,340 @@ public class ImportacaoDottaController implements Initializable {
     private TextArea txtAreaDocumento;
     @FXML
     private TextArea txtAreaCredito;
+    @FXML
+    private ChoiceBox<String> choiceBoxBancos;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        choiceBoxBancos.setItems(FXCollections.observableArrayList(
+                "Santander", "TriBanco", "Bradesco")
+        );
     }
 
     @FXML
     private void buttonVerificar(ActionEvent event) throws SAXException, IOException, ParserConfigurationException, BiffException {
-        arrayOpen();
-        a = 0;
-        for (Object caminho_ob : array_caminho) {
-            diretorio = new File((String) caminho_ob);
-            Workbook workbook = Workbook.getWorkbook(diretorio);
-            Sheet sheet = workbook.getSheet(0);
-            linhas = sheet.getRows();
-            System.out.println("Iniciando a leitura da planilha XLS:");
-            for (int i = 0; i < linhas; i++) {
-                Cell a1 = sheet.getCell(0, i);
-                Cell a2 = sheet.getCell(1, i);
-                Cell a3 = sheet.getCell(2, i);
-                Cell a4 = sheet.getCell(3, i);
-                String as1 = a1.getContents();
-                String as2 = a2.getContents();
-                String as3 = a3.getContents();
-                String as4 = a4.getContents();
+        if (choiceBoxBancos.getValue() == null) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setContentText("Por favor escolha um banco para importar o arquivo.");
+            alerta.setTitle("Opção não selecionada.");
+            alerta.setHeaderText("Selecione uma opção.");
+            alerta.show();
+        } else {
+            arrayOpen();
+            a = 0;
+            for (Object caminho_ob : array_caminho) {
+                diretorio = new File((String) caminho_ob);
+                Workbook workbook = Workbook.getWorkbook(diretorio);
+                Sheet sheet = workbook.getSheet(0);
+                linhas = sheet.getRows();
+                System.out.println("Iniciando a leitura da planilha XLS:");
+                for (int i = 0; i < linhas; i++) {
+                    Cell a1 = sheet.getCell(0, i);
+                    Cell a2 = sheet.getCell(1, i);
+                    Cell a3 = sheet.getCell(2, i);
+                    Cell a4 = sheet.getCell(3, i);
+                    String as1 = a1.getContents();
+                    String as2 = a2.getContents();
+                    String as3 = a3.getContents();
+                    String as4 = a4.getContents();
 
-                if (as2.equals("") || as3.equals("") || as4.equals("") || as4.contains("-") || as4.contains("(")) {
+                    if (as2.equals("") || as3.equals("") || as4.equals("") || as4.contains("-") || as4.contains("(")) {
 
-                } else {
+                    } else {
 
-                    txtAreaData.appendText(as1 + "\n");
-                    txtAreaLancamento.appendText(as2 + "\n");
-                    txtAreaDocumento.appendText(as3 + "\n");
-                    txtAreaCredito.appendText(as4 + "\n");
+                        txtAreaData.appendText(as1 + "\n");
+                        txtAreaLancamento.appendText(as2 + "\n");
+                        txtAreaDocumento.appendText(as3 + "\n");
+                        txtAreaCredito.appendText(as4 + "\n");
+                    }
                 }
+                workbook.close();
             }
-            workbook.close();
-        }
 
+        }
     }
 
     @FXML
     private void buttonImportar(ActionEvent event) throws SAXException, IOException, ParserConfigurationException, BiffException {
-        a = 0;
-        arquivoSave();
-        for (Object caminho_ob : array_caminho) {
-            String espacos;
-            diretorio = new File((String) caminho_ob);
-            Workbook workbook = Workbook.getWorkbook(diretorio);
-            Sheet sheet = workbook.getSheet(0);
-            linhas = sheet.getRows();
-            System.out.println("Iniciando a leitura da planilha XLS:");
-            for (int i = 0; i < linhas; i++) {
-                a++;
-                Cell a1 = sheet.getCell(0, i);
-                Cell a2 = sheet.getCell(1, i);
-                Cell a3 = sheet.getCell(2, i);
-                Cell a4 = sheet.getCell(3, i);
+        if (choiceBoxBancos.getValue() == null || txtContaCredito.getText().equals("") || txtContaDebito.getText().equals("")) {
+            if(choiceBoxBancos.getValue() == null){
+                choiceBoxBancos.setStyle("-fx-border-color:red");
+            }
+            if(txtContaCredito.getText().equals("")){
+               txtContaCredito.setStyle("-fx-border-color:red");
+            }
+            if(txtContaDebito.getText().equals("")){
+                txtContaDebito.setStyle("-fx-border-color:red");
+            }
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Campos incorretos");
+            alerta.setContentText("Por favor corrija os campos destacados em vermelho.");
+            alerta.show();
+        } else {
+            choiceBoxBancos.setStyle("-fx-border-color:transparent");
+            txtContaCredito.setStyle("-fx-border-color:transparent");
+            txtContaDebito.setStyle("-fx-border-color:transparent");
+            a = 0;
+            arquivoSave();
+            for (Object caminho_ob : array_caminho) {
+                String espacos;
+                diretorio = new File((String) caminho_ob);
+                Workbook workbook = Workbook.getWorkbook(diretorio);
+                Sheet sheet = workbook.getSheet(0);
+                linhas = sheet.getRows();
+                System.out.println("Iniciando a leitura da planilha XLS:");   
+                switch (choiceBoxBancos.getValue()) {
+                    case "Santander":
+                        for (int i = 3; i < linhas; i++) {
+                            a++;
+                            Cell a1 = sheet.getCell(0, i);
+                            Cell a2 = sheet.getCell(1, i);
+                            Cell a3 = sheet.getCell(2, i);
+                            Cell a4 = sheet.getCell(3, i);
 
-                String as1 = a1.getContents();
-                String as2 = a2.getContents();
-                String as3 = a3.getContents();
-                String as4 = a4.getContents();
-                
-                try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
+                            String as1 = a1.getContents();
+                            String as2 = a2.getContents();
+                            String as3 = a3.getContents();
+                            String as4 = a4.getContents();
+                            try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
 
-                    DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
-                    NumberFormat nf = NumberFormat.getInstance();
-                    nf.setMinimumIntegerDigits(5);
-                    float teste = 0;
-                    
-                    if (as2.equals("") || as3.equals("") || as4.equals("") || as4.startsWith("-")) {
-                        a = a - 1;
-                    } else {
-                        if (as2.length() > 10) {
-                            teste = Float.parseFloat(as4.replace(".", "").replace(",", ".").replace("Valor(R$)", ""));
-                            as2 = as2.substring(0, 10);
-                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + "                                      " + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                        } else {
-                            teste = Float.parseFloat(as4.replace(".", "").replace(",", ".").replace("Valor(R$)", ""));
-                            switch (as2.length()) {
-                                case 1:
-                                    String espacos1 = "                                               ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos1 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
-                                case 2:
-                                    String espacos2 = "                                              ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos2 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
-                                case 3:
-                                    String espacos3 = "                                             ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos3 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
-                                case 4:
-                                    String espacos4 = "                                            ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos4 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
-                                case 5:
-                                    String espacos5 = "                                           ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos5 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
-                                case 6:
-                                    String espacos6 = "                                          ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos6 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
-                                case 7:
-                                    String espacos7 = "                                         ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos7 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
-                                case 8:
-                                    String espacos8 = "                                        ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos8 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
-                                case 9:
-                                    String espacos9 = "                                       ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos9 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
-                                case 10:
-                                    String espacos10 = "                                      ";
-                                    gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos10 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
-                                    break;
+                                DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
+                                NumberFormat nf = NumberFormat.getInstance();
+                                nf.setMinimumIntegerDigits(5);
+                                float teste = 0;
+
+                                if (as2.equals("") || as3.equals("") || as4.equals("") || as4.startsWith("-")) {
+                                    a = a - 1;
+                                } else {
+                                    if (as2.length() > 10) {
+                                        teste = Float.parseFloat(as4.replace(".", "").replace(",", ".").replace("Valor(R$)", ""));
+                                        as2 = as2.substring(0, 10);
+                                        gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + "                                      " + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                    } else {
+                                        teste = Float.parseFloat(as4.replace(".", "").replace(",", ".").replace("Valor(R$)", ""));
+                                        switch (as2.length()) {
+                                            case 1:
+                                                String espacos1 = "                                               ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos1 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 2:
+                                                String espacos2 = "                                              ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos2 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 3:
+                                                String espacos3 = "                                             ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos3 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 4:
+                                                String espacos4 = "                                            ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos4 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 5:
+                                                String espacos5 = "                                           ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos5 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 6:
+                                                String espacos6 = "                                          ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos6 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 7:
+                                                String espacos7 = "                                         ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos7 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 8:
+                                                String espacos8 = "                                        ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos8 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 9:
+                                                String espacos9 = "                                       ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos9 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 10:
+                                                String espacos10 = "                                      ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos10 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+
+                                        }
+                                    }
+                                }
 
                             }
                         }
-                    }
+                        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+                        alerta.setTitle("Importar dados");
+                        alerta.setContentText("Dados importados com sucesso!");
+                        alerta.show();
+                        break;
 
+                    case "TriBanco":
+                        for (int i = 0; i < linhas; i++) {
+                            a++;
+                            Cell a1 = sheet.getCell(0, i);
+                            Cell a2 = sheet.getCell(1, i);
+                            Cell a3 = sheet.getCell(2, i);
+                            Cell a4 = sheet.getCell(3, i);
+
+                            String as1 = a1.getContents();
+                            String as2 = a2.getContents();
+                            String as3 = a3.getContents();
+                            String as4 = a4.getContents();
+                            try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
+
+                                DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
+                                NumberFormat nf = NumberFormat.getInstance();
+                                nf.setMinimumIntegerDigits(5);
+                                float teste = 0;
+
+                                if (as2.equals("") || as3.equals("") || as4.equals("") || as4.startsWith("-")) {
+                                    a = a - 1;
+                                } else {
+                                    if (as2.length() > 10) {
+                                        teste = Float.parseFloat(as4.replace(".", "").replace(",", ".").replace("Valor(R$)", ""));
+                                        as2 = as2.substring(0, 10);
+                                        gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + "                                      " + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                    } else {
+                                        teste = Float.parseFloat(as4.replace(".", "").replace(",", ".").replace("Valor(R$)", ""));
+                                        switch (as2.length()) {
+                                            case 1:
+                                                String espacos1 = "                                               ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos1 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 2:
+                                                String espacos2 = "                                              ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos2 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 3:
+                                                String espacos3 = "                                             ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos3 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 4:
+                                                String espacos4 = "                                            ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos4 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 5:
+                                                String espacos5 = "                                           ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos5 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 6:
+                                                String espacos6 = "                                          ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos6 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 7:
+                                                String espacos7 = "                                         ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos7 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 8:
+                                                String espacos8 = "                                        ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos8 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 9:
+                                                String espacos9 = "                                       ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos9 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 10:
+                                                String espacos10 = "                                      ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos10 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                        Alert alertat = new Alert(Alert.AlertType.INFORMATION);
+                        alertat.setTitle("Importar dados");
+                        alertat.setContentText("Dados importados com sucesso!");
+                        alertat.show();
+                        break;
+                    case "Bradesco":
+                        for (int i = 11; i < linhas; i++) {
+                            a++;
+                            Cell a1 = sheet.getCell(0, i);
+                            Cell a2 = sheet.getCell(1, i);
+                            Cell a3 = sheet.getCell(2, i);
+                            Cell a4 = sheet.getCell(3, i);
+
+                            String as1 = a1.getContents();
+                            String as2 = a2.getContents();
+                            String as3 = a3.getContents();
+                            String as4 = a4.getContents();
+                            try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
+
+                                DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
+                                NumberFormat nf = NumberFormat.getInstance();
+                                nf.setMinimumIntegerDigits(5);
+                                float teste = 0;
+
+                                if (as2.equals("") || as3.equals("") || as4.equals("") || as4.startsWith("-")) {
+                                    a = a - 1;
+                                } else {
+                                    if (as2.length() > 10) {
+                                        teste = Float.parseFloat(as4.replace(".", "").replace(",", ".").replace("Valor(R$)", ""));
+                                        as2 = as2.substring(0, 10);
+                                        gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + "                                      " + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                    } else {
+                                        teste = Float.parseFloat(as4.replace(".", "").replace(",", ".").replace("Valor(R$)", ""));
+                                        switch (as2.length()) {
+                                            case 1:
+                                                String espacos1 = "                                               ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos1 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 2:
+                                                String espacos2 = "                                              ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos2 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 3:
+                                                String espacos3 = "                                             ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos3 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 4:
+                                                String espacos4 = "                                            ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos4 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 5:
+                                                String espacos5 = "                                           ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos5 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 6:
+                                                String espacos6 = "                                          ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos6 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 7:
+                                                String espacos7 = "                                         ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos7 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 8:
+                                                String espacos8 = "                                        ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos8 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 9:
+                                                String espacos9 = "                                       ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos9 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+                                            case 10:
+                                                String espacos10 = "                                      ";
+                                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as1.replace("Data", "").replace("/", "").replace("\n", "") + as2 + espacos10 + txtContaDebito.getText() + "              " + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(teste).replace(",", ".") + "- DEPOSITO" + "   " + as2 + "   " + as3 + "                                                                                                                                                                                                                                                                                                                  ");
+                                                break;
+
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                        Alert alertab = new Alert(Alert.AlertType.INFORMATION);
+                        alertab.setTitle("Importar dados");
+                        alertab.setContentText("Dados importados com sucesso!");
+                        alertab.show();
+                        break;
+                    default:
+                        break;
                 }
             }
-            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-            alerta.setTitle("Importar dados");
-            alerta.setContentText("Dados importados com sucesso!");
-            alerta.show();
         }
     }
 

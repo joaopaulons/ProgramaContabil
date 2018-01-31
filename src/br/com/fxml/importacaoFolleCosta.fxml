@@ -16,7 +16,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoFolleCostaController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="813.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoFolleCostaController">
    <children>
       <ButtonBar layoutY="346.0" prefHeight="40.0" prefWidth="180.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="20.0">
         <buttons>

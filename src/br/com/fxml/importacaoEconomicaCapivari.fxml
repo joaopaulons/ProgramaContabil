@@ -16,9 +16,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoEconomicaCapivariController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoEconomicaCapivariController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="800.0">
+      <ImageView fitHeight="600.0" fitWidth="813.0">
          <image>
             <Image url="@imagens/Fundo-importacao.png" />
          </image>
@@ -50,13 +50,13 @@
                               </AnchorPane>
                               <AnchorPane SplitPane.resizableWithParent="false">
                                  <children>
-                                    <TextArea fx:id="txtDataMov" layoutX="-31.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira a data de Movimento..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <TextArea fx:id="txtDataMov" layoutX="-31.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira a data de movimento..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
                                     <Label layoutX="37.0" layoutY="5.0" text="Data de Movimento:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="3.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane SplitPane.resizableWithParent="false">
                                  <children>
-                                    <TextArea fx:id="txtAreaTerceiro" layoutX="-69.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira o saldo..." text="Confira os  terceiros..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                                    <TextArea fx:id="txtAreaTerceiro" layoutX="-69.0" prefHeight="200.0" prefWidth="200.0" promptText="Confira os terceiros..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
                                     <Label layoutX="54.0" layoutY="6.0" text="Terceiro:" AnchorPane.topAnchor="6.0" />
                                  </children>
                               </AnchorPane>

@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -122,102 +123,126 @@ public class ImportacaoAlpha7Controller implements Initializable {
 
     @FXML
     private void buttonGerarJuros(ActionEvent event) throws IOException, BiffException {
-        a = 0;
-        arquivoSave();
-        for (Object caminho_ob : array_caminho) {
-            diretorio = new File((String) caminho_ob);
-            Workbook workbook = Workbook.getWorkbook(diretorio);
-            Sheet sheet = workbook.getSheet(0);
-            linhas = sheet.getRows();
-            for (int i = 0; i < linhas; i++) {
-                a++;
-                Cell a1 = sheet.getCell(14, i);
-                Cell a2 = sheet.getCell(16, i);
-                Cell a3 = sheet.getCell(17, i);
-                Cell a4 = sheet.getCell(18, i);
-                Cell a5 = sheet.getCell(5, i);
-                Cell a6 = sheet.getCell(15, i);
+        if (txtContaCredito.getText().equals("")) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Campo incorreto");
+            alerta.setContentText("Por favor insira uma conta crédito!");
+            alerta.show();
+            txtContaCredito.setStyle("-fx-background:red");
+        } else {
+            txtContaCredito.setStyle("-fx-background:transparent");
+            a = 0;
+            arquivoSave();
+            for (Object caminho_ob : array_caminho) {
+                diretorio = new File((String) caminho_ob);
+                Workbook workbook = Workbook.getWorkbook(diretorio);
+                Sheet sheet = workbook.getSheet(0);
+                linhas = sheet.getRows();
+                for (int i = 0; i < linhas; i++) {
+                    a++;
+                    Cell a1 = sheet.getCell(14, i);
+                    Cell a2 = sheet.getCell(16, i);
+                    Cell a3 = sheet.getCell(17, i);
+                    Cell a4 = sheet.getCell(18, i);
+                    Cell a5 = sheet.getCell(5, i);
+                    Cell a6 = sheet.getCell(15, i);
 
-                String as1 = a1.getContents();
-                String as2 = a2.getContents();
-                String as3 = a3.getContents();
-                String as4 = a4.getContents();
-                String as5 = a5.getContents();
-                String as6 = a6.getContents();
+                    String as1 = a1.getContents();
+                    String as2 = a2.getContents();
+                    String as3 = a3.getContents();
+                    String as4 = a4.getContents();
+                    String as5 = a5.getContents();
+                    String as6 = a6.getContents();
 
-                try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
-                    if (as6.equals("SIM")) {
-                        if (a4.getContents().length() == 8) {
-                            String formatar = "2017";
-                            as4 = as4.substring(0, 6) + formatar;
-                        }
-                        if (as5.equals("0,00")) {
-                            a = a - 1;
+                    try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
+                        if (as6.equals("SIM")) {
+                            if (a4.getContents().length() == 8) {
+                                String formatar = "2017";
+                                as4 = as4.substring(0, 6) + formatar;
+                            }
+                            if (as5.equals("0,00")) {
+                                a = a - 1;
 
+                            } else {
+                                DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
+                                DecimalFormat formatnf = new DecimalFormat("00000");
+                                NumberFormat nf = NumberFormat.getInstance();
+                                nf.setMinimumIntegerDigits(5);
+                                float formatar_valor = Float.parseFloat(as3.replace(".", "").replace(",", ".").replace("$", "0"));
+
+                                gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as4.replace("/", "") + "1" + formatnf.format(Float.parseFloat(as2)).replace(",", "") + "                                          " + "79999" + as1.replace("/", "").replace(".", "").replace("-", "") + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "- RECEBIDO DUPL.      " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
+                            }
                         } else {
-                            DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
-                            DecimalFormat formatnf = new DecimalFormat("00000");
-                            NumberFormat nf = NumberFormat.getInstance();
-                            nf.setMinimumIntegerDigits(5);
-                            float formatar_valor = Float.parseFloat(as3.replace(".", "").replace(",", ".").replace("$", "0"));
-
-                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as4.replace("/", "") + "1" + formatnf.format(Float.parseFloat(as2)).replace(",", "") + "                                          " + "79999" + as1.replace("/", "").replace(".", "").replace("-", "") + "00000" + txtContaCredito.getText() + "              " + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "- RECEBIDO DUPL.      " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
+                            a = a - 1;
                         }
-                    }else {
-                        a = a - 1;
-                    }
 
+                    }
                 }
             }
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Importação");
+            alerta.setContentText("Dados importados com sucesso!");
+            alerta.show();
         }
-
     }
 
     @FXML
     private void buttonImportar(ActionEvent event) throws IOException, BiffException {
-        a = 0;
-        arquivoSave();
-        for (Object caminho_ob : array_caminho) {
-            diretorio = new File((String) caminho_ob);
-            Workbook workbook = Workbook.getWorkbook(diretorio);
-            Sheet sheet = workbook.getSheet(0);
-            linhas = sheet.getRows();
-            for (int i = 0; i < linhas; i++) {
-                a++;
-                Cell a1 = sheet.getCell(14, i);
-                Cell a2 = sheet.getCell(16, i);
-                Cell a3 = sheet.getCell(3, i);
-                Cell a4 = sheet.getCell(18, i);
-                Cell a5 = sheet.getCell(5, i);
-                Cell a6 = sheet.getCell(15, i);
+        if (txtContaCredito.getText().equals("")) {
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Campo incorreto");
+            alerta.setContentText("Por favor insira uma conta crédito!");
+            alerta.show();
+            txtContaCredito.setStyle("-fx-background:red");
+        } else {
+            txtContaCredito.setStyle("-fx-background:transparent");
+            a = 0;
+            arquivoSave();
+            for (Object caminho_ob : array_caminho) {
+                diretorio = new File((String) caminho_ob);
+                Workbook workbook = Workbook.getWorkbook(diretorio);
+                Sheet sheet = workbook.getSheet(0);
+                linhas = sheet.getRows();
+                for (int i = 0; i < linhas; i++) {
+                    a++;
+                    Cell a1 = sheet.getCell(14, i);
+                    Cell a2 = sheet.getCell(16, i);
+                    Cell a3 = sheet.getCell(3, i);
+                    Cell a4 = sheet.getCell(18, i);
+                    Cell a5 = sheet.getCell(5, i);
+                    Cell a6 = sheet.getCell(15, i);
 
-                String as1 = a1.getContents();
-                String as2 = a2.getContents();
-                String as3 = a3.getContents();
-                String as4 = a4.getContents();
-                String as5 = a5.getContents();
-                String as6 = a6.getContents();
+                    String as1 = a1.getContents();
+                    String as2 = a2.getContents();
+                    String as3 = a3.getContents();
+                    String as4 = a4.getContents();
+                    String as5 = a5.getContents();
+                    String as6 = a6.getContents();
 
-                try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
-                    if (as6.equals("SIM")) {
-                        if (a4.getContents().length() == 8) {
-                            String formatar = "2017";
-                            as4 = as4.substring(0, 6) + formatar;
-                            
+                    try (FileWriter fw = new FileWriter(file, true); PrintWriter gravarArq = new PrintWriter(fw)) {
+                        if (as6.equals("SIM")) {
+                            if (a4.getContents().length() == 8) {
+                                String formatar = "2017";
+                                as4 = as4.substring(0, 6) + formatar;
+                            }
+                            DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
+                            DecimalFormat formatnf = new DecimalFormat("00000");
+                            NumberFormat nf = NumberFormat.getInstance();
+                            nf.setMinimumIntegerDigits(5);
+                            float formatar_valor = Float.parseFloat(as3.replace(".", "").replace(",", ".").replace("$", ""));
+
+                            gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as4.replace("/", "") + formatnf.format(Float.parseFloat(as2)).replace(",", "") + "                                           " + txtContaCredito.getText() + "              " + "00000" + "79999" + as1.replace("/", "").replace(".", "").replace("-", "") + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "- RECEBIDO DUPL.      " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
+                        } else {
+                            a = a - 1;
                         }
-                        DecimalFormat formatvalor = new DecimalFormat("0000000000000.00");
-                        DecimalFormat formatnf = new DecimalFormat("00000");
-                        NumberFormat nf = NumberFormat.getInstance();
-                        nf.setMinimumIntegerDigits(5);
-                        float formatar_valor = Float.parseFloat(as3.replace(".", "").replace(",", ".").replace("$", ""));
 
-                        gravarArq.println("LC1" + nf.format(a).replace(".", "") + "   " + "1" + as4.replace("/", "") + formatnf.format(Float.parseFloat(as2)).replace(",", "") + "                                           " + txtContaCredito.getText() + "              " + "00000" + "79999" + as1.replace("/", "").replace(".", "").replace("-", "") + "00000" + formatvalor.format(formatar_valor).replace(",", ".") + "- RECEBIDO DUPL.      " + as2 + "                                                                                                                                                                                                                                                                                                                  ");
-                    }else{
-                    a = a - 1;
-                }
-
+                    }
                 }
             }
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Importação");
+            alerta.setContentText("Dados importados com sucesso!");
+            alerta.show();
         }
     }
 
@@ -236,12 +261,11 @@ public class ImportacaoAlpha7Controller implements Initializable {
 
             }
         }
-
     }
 
     public void arquivoSave() throws IOException {
         Stage stage = programacontabil.primaryStage;
-        File caminhofolle = new File("Z:\\Importação CTB\\CTB - Folle");
+        File caminhofolle = new File("Z:\\Importação CTB\\CTB - ALEATORIO");
         FileChooser chooser = new FileChooser();
         chooser.setInitialDirectory(caminhofolle);
         chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text file (*.txt)", "*.txt"));

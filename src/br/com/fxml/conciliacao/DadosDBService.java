@@ -20,11 +20,11 @@ import javafx.scene.control.Alert;
  */
 public class DadosDBService implements DadosService {
 
-    final String Inserir = "INSERT INTO pagamento(data,numero_documento,conta_debito,conta_credito,cnpj,valor,historico) VALUES(?,?,?,?,?,?,?)";
-    final String Atualizar = "UPDATE pagamento SET data = ?, numero_documento = ?, conta_debito = ?, conta_credito = ?, cnpj = ?, valor = ?, historico = ? WHERE id = ?";
-    final String Buscar = "SELECT id,data,numero_documento,conta_debito, conta_credito,cnpj,valor,historico FROM pagamento WHERE data = ? ";
-    final String Buscar_Todos = "SELECT id,data,numero_documento,conta_debito, conta_credito,cnpj,valor,historico FROM pagamento";
-    final String Apagar = "DELETE FROM pagamento WHERE id = ? ";
+    final String Inserir = "INSERT INTO pagamento_txt(data,numero_documento,conta_debito,conta_credito,cnpj,valor,historico) VALUES(?,?,?,?,?,?,?)";
+    final String Atualizar = "UPDATE pagamento_txt SET data = ?, numero_documento = ?, conta_debito = ?, conta_credito = ?, cnpj = ?, valor = ?, historico = ? WHERE id = ?";
+    final String Buscar = "SELECT id,data,numero_documento,conta_debito, conta_credito,cnpj,valor,historico FROM pagamento_txt WHERE data = ? ";
+    final String Buscar_Todos = "SELECT id,data,numero_documento,conta_debito, conta_credito,cnpj,valor,historico FROM pagamento_txt";
+    final String Apagar = "DELETE FROM pagamento_txt WHERE id = ? ";
 
     public void salvar(Dados dados) {
         try {
@@ -46,8 +46,7 @@ public class DadosDBService implements DadosService {
             alerta.setHeaderText("Erro");
             alerta.setContentText("Erro ao salvar a Conta." + e);
             alerta.setTitle("Erro ao salvar");
-            alerta.show();
-            System.exit(0);
+            alerta.show();            
         }
     }
 
@@ -70,8 +69,7 @@ public class DadosDBService implements DadosService {
             alerta.setHeaderText("Erro");
             alerta.setContentText("Erro ao buscar todos os itens." + e);
             alerta.setTitle("Erro ao buscar");
-            alerta.show();
-            System.exit(0);
+            alerta.show();            
         }
         return dados;
     }
@@ -93,8 +91,7 @@ public class DadosDBService implements DadosService {
             alerta.setHeaderText("Erro");
             alerta.setContentText("Erro ao buscar o item." + e);
             alerta.setTitle("Erro ao buscar");
-            alerta.show();
-            System.exit(0);
+            alerta.show();            
         }
         return dado;
     }
@@ -115,9 +112,7 @@ public class DadosDBService implements DadosService {
             alerta.setContentText("Erro ao apagar o item." + e);
             alerta.setTitle("Erro ao apagar");
             alerta.show();
-            System.exit(0);
         }
-
     }
 
     @Override
@@ -143,7 +138,6 @@ public class DadosDBService implements DadosService {
             alerta.setContentText("Erro ao atualizar a tabela." + e);
             alerta.setTitle("Erro ao atualizar");
             alerta.show();
-            System.exit(0);
         }
 
     }            

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="813.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.importacaoUsimed.ControllerUsimed">
+   <children>
+      <ImageView fitHeight="575.0" fitWidth="813.0">
+         <image>
+            <Image url="@imagens/usimed.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tablePagamento" layoutX="7.0" layoutY="38.0" prefHeight="400.0" prefWidth="800.0" visible="false">
+        <columns>
+          <TableColumn fx:id="colNumeroDocumento" prefWidth="75.0" text="Núm. Doc." />
+            <TableColumn fx:id="colContaBordero" prefWidth="75.0" text="Conta Bord." />
+            <TableColumn fx:id="colDataPagamento" prefWidth="75.0" text="Data Pag." />
+            <TableColumn fx:id="colCedente" prefWidth="75.0" text="Cedente" />
+            <TableColumn fx:id="colTotalPago" prefWidth="75.0" text="Total Pago" />
+            <TableColumn fx:id="colDescricao" prefWidth="75.0" text="Descricao" />
+            <TableColumn fx:id="colDescontos" prefWidth="75.0" text="Descontos" />
+            <TableColumn fx:id="colAcrescimos" prefWidth="75.0" text="Acrescimos" />
+            <TableColumn fx:id="colTotal" prefWidth="75.0" text="Total" />
+            <TableColumn fx:id="colBancoOrigem" prefWidth="75.0" text="Banco Orig." />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Group fx:id="groupPagamento" layoutX="14.0" layoutY="455.0" visible="false">
+         <children>
+            <TextField fx:id="txtNumeroDocumento" promptText="Numero Documento..." />
+            <TextField fx:id="txtContaBordero" layoutY="35.0" promptText="Conta bordero..." />
+            <TextField fx:id="txtDataPagamento" layoutY="68.0" promptText="Data Pagamento..." />
+            <TextField fx:id="txtCedente" layoutX="160.0" promptText="Cedente..." />
+            <TextField fx:id="txtTotalPago" layoutX="160.0" layoutY="35.0" promptText="Total pago..." />
+            <TextField fx:id="txtDescricao" layoutX="160.0" layoutY="68.0" promptText="Descrição..." />
+            <TextField fx:id="txtDescontos" layoutX="319.0" promptText="Descontos..." />
+            <TextField fx:id="txtAcrescimos" layoutX="319.0" layoutY="35.0" promptText="Acrescimos..." />
+            <TextField fx:id="txtTotal" layoutX="318.0" layoutY="68.0" promptText="Total..." />
+            <TextField fx:id="txtId" disable="true" layoutX="480.0" layoutY="35.0" promptText="Id..." />
+            <TextField fx:id="txtBancoOrigem" layoutX="480.0" promptText="Banco Origem..." />
+            <Button fx:id="btnAtualizar" layoutX="722.0" mnemonicParsing="false" onAction="#buttonAtualizar" prefHeight="25.0" prefWidth="70.0" text="Atualizar" />
+            <Button fx:id="btnSalvar" layoutX="640.0" mnemonicParsing="false" onAction="#buttonSalvar" prefHeight="25.0" prefWidth="70.0" text="Inserir" />
+            <Button fx:id="btnApagar" layoutX="722.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonApagar" prefHeight="25.0" prefWidth="70.0" text="Apagar" />
+            <Button fx:id="btnBuscar" disable="true" layoutX="640.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonBuscar" prefHeight="25.0" prefWidth="70.0" text="Buscar" />
+            <Button fx:id="btnLimpar" layoutX="640.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonLimpar" prefHeight="25.0" prefWidth="70.0" text="Limpar" />
+            <Button fx:id="btnFechar" layoutX="722.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonFechar" prefHeight="25.0" prefWidth="70.0" text="Fechar" />
+         </children>
+      </Group>
+      <HBox fx:id="HBoxAbrirXLS" alignment="CENTER" layoutX="8.0" layoutY="26.0" spacing="20.0">
+         <children>
+            <Label text="Escolha uma opção para abrir:" textFill="WHITE" />
+            <ChoiceBox fx:id="choiceBoxAbrirXLS" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <HBox fx:id="HBoxImportar" alignment="CENTER" layoutX="48.0" layoutY="65.0" spacing="20.0">
+         <children>
+            <Label text="Opções para importar:" textFill="WHITE" />
+            <ChoiceBox fx:id="choiceBoxImportacao" prefWidth="150.0" />
+         </children>
+      </HBox>
+      <Button fx:id="btnAbrirXLS" layoutX="375.0" layoutY="26.0" mnemonicParsing="false" onAction="#buttonAbrirXLS" prefHeight="25.0" prefWidth="70.0" text="Abrir" />
+      <Button fx:id="btnImportar" layoutX="375.0" layoutY="65.0" mnemonicParsing="false" onAction="#buttonImportar" prefHeight="25.0" prefWidth="70.0" text="Importar" />
+      <Button fx:id="btnEditarXLS" layoutX="467.0" layoutY="26.0" mnemonicParsing="false" onAction="#buttonEditarXLS" prefHeight="25.0" prefWidth="70.0" text="Editar" />
+      <TableView fx:id="tableConvenio" layoutX="7.0" layoutY="38.0" prefHeight="400.0" prefWidth="800.0" visible="false">
+         <columns>
+            <TableColumn fx:id="colEmissaoCONV" prefWidth="75.0" text="Emissão" />
+            <TableColumn fx:id="colNumeroDocumentoCONV" prefWidth="75.0" text="Nº Documento" />
+            <TableColumn fx:id="colNomePagadorCONV" prefWidth="75.0" text="Nome Pagador" />
+            <TableColumn fx:id="colValorCONV" prefWidth="75.0" text="Valor" />
+            <TableColumn fx:id="colInscricaoPagadorCONV" prefWidth="75.0" text="Inscrição Pagador" />
+            <TableColumn fx:id="colValorPagoCONV" prefWidth="75.0" text="Valor Pago" />
+            <TableColumn fx:id="colValorDifCobradaCONV" prefWidth="75.0" text="Valor Dif. Cobrada." />
+            <TableColumn fx:id="colDataCreditoCONV" prefWidth="75.0" text="Data Crédito" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Group fx:id="groupConvenio" layoutX="14.0" layoutY="455.0" visible="false">
+         <children>
+            <TextField fx:id="txtEmissaoCONV" promptText="Emissão..." />
+            <TextField fx:id="txtNumeroDocumentoCONV" layoutY="35.0" promptText="Numero documento..." />
+            <TextField fx:id="txtNomePagadorCONV" layoutY="68.0" promptText="Nome pagador..." />
+            <TextField fx:id="txtValorCONV" layoutX="160.0" promptText="Valor..." />
+            <TextField fx:id="txtInscricaoPagadorCONV" layoutX="160.0" layoutY="35.0" promptText="Insc. Pagador..." />
+            <TextField fx:id="txtValorPagoCONV" layoutX="160.0" layoutY="68.0" promptText="Valor pago..." />
+            <TextField fx:id="txtValorDifCobradoCONV" layoutX="319.0" promptText="Valor diferença cobrada..." />
+            <TextField fx:id="txtDataCreditoCONV" layoutX="319.0" layoutY="35.0" promptText="Data crédito..." />
+            <Button fx:id="btnAtualizarCONV" layoutX="722.0" mnemonicParsing="false" onAction="#buttonAtualizarCONV" prefHeight="25.0" prefWidth="70.0" text="Atualizar" />
+            <Button fx:id="btnSalvarCONV" layoutX="640.0" mnemonicParsing="false" onAction="#buttonSalvarCONV" prefHeight="25.0" prefWidth="70.0" text="Inserir" />
+            <Button fx:id="btnApagarCONV" layoutX="722.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonApagarCONV" prefHeight="25.0" prefWidth="70.0" text="Apagar" />
+            <Button fx:id="btnBuscarCONV" layoutX="640.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonBuscarCONV" prefHeight="25.0" prefWidth="70.0" text="Buscar" />
+            <Button fx:id="btnLimparCONV" layoutX="640.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonLimparCONV" prefHeight="25.0" prefWidth="70.0" text="Limpar" />
+            <Button fx:id="btnFecharCONV" layoutX="722.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonFecharCONV" prefHeight="25.0" prefWidth="70.0" text="Fechar" />
+         </children>
+      </Group>
+      <TableView fx:id="tableCartao183" layoutX="7.0" layoutY="38.0" prefHeight="400.0" prefWidth="800.0" visible="false">
+         <columns>
+            <TableColumn fx:id="colDescricao183" prefWidth="75.0" text="Descrição" />
+            <TableColumn fx:id="colT183" prefWidth="75.0" text="T" />
+            <TableColumn fx:id="colData183" prefWidth="75.0" text="Data" />
+            <TableColumn fx:id="colCredito183" prefWidth="75.0" text="Crédito" />
+            <TableColumn fx:id="colDebito183" prefWidth="75.0" text="Débito" />
+            <TableColumn fx:id="colOrigem183" prefWidth="75.0" text="Origem" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Group fx:id="groupCartao183" layoutX="14.0" layoutY="455.0" visible="false">
+         <children>
+            <TextField fx:id="txtDescricao183" promptText="Descrição..." />
+            <TextField fx:id="txtT183" layoutY="35.0" promptText="T..." />
+            <TextField fx:id="txtData183" layoutY="68.0" promptText="Data..." />
+            <TextField fx:id="txtCredito183" layoutX="160.0" promptText="Crédito..." />
+            <TextField fx:id="txtDebito183" layoutX="160.0" layoutY="35.0" promptText="Débito..." />
+            <TextField fx:id="txtOrigem183" layoutX="160.0" layoutY="68.0" promptText="Origem..." />
+            <Button fx:id="btnAtualizar183" layoutX="722.0" mnemonicParsing="false" onAction="#buttonAtualizar183" prefHeight="25.0" prefWidth="70.0" text="Atualizar" />
+            <Button fx:id="btnSalvar183" layoutX="640.0" mnemonicParsing="false" onAction="#buttonSalvar183" prefHeight="25.0" prefWidth="70.0" text="Inserir" />
+            <Button fx:id="btnApagar183" layoutX="722.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonApagar183" prefHeight="25.0" prefWidth="70.0" text="Apagar" />
+            <Button fx:id="btnBuscar183" layoutX="640.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonBuscar183" prefHeight="25.0" prefWidth="70.0" text="Buscar" />
+            <Button fx:id="btnLimpar183" layoutX="640.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonLimpar183" prefHeight="25.0" prefWidth="70.0" text="Limpar" />
+            <Button fx:id="btnFechar183" layoutX="722.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonFechar183" prefHeight="25.0" prefWidth="70.0" text="Fechar" />
+         </children>
+      </Group>
+      <TableView fx:id="tableCartao630" layoutX="7.0" layoutY="38.0" prefHeight="400.0" prefWidth="800.0" visible="false">
+         <columns>
+            <TableColumn fx:id="colDescricao630" prefWidth="75.0" text="Descrição" />
+            <TableColumn fx:id="colT630" prefWidth="75.0" text="T" />
+            <TableColumn fx:id="colData630" prefWidth="75.0" text="Data" />
+            <TableColumn fx:id="colCredito630" prefWidth="75.0" text="Crédito" />
+            <TableColumn fx:id="colDebito630" prefWidth="75.0" text="Débito" />
+            <TableColumn fx:id="colOrigem630" prefWidth="75.0" text="Origem" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Group fx:id="groupCartao630" layoutX="14.0" layoutY="455.0" visible="false">
+         <children>
+            <TextField fx:id="txtDescricao630" promptText="Descrição..." />
+            <TextField fx:id="txtT630" layoutY="35.0" promptText="T..." />
+            <TextField fx:id="txtData630" layoutY="68.0" promptText="Data..." />
+            <TextField fx:id="txtCredito630" layoutX="160.0" promptText="Crédito..." />
+            <TextField fx:id="txtDebito630" layoutX="160.0" layoutY="35.0" promptText="Débito..." />
+            <TextField fx:id="txtOrigem630" layoutX="160.0" layoutY="68.0" promptText="Origem..." />
+            <Button fx:id="btnAtualizar630" layoutX="722.0" mnemonicParsing="false" onAction="#buttonAtualizar630" prefHeight="25.0" prefWidth="70.0" text="Atualizar" />
+            <Button fx:id="btnSalvar630" layoutX="640.0" mnemonicParsing="false" onAction="#buttonSalvar630" prefHeight="25.0" prefWidth="70.0" text="Inserir" />
+            <Button fx:id="btnApagar630" layoutX="722.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonApagar630" prefHeight="25.0" prefWidth="70.0" text="Apagar" />
+            <Button fx:id="btnBuscar630" layoutX="640.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonBuscar630" prefHeight="25.0" prefWidth="70.0" text="Buscar" />
+            <Button fx:id="btnLimpar630" layoutX="640.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonLimpar630" prefHeight="25.0" prefWidth="70.0" text="Limpar" />
+            <Button fx:id="btnFechar630" layoutX="722.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonFechar630" prefHeight="25.0" prefWidth="70.0" text="Fechar" />
+         </children>
+      </Group>
+      <TableView fx:id="tableCartaoBB" layoutX="7.0" layoutY="38.0" prefHeight="400.0" prefWidth="800.0" visible="false">
+         <columns>
+            <TableColumn fx:id="colDescricaoBB" prefWidth="75.0" text="Descrição" />
+            <TableColumn fx:id="colTBB" prefWidth="75.0" text="T" />
+            <TableColumn fx:id="colDatabBB" prefWidth="75.0" text="Data" />
+            <TableColumn fx:id="colCreditoBB" prefWidth="75.0" text="Crédito" />
+            <TableColumn fx:id="colDebitoBB" prefWidth="75.0" text="Débito" />
+            <TableColumn fx:id="colOrigemBB" prefWidth="75.0" text="Origem" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Group fx:id="groupCartaoBB" layoutX="14.0" layoutY="455.0" visible="false">
+         <children>
+            <TextField fx:id="txtDescricaoBB" promptText="Descrição..." />
+            <TextField fx:id="txtTBB" layoutY="35.0" promptText="T..." />
+            <TextField fx:id="txtDataBB" layoutY="68.0" promptText="Data..." />
+            <TextField fx:id="txtCreditoBB" layoutX="160.0" promptText="Crédito..." />
+            <TextField fx:id="txtDebitoBB" layoutX="160.0" layoutY="35.0" promptText="Débito..." />
+            <TextField fx:id="txtOrigemBB" layoutX="160.0" layoutY="68.0" promptText="Origem..." />
+            <Button fx:id="btnAtualizarBB" layoutX="722.0" mnemonicParsing="false" onAction="#buttonAtualizarBB" prefHeight="25.0" prefWidth="70.0" text="Atualizar" />
+            <Button fx:id="btnSalvarBB" layoutX="640.0" mnemonicParsing="false" onAction="#buttonSalvarBB" prefHeight="25.0" prefWidth="70.0" text="Inserir" />
+            <Button fx:id="btnApagarBB" layoutX="722.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonApagarBB" prefHeight="25.0" prefWidth="70.0" text="Apagar" />
+            <Button fx:id="btnBuscarBB" layoutX="640.0" layoutY="35.0" mnemonicParsing="false" onAction="#buttonBuscarBB" prefHeight="25.0" prefWidth="70.0" text="Buscar" />
+            <Button fx:id="btnLimparBB" layoutX="640.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonLimparBB" prefHeight="25.0" prefWidth="70.0" text="Limpar" />
+            <Button fx:id="btnFecharBB" layoutX="722.0" layoutY="68.0" mnemonicParsing="false" onAction="#buttonFecharBB" prefHeight="25.0" prefWidth="70.0" text="Fechar" />
+         </children>
+      </Group>
+   </children>
+</Pane>

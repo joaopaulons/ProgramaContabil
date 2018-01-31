@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-background-color: black;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoDottaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="813.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-background-color: black;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.ImportacaoDottaController">
    <bottom>
       <Pane prefHeight="34.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -74,22 +75,15 @@
       </Pane>
    </bottom>
    <top>
-      <SplitPane dividerPositions="0.5" prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <TextField fx:id="txtContaDebito" layoutX="133.0" layoutY="12.0" />
-                  <Label layoutX="14.0" layoutY="16.0" text="Conta Débito:" />
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <TextField fx:id="txtContaCredito" layoutX="133.0" layoutY="12.0" />
-                  <Label layoutX="20.0" layoutY="17.0" text="Conta Crédito:" />
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="331.0" layoutY="11.0" text="Conta Débito:" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <ChoiceBox fx:id="choiceBoxBancos" layoutX="645.0" layoutY="5.0" prefWidth="149.0" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtContaCredito" layoutX="105.0" layoutY="5.0" promptText="conta crédito..." AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <TextField fx:id="txtContaDebito" layoutX="422.0" layoutY="5.0" promptText="conta debito..." AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutX="14.0" layoutY="9.0" text="Conta Crédito:" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
    </top>
    <center>
       <SplitPane dividerPositions="0.2506265664160401, 0.5, 0.7506265664160401" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">

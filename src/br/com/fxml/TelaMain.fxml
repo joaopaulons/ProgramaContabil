@@ -23,11 +23,12 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.TelaMainController">
    <center>
-      <AnchorPane fx:id="painelImportacoes" prefHeight="575.0" prefWidth="800.0">
+      <AnchorPane fx:id="painelImportacoes" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0">
          <children>
-            <AnchorPane fx:id="telaPrincipal" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="telaSegundaria" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane fx:id="telaPrincipal" layoutX="-7.0" prefHeight="575.0" prefWidth="807.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fitHeight="577.0" fitWidth="812.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-12.0" AnchorPane.topAnchor="0.0">
+                  <ImageView fitHeight="575.0" fitWidth="818.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
                      <image>
                         <Image url="@imagens/paris.jpg" />
                      </image>
@@ -51,7 +52,7 @@
                         <DropShadow color="WHITE" />
                      </effect>
                   </Label>
-                  <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="613.0">
+                  <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="618.0">
                      <image>
                         <Image url="@imagens/versão.png" />
                      </image>
@@ -110,7 +111,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Ajuda">
             <items>
-              <MenuItem mnemonicParsing="false" text="Importações - Contábil" />
+              <MenuItem mnemonicParsing="false" onAction="#buttonImportacao" text="Importações - Contábil" />
             </items>
           </Menu>
         </menus>
@@ -187,6 +188,7 @@
                                                             </ImageView>
                                                          </graphic>
                                                       </MenuItem>
+                                                      <MenuItem mnemonicParsing="false" onAction="#buttonUsimed" text="Usimed" />
                                                   </items>
                                                    <graphic>
                                                       <ImageView fitHeight="20.0" fitWidth="20.0">
@@ -234,8 +236,14 @@
                                              <children>
                                                 <MenuButton layoutX="44.0" layoutY="10.0" mnemonicParsing="false" text="Empresas" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                   <items>
-                                                    <MenuItem mnemonicParsing="false" onAction="#buttonConciliacaoAmeripan" text="Ameripan" />
-                                                    <MenuItem mnemonicParsing="false" text="Action 2" />
+                                                    <MenuItem mnemonicParsing="false" onAction="#buttonConciliacaoAmeripan" text="Ameripan">
+                                                         <graphic>
+                                                            <ImageView fitHeight="20.0" fitWidth="20.0">
+                                                               <image>
+                                                                  <Image url="@imagens/ameripan.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic></MenuItem>
                                                   </items>
                                                 </MenuButton>
                                              </children>

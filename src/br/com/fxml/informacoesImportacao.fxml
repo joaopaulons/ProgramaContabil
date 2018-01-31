@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.InformacoesImportacaoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fxml.controllers.InformacoesImportacaoController">
    <children>
-      <ImageView fitHeight="575.0" fitWidth="800.0" opacity="0.57">
+      <ImageView fitHeight="575.0" fitWidth="813.0" opacity="0.57">
          <image>
             <Image url="@imagens/fundo-importacao.jpg" />
          </image>
@@ -43,7 +43,7 @@
          <effect>
             <DropShadow spread="0.38" />
          </effect></Label>
-      <Separator layoutY="97.0" prefHeight="0.0" prefWidth="800.0" />
+      <Separator layoutY="97.0" prefHeight="0.0" prefWidth="813.0" />
       <HBox layoutX="590.0" layoutY="498.0" prefWidth="171.0" spacing="5.0" stylesheets="@css/css.css">
          <children>
             <Button mnemonicParsing="false" onAction="#buttonVerificar" prefWidth="80.0" styleClass="round-red" stylesheets="@css/css.css" text="Verificar">
@@ -101,7 +101,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Separator layoutY="472.0" prefHeight="0.0" prefWidth="800.0" />
+      <Separator layoutY="472.0" prefHeight="0.0" prefWidth="813.0" />
       <Label layoutX="242.0" layoutY="65.0" text="Outros bancos:" textFill="WHITE" />
       <TextField fx:id="txtOutrosBrancos" layoutX="340.0" layoutY="61.0" promptText="Outros bancos..." />
       <ImageView fitHeight="99.0" fitWidth="99.0" layoutX="11.0" layoutY="475.0">
